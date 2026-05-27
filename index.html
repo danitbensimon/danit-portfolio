@@ -12,17 +12,19 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #08080c;
-    --bg-elev: #0f0f15;
-    --card: #13131c;
-    --card-hover: #181823;
-    --border: #20202c;
-    --border-strong: #2a2a38;
-    --text: #f5f5f7;
-    --text-dim: #c5c5d0;
-    --muted: #8a8a96;
-    --accent: #d4ff4a;
-    --accent-dim: rgba(212, 255, 74, 0.12);
+    --bg: #F2EBE0;
+    --bg-elev: #ECE2D2;
+    --card: #FFFFFF;
+    --card-hover: #FCF9F1;
+    --border: #DDD2BB;
+    --border-strong: #C0B395;
+    --text: #1A1815;
+    --text-dim: #4A4842;
+    --muted: #807A70;
+    --accent: #D04D2F;
+    --accent-dim: rgba(208, 77, 47, 0.10);
+    --cta-bg: #1A1815;
+    --cta-text: #F2EBE0;
     --radius-sm: 8px;
     --radius: 14px;
     --radius-lg: 20px;
@@ -41,7 +43,7 @@
     overflow-x: hidden;
   }
 
-  ::selection { background: var(--accent); color: var(--bg); }
+  ::selection { background: var(--accent); color: #FFFFFF; }
 
   .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
   @media (max-width: 640px) { .container { padding: 0 20px; } }
@@ -60,7 +62,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 12px 20px;
-    background: rgba(15, 15, 21, 0.7);
+    background: rgba(248, 244, 235, 0.85);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid var(--border);
@@ -97,18 +99,18 @@
     transition: color 0.2s, background 0.2s;
     cursor: pointer;
   }
-  .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+  .nav-links a:hover { color: var(--text); background: rgba(26, 24, 21, 0.06); }
   .nav-cta {
     padding: 9px 16px;
-    background: var(--accent);
-    color: var(--bg);
+    background: var(--cta-bg);
+    color: var(--cta-text);
     border-radius: 100px;
     font-size: 13px;
     font-weight: 600;
     transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
     cursor: pointer;
   }
-  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,255,74,0.25); }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(26, 24, 21, 0.18); }
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .nav { padding: 10px 14px; }
@@ -135,12 +137,12 @@
   .hero-bg::before {
     top: -100px; left: 20%;
     width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(212,255,74,0.15), transparent 70%);
+    background: radial-gradient(circle, rgba(208, 77, 47, 0.13), transparent 70%);
   }
   .hero-bg::after {
     top: 200px; right: -100px;
     width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(107,140,255,0.08), transparent 70%);
+    background: radial-gradient(circle, rgba(193, 158, 95, 0.20), transparent 70%);
   }
   .hero .container { position: relative; z-index: 1; }
 
@@ -154,7 +156,7 @@
     text-transform: uppercase;
     color: var(--accent);
     padding: 8px 16px;
-    border: 1px solid rgba(212,255,74,0.3);
+    border: 1px solid rgba(208, 77, 47, 0.4);
     border-radius: 100px;
     background: var(--accent-dim);
     margin-bottom: 32px;
@@ -247,8 +249,8 @@
     border: 1px solid transparent;
     font-family: inherit;
   }
-  .btn-primary { background: var(--accent); color: var(--bg); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(212,255,74,0.3); }
+  .btn-primary { background: var(--cta-bg); color: var(--cta-text); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(26, 24, 21, 0.22); }
   .btn-secondary {
     background: transparent;
     color: var(--text);
@@ -295,7 +297,7 @@
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid var(--border-strong);
-    box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,255,74,0.08);
+    box-shadow: 0 30px 60px rgba(60, 50, 35, 0.18), 0 0 0 1px rgba(208, 77, 47, 0.15);
   }
   .hero-photo-inner img {
     width: 100%; height: 100%;
@@ -423,7 +425,7 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .chip:hover { border-color: var(--accent); color: var(--accent); }
-  .chip.featured { border-color: rgba(212,255,74,0.4); color: var(--accent); background: var(--accent-dim); }
+  .chip.featured { border-color: rgba(208, 77, 47, 0.4); color: var(--accent); background: var(--accent-dim); }
 
   @media (max-width: 900px) {
     .about { padding: 72px 0; }
@@ -481,6 +483,7 @@
     flex-direction: column;
     opacity: 0;
     transform: translateY(20px);
+    box-shadow: 0 2px 8px rgba(60, 50, 35, 0.06);
   }
   .tool::before {
     content: "";
@@ -490,20 +493,21 @@
     background: var(--tool-accent);
     z-index: 3;
   }
-  .tool[data-cat="cyan"]   { --tool-accent: #3dd9d6; --tool-accent-soft: rgba(61,217,214,0.14); --tool-accent-border: rgba(61,217,214,0.4); }
-  .tool[data-cat="coral"]  { --tool-accent: #ff6b88; --tool-accent-soft: rgba(255,107,136,0.14); --tool-accent-border: rgba(255,107,136,0.4); }
-  .tool[data-cat="orange"] { --tool-accent: #ff9447; --tool-accent-soft: rgba(255,148,71,0.14);  --tool-accent-border: rgba(255,148,71,0.4); }
-  .tool[data-cat="blue"]   { --tool-accent: #6ba6ff; --tool-accent-soft: rgba(107,166,255,0.14); --tool-accent-border: rgba(107,166,255,0.4); }
-  .tool[data-cat="indigo"] { --tool-accent: #b08cff; --tool-accent-soft: rgba(176,140,255,0.14); --tool-accent-border: rgba(176,140,255,0.4); }
-  .tool[data-cat="teal"]   { --tool-accent: #4ad9b3; --tool-accent-soft: rgba(74,217,179,0.14);  --tool-accent-border: rgba(74,217,179,0.4); }
-  .tool[data-cat="pink"]   { --tool-accent: #ff85b3; --tool-accent-soft: rgba(255,133,179,0.14); --tool-accent-border: rgba(255,133,179,0.4); }
-  .tool[data-cat="gold"]   { --tool-accent: #e8b94e; --tool-accent-soft: rgba(232,185,78,0.14);  --tool-accent-border: rgba(232,185,78,0.4); }
+  .tool[data-cat="cyan"]   { --tool-accent: #0EA5A1; --tool-accent-soft: rgba(14,165,161,0.14); --tool-accent-border: rgba(14,165,161,0.4); }
+  .tool[data-cat="coral"]  { --tool-accent: #E63757; --tool-accent-soft: rgba(230,55,87,0.14); --tool-accent-border: rgba(230,55,87,0.4); }
+  .tool[data-cat="orange"] { --tool-accent: #D9621E; --tool-accent-soft: rgba(217,98,30,0.14);  --tool-accent-border: rgba(217,98,30,0.4); }
+  .tool[data-cat="blue"]   { --tool-accent: #2F6BCC; --tool-accent-soft: rgba(47,107,204,0.14); --tool-accent-border: rgba(47,107,204,0.4); }
+  .tool[data-cat="indigo"] { --tool-accent: #6E4DD9; --tool-accent-soft: rgba(110,77,217,0.14); --tool-accent-border: rgba(110,77,217,0.4); }
+  .tool[data-cat="teal"]   { --tool-accent: #0F9270; --tool-accent-soft: rgba(15,146,112,0.14);  --tool-accent-border: rgba(15,146,112,0.4); }
+  .tool[data-cat="pink"]   { --tool-accent: #C44574; --tool-accent-soft: rgba(196,69,116,0.14); --tool-accent-border: rgba(196,69,116,0.4); }
+  .tool[data-cat="gold"]   { --tool-accent: #B58A1E; --tool-accent-soft: rgba(181,138,30,0.14);  --tool-accent-border: rgba(181,138,30,0.4); }
 
   .tool.is-visible { opacity: 1; transform: translateY(0); }
   .tool:hover {
     border-color: var(--tool-accent-border);
     background: var(--card-hover);
     transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(60, 50, 35, 0.12);
   }
   .tool:hover .tool-visual img,
   .tool:hover .tool-visual iframe { transform: scale(1.02); }
@@ -527,7 +531,7 @@
   .tool-visual {
     position: relative;
     aspect-ratio: 16 / 10;
-    background: #000;
+    background: var(--bg-elev);
     overflow: hidden;
     order: -1;
   }
@@ -612,11 +616,11 @@
   }
   .tool-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
   .tool-link.primary {
-    background: var(--accent);
-    color: var(--bg);
-    border-color: var(--accent);
+    background: var(--cta-bg);
+    color: var(--cta-text);
+    border-color: var(--cta-bg);
   }
-  .tool-link.primary:hover { background: #e3ff6f; border-color: #e3ff6f; color: var(--bg); }
+  .tool-link.primary:hover { background: #2E2A26; border-color: #2E2A26; color: var(--cta-text); }
   .tool-link svg { width: 12px; height: 12px; }
 
   /* Play button for video tools */
@@ -627,11 +631,11 @@
     width: 64px; height: 64px;
     border-radius: 50%;
     background: var(--accent);
-    color: var(--bg);
+    color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    box-shadow: 0 6px 18px rgba(60, 50, 35, 0.20);
     pointer-events: none;
     z-index: 2;
     opacity: 0.9;
@@ -665,7 +669,7 @@
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(212,255,74,0.08), transparent 60%);
+    background: radial-gradient(circle, rgba(208, 77, 47, 0.08), transparent 60%);
     pointer-events: none;
   }
   .cta-inner {
@@ -936,20 +940,20 @@
         <div class="tool-inner">
           <div class="tool-visual">
             <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs><linearGradient id="ga2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#16161f"/><stop offset="100%" stop-color="#0a0a0f"/></linearGradient></defs>
+              <defs><linearGradient id="ga2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F8F1DF"/><stop offset="100%" stop-color="#ECE2D2"/></linearGradient></defs>
               <rect width="400" height="250" fill="url(#ga2)"/>
               <g transform="translate(120,145)">
-                <path d="M -70 0 A 70 70 0 0 1 70 0" fill="none" stroke="#26262f" stroke-width="10" stroke-linecap="round"/>
-                <path d="M -70 0 A 70 70 0 0 1 49.5 -49.5" fill="none" stroke="#3dd9d6" stroke-width="10" stroke-linecap="round"/>
-                <text x="0" y="-15" text-anchor="middle" font-family="Inter,sans-serif" font-size="26" font-weight="700" fill="#f5f5f7">78</text>
-                <text x="0" y="2" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#9a9aa6">AI READINESS</text>
+                <path d="M -70 0 A 70 70 0 0 1 70 0" fill="none" stroke="#DDD2BB" stroke-width="10" stroke-linecap="round"/>
+                <path d="M -70 0 A 70 70 0 0 1 49.5 -49.5" fill="none" stroke="#0EA5A1" stroke-width="10" stroke-linecap="round"/>
+                <text x="0" y="-15" text-anchor="middle" font-family="Inter,sans-serif" font-size="26" font-weight="700" fill="#1A1815">78</text>
+                <text x="0" y="2" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#7A766E">AI READINESS</text>
               </g>
-              <g transform="translate(240,55)" font-family="Inter,sans-serif" font-size="11" fill="#d0d0d8">
-                <g transform="translate(0,0)"><rect width="14" height="14" rx="3" fill="#3dd9d6"/><path d="M 3.5 7 L 6 9.5 L 10.5 4.5" stroke="#0a0a0f" stroke-width="2" fill="none" stroke-linecap="round"/><text x="22" y="11">Content workflow</text></g>
-                <g transform="translate(0,28)"><rect width="14" height="14" rx="3" fill="#3dd9d6"/><path d="M 3.5 7 L 6 9.5 L 10.5 4.5" stroke="#0a0a0f" stroke-width="2" fill="none" stroke-linecap="round"/><text x="22" y="11">Lead scoring</text></g>
-                <g transform="translate(0,56)"><rect width="14" height="14" rx="3" fill="none" stroke="#9a9aa6" stroke-width="1.5"/><text x="22" y="11" fill="#9a9aa6">Outbound personalization</text></g>
-                <g transform="translate(0,84)"><rect width="14" height="14" rx="3" fill="none" stroke="#9a9aa6" stroke-width="1.5"/><text x="22" y="11" fill="#9a9aa6">Campaign reporting</text></g>
-                <g transform="translate(0,112)"><rect width="14" height="14" rx="3" fill="none" stroke="#9a9aa6" stroke-width="1.5"/><text x="22" y="11" fill="#9a9aa6">SDR follow-up</text></g>
+              <g transform="translate(240,55)" font-family="Inter,sans-serif" font-size="11" fill="#4A4842">
+                <g transform="translate(0,0)"><rect width="14" height="14" rx="3" fill="#0EA5A1"/><path d="M 3.5 7 L 6 9.5 L 10.5 4.5" stroke="#1A1815" stroke-width="2" fill="none" stroke-linecap="round"/><text x="22" y="11">Content workflow</text></g>
+                <g transform="translate(0,28)"><rect width="14" height="14" rx="3" fill="#0EA5A1"/><path d="M 3.5 7 L 6 9.5 L 10.5 4.5" stroke="#1A1815" stroke-width="2" fill="none" stroke-linecap="round"/><text x="22" y="11">Lead scoring</text></g>
+                <g transform="translate(0,56)"><rect width="14" height="14" rx="3" fill="none" stroke="#9a9aa6" stroke-width="1.5"/><text x="22" y="11" fill="#7A766E">Outbound personalization</text></g>
+                <g transform="translate(0,84)"><rect width="14" height="14" rx="3" fill="none" stroke="#9a9aa6" stroke-width="1.5"/><text x="22" y="11" fill="#7A766E">Campaign reporting</text></g>
+                <g transform="translate(0,112)"><rect width="14" height="14" rx="3" fill="none" stroke="#9a9aa6" stroke-width="1.5"/><text x="22" y="11" fill="#7A766E">SDR follow-up</text></g>
               </g>
             </svg>
           </div>
@@ -974,19 +978,19 @@
         <div class="tool-inner">
           <div class="tool-visual">
             <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs><linearGradient id="gc3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#16161f"/><stop offset="100%" stop-color="#0a0a0f"/></linearGradient></defs>
+              <defs><linearGradient id="gc3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F8F1DF"/><stop offset="100%" stop-color="#ECE2D2"/></linearGradient></defs>
               <rect width="400" height="250" fill="url(#gc3)"/>
-              <g transform="translate(28,28)"><circle cx="0" cy="0" r="4" fill="#ff4a6b"/><text x="14" y="4" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#f5f5f7">LIVE CALL</text></g>
-              <g transform="translate(28,110)" fill="#ff6b88">
+              <g transform="translate(28,28)"><circle cx="0" cy="0" r="4" fill="#ff4a6b"/><text x="14" y="4" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#1A1815">LIVE CALL</text></g>
+              <g transform="translate(28,110)" fill="#E63757">
                 <rect x="0" y="-8" width="3" height="16" rx="1.5"/><rect x="8" y="-14" width="3" height="28" rx="1.5"/><rect x="16" y="-20" width="3" height="40" rx="1.5"/><rect x="24" y="-12" width="3" height="24" rx="1.5"/><rect x="32" y="-6" width="3" height="12" rx="1.5"/><rect x="40" y="-16" width="3" height="32" rx="1.5"/><rect x="48" y="-22" width="3" height="44" rx="1.5"/><rect x="56" y="-10" width="3" height="20" rx="1.5"/><rect x="64" y="-4" width="3" height="8" rx="1.5"/><rect x="72" y="-14" width="3" height="28" rx="1.5"/><rect x="80" y="-18" width="3" height="36" rx="1.5"/><rect x="88" y="-8" width="3" height="16" rx="1.5"/><rect x="96" y="-12" width="3" height="24" rx="1.5"/><rect x="104" y="-20" width="3" height="40" rx="1.5"/><rect x="112" y="-6" width="3" height="12" rx="1.5"/><rect x="120" y="-16" width="3" height="32" rx="1.5"/><rect x="128" y="-10" width="3" height="20" rx="1.5"/><rect x="136" y="-14" width="3" height="28" rx="1.5" opacity="0.5"/><rect x="144" y="-6" width="3" height="12" rx="1.5" opacity="0.5"/><rect x="152" y="-10" width="3" height="20" rx="1.5" opacity="0.3"/>
               </g>
               <g transform="translate(28,160)">
-                <rect x="0" y="0" width="344" height="56" rx="8" fill="#1a1a24" stroke="#ff6b88" stroke-width="1"/>
-                <circle cx="18" cy="28" r="9" fill="#ff6b88"/>
-                <text x="18" y="32" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="800" fill="#0a0a0f">AI</text>
-                <text x="36" y="22" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#ff6b88">SUGGESTION</text>
-                <text x="36" y="40" font-family="Inter,sans-serif" font-size="11" fill="#d0d0d8">Ask about their current</text>
-                <text x="36" y="52" font-family="Inter,sans-serif" font-size="11" fill="#d0d0d8">vendor before pricing →</text>
+                <rect x="0" y="0" width="344" height="56" rx="8" fill="#FFFFFF" stroke="#E63757" stroke-width="1"/>
+                <circle cx="18" cy="28" r="9" fill="#E63757"/>
+                <text x="18" y="32" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="800" fill="#FFFFFF">AI</text>
+                <text x="36" y="22" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#E63757">SUGGESTION</text>
+                <text x="36" y="40" font-family="Inter,sans-serif" font-size="11" fill="#4A4842">Ask about their current</text>
+                <text x="36" y="52" font-family="Inter,sans-serif" font-size="11" fill="#4A4842">vendor before pricing →</text>
               </g>
             </svg>
           </div>
@@ -1054,17 +1058,17 @@
         <div class="tool-inner">
           <div class="tool-visual">
             <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs><linearGradient id="gl6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#16161f"/><stop offset="100%" stop-color="#0a0a0f"/></linearGradient></defs>
+              <defs><linearGradient id="gl6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F8F1DF"/><stop offset="100%" stop-color="#ECE2D2"/></linearGradient></defs>
               <rect width="400" height="250" fill="url(#gl6)"/>
-              <g transform="translate(60,90)"><circle cx="0" cy="0" r="28" fill="#1a1a24" stroke="#26262f"/><path d="M 0 -10 L 0 10 M -10 0 L 10 0" stroke="#b08cff" stroke-width="3" stroke-linecap="round"/></g>
-              <g transform="translate(48,45)" opacity="0.6"><circle cx="0" cy="0" r="14" fill="#1a1a24" stroke="#26262f"/><path d="M -5 -1 a 3.5 3.5 0 0 1 5 -1 a 3.5 3.5 0 0 1 5 1 c 0 3 -5 7 -5 7 s -5 -4 -5 -7 z" fill="#ff4a6b"/></g>
-              <g transform="translate(48,135)" opacity="0.5"><circle cx="0" cy="0" r="12" fill="#1a1a24" stroke="#26262f"/><path d="M -4 -2 L 4 -2 L 4 2 L 2 2 L 0 5 L -2 2 L -4 2 Z" fill="#6b8cff"/></g>
-              <path d="M 110 120 L 200 120" stroke="#b08cff" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
-              <path d="M 195 115 L 205 120 L 195 125" stroke="#b08cff" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+              <g transform="translate(60,90)"><circle cx="0" cy="0" r="28" fill="#FFFFFF" stroke="#DDD2BB"/><path d="M 0 -10 L 0 10 M -10 0 L 10 0" stroke="#6E4DD9" stroke-width="3" stroke-linecap="round"/></g>
+              <g transform="translate(48,45)" opacity="0.6"><circle cx="0" cy="0" r="14" fill="#FFFFFF" stroke="#DDD2BB"/><path d="M -5 -1 a 3.5 3.5 0 0 1 5 -1 a 3.5 3.5 0 0 1 5 1 c 0 3 -5 7 -5 7 s -5 -4 -5 -7 z" fill="#ff4a6b"/></g>
+              <g transform="translate(48,135)" opacity="0.5"><circle cx="0" cy="0" r="12" fill="#FFFFFF" stroke="#DDD2BB"/><path d="M -4 -2 L 4 -2 L 4 2 L 2 2 L 0 5 L -2 2 L -4 2 Z" fill="#6b8cff"/></g>
+              <path d="M 110 120 L 200 120" stroke="#6E4DD9" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+              <path d="M 195 115 L 205 120 L 195 125" stroke="#6E4DD9" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
               <g transform="translate(220,45)" font-family="Inter,sans-serif">
-                <g transform="translate(0,0)"><rect width="150" height="40" rx="6" fill="#1a1a24" stroke="#26262f"/><circle cx="20" cy="20" r="10" fill="#b08cff"/><text x="20" y="24" text-anchor="middle" font-size="9" font-weight="700" fill="#0a0a0f">SC</text><text x="36" y="17" font-size="10" font-weight="600" fill="#f5f5f7">Sarah Chen</text><text x="36" y="29" font-size="8" fill="#9a9aa6">VP Marketing</text></g>
-                <g transform="translate(0,52)"><rect width="150" height="40" rx="6" fill="#1a1a24" stroke="#26262f"/><circle cx="20" cy="20" r="10" fill="#6b8cff"/><text x="20" y="24" text-anchor="middle" font-size="9" font-weight="700" fill="#0a0a0f">MK</text><text x="36" y="17" font-size="10" font-weight="600" fill="#f5f5f7">Mike Klein</text><text x="36" y="29" font-size="8" fill="#9a9aa6">Head of Demand</text></g>
-                <g transform="translate(0,104)"><rect width="150" height="40" rx="6" fill="#1a1a24" stroke="#26262f"/><circle cx="20" cy="20" r="10" fill="#ff4a6b"/><text x="20" y="24" text-anchor="middle" font-size="9" font-weight="700" fill="#0a0a0f">AR</text><text x="36" y="17" font-size="10" font-weight="600" fill="#f5f5f7">Anya Rao</text><text x="36" y="29" font-size="8" fill="#9a9aa6">CMO</text></g>
+                <g transform="translate(0,0)"><rect width="150" height="40" rx="6" fill="#FFFFFF" stroke="#DDD2BB"/><circle cx="20" cy="20" r="10" fill="#6E4DD9"/><text x="20" y="24" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">SC</text><text x="36" y="17" font-size="10" font-weight="600" fill="#1A1815">Sarah Chen</text><text x="36" y="29" font-size="8" fill="#7A766E">VP Marketing</text></g>
+                <g transform="translate(0,52)"><rect width="150" height="40" rx="6" fill="#FFFFFF" stroke="#DDD2BB"/><circle cx="20" cy="20" r="10" fill="#6b8cff"/><text x="20" y="24" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">MK</text><text x="36" y="17" font-size="10" font-weight="600" fill="#1A1815">Mike Klein</text><text x="36" y="29" font-size="8" fill="#7A766E">Head of Demand</text></g>
+                <g transform="translate(0,104)"><rect width="150" height="40" rx="6" fill="#FFFFFF" stroke="#DDD2BB"/><circle cx="20" cy="20" r="10" fill="#ff4a6b"/><text x="20" y="24" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">AR</text><text x="36" y="17" font-size="10" font-weight="600" fill="#1A1815">Anya Rao</text><text x="36" y="29" font-size="8" fill="#7A766E">CMO</text></g>
               </g>
             </svg>
           </div>
@@ -1089,20 +1093,20 @@
         <div class="tool-inner">
           <div class="tool-visual">
             <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs><linearGradient id="gh7" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#16161f"/><stop offset="100%" stop-color="#0a0a0f"/></linearGradient></defs>
+              <defs><linearGradient id="gh7" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F8F1DF"/><stop offset="100%" stop-color="#ECE2D2"/></linearGradient></defs>
               <rect width="400" height="250" fill="url(#gh7)"/>
-              <text x="200" y="170" text-anchor="middle" font-family="Fraunces, serif" font-size="200" fill="#4ad9b3" opacity="0.08">#</text>
+              <text x="200" y="170" text-anchor="middle" font-family="Fraunces, serif" font-size="200" fill="#0F9270" opacity="0.08">#</text>
               <g font-family="Inter,sans-serif" font-size="11" font-weight="600">
-                <g transform="translate(40,45)"><rect width="98" height="28" rx="14" fill="#1a1a24" stroke="#4ad9b3"/><text x="49" y="18" text-anchor="middle" fill="#4ad9b3">#B2BMarketing</text></g>
-                <g transform="translate(155,60)"><rect width="82" height="28" rx="14" fill="#1a1a24" stroke="#26262f"/><text x="41" y="18" text-anchor="middle" fill="#d0d0d8">#DemandGen</text></g>
-                <g transform="translate(255,45)"><rect width="74" height="28" rx="14" fill="#1a1a24" stroke="#26262f"/><text x="37" y="18" text-anchor="middle" fill="#d0d0d8">#GTMTeam</text></g>
-                <g transform="translate(60,190)"><rect width="72" height="28" rx="14" fill="#1a1a24" stroke="#26262f"/><text x="36" y="18" text-anchor="middle" fill="#d0d0d8">#SaaS</text></g>
-                <g transform="translate(150,190)"><rect width="100" height="28" rx="14" fill="#1a1a24" stroke="#4ad9b3"/><text x="50" y="18" text-anchor="middle" fill="#4ad9b3">#RevOps</text></g>
-                <g transform="translate(270,190)"><rect width="84" height="28" rx="14" fill="#1a1a24" stroke="#26262f"/><text x="42" y="18" text-anchor="middle" fill="#d0d0d8">#Pipeline</text></g>
+                <g transform="translate(40,45)"><rect width="98" height="28" rx="14" fill="#FFFFFF" stroke="#0F9270"/><text x="49" y="18" text-anchor="middle" fill="#0F9270">#B2BMarketing</text></g>
+                <g transform="translate(155,60)"><rect width="82" height="28" rx="14" fill="#FFFFFF" stroke="#DDD2BB"/><text x="41" y="18" text-anchor="middle" fill="#4A4842">#DemandGen</text></g>
+                <g transform="translate(255,45)"><rect width="74" height="28" rx="14" fill="#FFFFFF" stroke="#DDD2BB"/><text x="37" y="18" text-anchor="middle" fill="#4A4842">#GTMTeam</text></g>
+                <g transform="translate(60,190)"><rect width="72" height="28" rx="14" fill="#FFFFFF" stroke="#DDD2BB"/><text x="36" y="18" text-anchor="middle" fill="#4A4842">#SaaS</text></g>
+                <g transform="translate(150,190)"><rect width="100" height="28" rx="14" fill="#FFFFFF" stroke="#0F9270"/><text x="50" y="18" text-anchor="middle" fill="#0F9270">#RevOps</text></g>
+                <g transform="translate(270,190)"><rect width="84" height="28" rx="14" fill="#FFFFFF" stroke="#DDD2BB"/><text x="42" y="18" text-anchor="middle" fill="#4A4842">#Pipeline</text></g>
               </g>
               <g transform="translate(200,140)" font-family="Inter,sans-serif" text-anchor="middle">
-                <text font-size="10" letter-spacing="2" fill="#9a9aa6">LEADS FOUND</text>
-                <text y="24" font-size="24" font-weight="800" fill="#f5f5f7">1,247</text>
+                <text font-size="10" letter-spacing="2" fill="#7A766E">LEADS FOUND</text>
+                <text y="24" font-size="24" font-weight="800" fill="#1A1815">1,247</text>
               </g>
             </svg>
           </div>
@@ -1165,26 +1169,26 @@
           </div>
           <div class="tool-visual">
             <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs><linearGradient id="gm9" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#16161f"/><stop offset="100%" stop-color="#0a0a0f"/></linearGradient></defs>
+              <defs><linearGradient id="gm9" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F8F1DF"/><stop offset="100%" stop-color="#ECE2D2"/></linearGradient></defs>
               <rect width="600" height="400" fill="url(#gm9)"/>
               <g transform="translate(300,200)">
-                <circle r="160" fill="none" stroke="#26262f" stroke-width="1"/>
-                <circle r="115" fill="none" stroke="#26262f" stroke-width="1"/>
-                <circle r="70" fill="none" stroke="#e8b94e" stroke-width="1.5" stroke-dasharray="5,4"/>
-                <circle r="36" fill="#e8b94e"/>
-                <text y="10" text-anchor="middle" font-family="Fraunces, serif" font-size="36" font-weight="700" fill="#0a0a0f">C</text>
+                <circle r="160" fill="none" stroke="#DDD2BB" stroke-width="1"/>
+                <circle r="115" fill="none" stroke="#DDD2BB" stroke-width="1"/>
+                <circle r="70" fill="none" stroke="#B58A1E" stroke-width="1.5" stroke-dasharray="5,4"/>
+                <circle r="36" fill="#B58A1E"/>
+                <text y="10" text-anchor="middle" font-family="Fraunces, serif" font-size="36" font-weight="700" fill="#FFFFFF">C</text>
               </g>
               <g font-family="Inter,sans-serif" font-size="10" font-weight="700">
-                <g transform="translate(300,40)"><circle r="14" fill="#1a1a24" stroke="#e8b94e"/><text y="4" text-anchor="middle" fill="#e8b94e">VP</text></g>
-                <g transform="translate(460,200)"><circle r="14" fill="#1a1a24" stroke="#e8b94e"/><text y="4" text-anchor="middle" fill="#e8b94e">CMO</text></g>
-                <g transform="translate(300,360)"><circle r="14" fill="#1a1a24" stroke="#e8b94e"/><text y="4" text-anchor="middle" fill="#e8b94e">DG</text></g>
-                <g transform="translate(140,200)"><circle r="14" fill="#1a1a24" stroke="#e8b94e"/><text y="4" text-anchor="middle" fill="#e8b94e">VP</text></g>
-                <g transform="translate(424,85)"><circle r="10" fill="#1a1a24" stroke="#26262f"/></g>
-                <g transform="translate(424,315)"><circle r="10" fill="#1a1a24" stroke="#26262f"/></g>
-                <g transform="translate(176,85)"><circle r="10" fill="#1a1a24" stroke="#26262f"/></g>
-                <g transform="translate(176,315)"><circle r="10" fill="#1a1a24" stroke="#26262f"/></g>
+                <g transform="translate(300,40)"><circle r="14" fill="#FFFFFF" stroke="#B58A1E"/><text y="4" text-anchor="middle" fill="#B58A1E">VP</text></g>
+                <g transform="translate(460,200)"><circle r="14" fill="#FFFFFF" stroke="#B58A1E"/><text y="4" text-anchor="middle" fill="#B58A1E">CMO</text></g>
+                <g transform="translate(300,360)"><circle r="14" fill="#FFFFFF" stroke="#B58A1E"/><text y="4" text-anchor="middle" fill="#B58A1E">DG</text></g>
+                <g transform="translate(140,200)"><circle r="14" fill="#FFFFFF" stroke="#B58A1E"/><text y="4" text-anchor="middle" fill="#B58A1E">VP</text></g>
+                <g transform="translate(424,85)"><circle r="10" fill="#FFFFFF" stroke="#DDD2BB"/></g>
+                <g transform="translate(424,315)"><circle r="10" fill="#FFFFFF" stroke="#DDD2BB"/></g>
+                <g transform="translate(176,85)"><circle r="10" fill="#FFFFFF" stroke="#DDD2BB"/></g>
+                <g transform="translate(176,315)"><circle r="10" fill="#FFFFFF" stroke="#DDD2BB"/></g>
               </g>
-              <text x="300" y="345" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" fill="#9a9aa6">INNER CIRCLE · B2B TECH</text>
+              <text x="300" y="345" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" fill="#7A766E">INNER CIRCLE · B2B TECH</text>
             </svg>
           </div>
         </div>
