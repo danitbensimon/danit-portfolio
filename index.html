@@ -559,10 +559,14 @@
   }
   .tool-num {
     font-family: 'Fraunces', serif;
-    font-size: 14px;
+    font-size: 36px;
     color: var(--tool-accent);
     font-style: italic;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144;
   }
+  .tool.feature .tool-num { font-size: 52px; }
   .tool-tag {
     font-size: 11px;
     font-weight: 700;
@@ -989,7 +993,7 @@
           <div class="tool-content">
             <div class="tool-meta">
               <span class="tool-num">03</span>
-              <span class="tool-tag">Coming Soon</span>
+              <span class="tool-tag">New</span>
             </div>
             <h3>Real-Time Sales Coach</h3>
             <p class="tool-desc">Live AI agent that listens to sales calls (Deepgram streaming) and surfaces in-call coaching: objection handling, next questions, missed signals. Built with Claude Code &amp; Cowork.</p>
