@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danit Ben Simon — AI-Growth Tools & Agents</title>
+<meta name="description" content="Demand gen & ABM marketer turned builder. AI tools and agents that drive pipeline for B2B SaaS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #08080c;
+    --bg-elev: #0f0f15;
+    --card: #13131c;
+    --card-hover: #181823;
+    --border: #20202c;
+    --border-strong: #2a2a38;
+    --text: #f5f5f7;
+    --text-dim: #c5c5d0;
+    --muted: #8a8a96;
+    --accent: #d4ff4a;
+    --accent-dim: rgba(212, 255, 74, 0.12);
+    --radius-sm: 8px;
+    --radius: 14px;
+    --radius-lg: 20px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 640px) { .container { padding: 0 20px; } }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: rgba(15, 15, 21, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    transition: transform 0.4s var(--ease), opacity 0.4s var(--ease);
+  }
+  .nav.hidden { transform: translateY(-120%); opacity: 0; }
+  .nav-brand {
+    font-family: 'Instrument Serif', serif;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-brand::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--accent);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  .nav-links {
+    display: flex;
+    gap: 4px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .nav-links a {
+    padding: 8px 14px;
+    border-radius: 100px;
+    color: var(--text-dim);
+    transition: color 0.2s, background 0.2s;
+    cursor: pointer;
+  }
+  .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+  .nav-cta {
+    padding: 9px 16px;
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    cursor: pointer;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,255,74,0.25); }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav { padding: 10px 14px; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    padding: 160px 0 80px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-bg::before, .hero-bg::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+  .hero-bg::before {
+    top: -100px; left: 20%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(212,255,74,0.15), transparent 70%);
+  }
+  .hero-bg::after {
+    top: 200px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(107,140,255,0.08), transparent 70%);
+  }
+  .hero .container { position: relative; z-index: 1; }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 8px 16px;
+    border: 1px solid rgba(212,255,74,0.3);
+    border-radius: 100px;
+    background: var(--accent-dim);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease) 0.1s forwards;
+  }
+  .hero-tag::before {
+    content: "";
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  h1.hero-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(48px, 7.5vw, 96px);
+    line-height: 0.96;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    margin-bottom: 32px;
+  }
+  h1.hero-title .line {
+    display: block;
+    overflow: hidden;
+  }
+  h1.hero-title .line span {
+    display: block;
+    transform: translateY(110%);
+    animation: lineIn 0.9s var(--ease) forwards;
+  }
+  h1.hero-title .line:nth-child(1) span { animation-delay: 0.2s; }
+  h1.hero-title .line:nth-child(2) span { animation-delay: 0.32s; }
+  h1.hero-title .line:nth-child(3) span { animation-delay: 0.44s; }
+  h1.hero-title em {
+    font-style: italic;
+    color: var(--accent);
+    position: relative;
+  }
+  h1.hero-title em::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0.06em;
+    height: 0.06em;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: underline 1s var(--ease) 1.2s forwards;
+  }
+
+  .hero-sub {
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--text-dim);
+    max-width: 560px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease) 0.7s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease) 0.85s forwards;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 22px;
+    border-radius: 100px;
+    transition: transform 0.25s var(--ease), background 0.25s, border-color 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-family: inherit;
+  }
+  .btn-primary { background: var(--accent); color: var(--bg); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(212,255,74,0.3); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+  .btn svg { width: 14px; height: 14px; }
+
+  .hero-meta {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--muted);
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease) 1s forwards;
+  }
+  .hero-meta a {
+    color: var(--text-dim);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .hero-meta a:hover { color: var(--accent); }
+  .hero-meta svg { width: 14px; height: 14px; }
+
+  /* photo */
+  .hero-photo {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 1;
+    justify-self: end;
+    opacity: 0;
+    animation: photoIn 1s var(--ease) 0.3s forwards;
+  }
+  .hero-photo-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--border-strong);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,255,74,0.08);
+  }
+  .hero-photo-inner img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease);
+  }
+  .hero-photo:hover .hero-photo-inner img { transform: scale(1.06); }
+  .hero-photo .badge {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-elev);
+    border: 1px solid var(--border-strong);
+    padding: 8px 14px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .hero-photo .badge::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @media (max-width: 900px) {
+    .hero { padding: 130px 0 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-photo { justify-self: center; max-width: 260px; order: -1; }
+    .hero-sub { font-size: 17px; }
+  }
+
+  /* ---------- STATS BAR ---------- */
+  .stats {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 0;
+    background: var(--bg-elev);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .stat {
+    text-align: left;
+  }
+  .stat-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .stat-num em { font-style: italic; color: var(--accent); }
+  .stat-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+  @media (max-width: 768px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
+    .stat-num { font-size: 36px; }
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .section-label::before {
+    content: "";
+    width: 24px; height: 1px;
+    background: var(--accent);
+  }
+  .about-body p {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+  }
+  .about-body p:last-of-type { margin-bottom: 32px; }
+  .about-body strong { color: var(--text); font-weight: 600; }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    font-size: 12px;
+    padding: 7px 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-dim);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+  .chip.featured { border-color: rgba(212,255,74,0.4); color: var(--accent); background: var(--accent-dim); }
+
+  @media (max-width: 900px) {
+    .about { padding: 72px 0; }
+    .about-grid { grid-template-columns: 1fr; gap: 24px; }
+    .about-body p { font-size: 17px; }
+  }
+
+  /* ---------- TOOLS ---------- */
+  .tools {
+    padding: 100px 0 120px;
+  }
+  .tools-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 56px;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .tools-header-text { max-width: 720px; }
+  .tools-header h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-top: 16px;
+  }
+  .tools-header h2 em { font-style: italic; color: var(--accent); }
+  .tools-count {
+    font-family: 'Instrument Serif', serif;
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+
+  .tool {
+    grid-column: span 3;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .tool.is-visible { opacity: 1; transform: translateY(0); }
+  .tool:hover {
+    border-color: var(--border-strong);
+    background: var(--card-hover);
+    transform: translateY(-4px);
+  }
+  .tool:hover .tool-visual img,
+  .tool:hover .tool-visual iframe { transform: scale(1.02); }
+
+  /* Featured tools take more space */
+  .tool.feature { grid-column: span 6; }
+  .tool.feature .tool-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    min-height: 360px;
+  }
+  .tool.feature .tool-content { padding: 48px; }
+  .tool.feature h3 { font-size: 32px; }
+  .tool.feature .tool-desc { font-size: 16px; }
+
+  .tool-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .tool-visual {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: #000;
+    overflow: hidden;
+    order: -1;
+  }
+  .tool.feature .tool-visual { aspect-ratio: auto; order: 1; }
+  .tool-visual img,
+  .tool-visual iframe,
+  .tool-visual svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
+    transition: transform 0.6s var(--ease);
+  }
+
+  .tool-content {
+    padding: 28px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .tool-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .tool-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 13px;
+    color: var(--accent);
+    font-style: italic;
+  }
+  .tool-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+  }
+  .tool h3 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .tool-desc {
+    font-size: 14.5px;
+    color: var(--text-dim);
+    line-height: 1.55;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .tool-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tool-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--border-strong);
+    color: var(--text);
+    transition: all 0.2s var(--ease);
+    cursor: pointer;
+  }
+  .tool-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+  .tool-link.primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+  .tool-link.primary:hover { background: #e3ff6f; border-color: #e3ff6f; color: var(--bg); }
+  .tool-link svg { width: 12px; height: 12px; }
+
+  /* Play button for video tools */
+  .play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.9;
+    transition: opacity 0.3s, transform 0.3s var(--ease);
+  }
+  .tool:hover .play-btn { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+  .play-btn svg { width: 26px; height: 26px; margin-left: 3px; }
+
+  @media (max-width: 980px) {
+    .tool { grid-column: span 6; }
+    .tool.feature .tool-inner { grid-template-columns: 1fr; }
+    .tool.feature .tool-visual { order: -1; aspect-ratio: 16/10; }
+    .tool.feature .tool-content { padding: 28px; }
+    .tool.feature h3 { font-size: 24px; }
+  }
+  @media (max-width: 640px) {
+    .tools { padding: 72px 0 80px; }
+    .tools-grid { gap: 16px; }
+  }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+  }
+  .cta::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(212,255,74,0.08), transparent 60%);
+    pointer-events: none;
+  }
+  .cta-inner {
+    position: relative;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .cta h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .cta h2 em { font-style: italic; color: var(--accent); }
+  .cta p {
+    font-size: 19px;
+    color: var(--text-dim);
+    margin-bottom: 40px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 0 32px;
+    background: var(--bg-elev);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+  }
+  .footer-brand {
+    font-family: 'Instrument Serif', serif;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .footer-tag {
+    color: var(--muted);
+    font-size: 14px;
+    max-width: 320px;
+  }
+  .footer-col h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a {
+    color: var(--text-dim);
+    font-size: 14px;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* ---------- ANIMATIONS ---------- */
+  @keyframes lineIn {
+    to { transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes photoIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes underline {
+    to { transform: scaleX(1); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+    h1.hero-title .line span { transform: translateY(0); }
+    .tool { opacity: 1; transform: none; }
+  }
+
+  /* ---------- FOCUS STATES ---------- */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav" aria-label="Primary">
+  <a href="#top" class="nav-brand">Danit Ben Simon</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#tools">Builds</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="https://meetings-eu1.hubspot.com/dben-simon" target="_blank" rel="noopener">Book a call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container">
+    <span class="hero-tag">AI-Growth Tools & Agents</span>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="line"><span>AI tools &amp; agents</span></span>
+          <span class="line"><span>that drive</span></span>
+          <span class="line"><span><em>pipeline.</em></span></span>
+        </h1>
+        <p class="hero-sub">Demand gen &amp; ABM marketer turned builder. I spot where AI can replace manual GTM work — then ship the tools to do it.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#tools">
+            See the builds
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a class="btn btn-secondary" href="https://meetings-eu1.hubspot.com/dben-simon" target="_blank" rel="noopener">Book a call</a>
+        </div>
+        <div class="hero-meta">
+          <a href="mailto:danitbensimon@gmail.com">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="m3 5 5 4 5-4"/></svg>
+            danitbensimon@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/danitbensimon" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/danitbensimon" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.1c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 015.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.4-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .3.21.66.79.55C20.21 21.38 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="hero-photo-inner">
+          <img src="data:image/jpeg;base64,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" alt="Photo of Danit Ben Simon">
+        </div>
+        <span class="badge">Open for collabs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats" aria-label="Highlights">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num">10<em>+</em></div>
+        <div class="stat-label">Yrs in B2B Marketing</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">9</div>
+        <div class="stat-label">Tools Shipped</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10<em>×</em></div>
+        <div class="stat-label">Outbound Lift</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Apify Actors Live</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="section-label">About</span>
+      </div>
+      <div class="about-body">
+        <p>I've led demand gen &amp; ABM at <strong>Vendict</strong>, <strong>InfiniGrow</strong>, <strong>Walnut.io</strong>, and <strong>K2view</strong> — B2B SaaS startups with long sales cycles and tight pipeline targets.</p>
+        <p>Today I build the tools and agents that drive that pipeline. Using Claude Code and Cowork, I ship working products: competitor discovery engines, event scrapers, LinkedIn lead-gen actors, AI maturity assessments, and real-time sales coaches.</p>
+        <div class="chips">
+          <span class="chip featured">B2B SaaS</span>
+          <span class="chip">Vendict</span>
+          <span class="chip">InfiniGrow</span>
+          <span class="chip">Walnut.io</span>
+          <span class="chip">K2view</span>
+          <span class="chip">MBA · Bar-Ilan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools" id="tools">
+  <div class="container">
+    <div class="tools-header">
+      <div class="tools-header-text">
+        <span class="section-label">The Builds</span>
+        <h2>Tools I've shipped <em>recently.</em></h2>
+      </div>
+      <span class="tools-count">— 9 builds</span>
+    </div>
+
+    <div class="tools-grid">
+
+      <!-- 01 FEATURED -->
+      <article class="tool feature" data-reveal>
+        <div class="tool-inner">
+          <div class="tool-content">
+            <div class="tool-meta">
+              <span class="tool-num">01 —</span>
+              <span class="tool-tag">Featured</span>
+            </div>
+            <h3>CompetitorCustomer</h3>
+            <p class="tool-desc">AI tool that finds any competitor's customers across 6 signal sources: job posts, review sites, marketplaces, case studies, LinkedIn, and tech stack. Born from a competitor-switch campaign that delivered 10× outbound and 60% meeting-to-opportunity.</p>
+            <div class="tool-links">
+              <a class="tool-link primary" href="https://competitorcustomer.com" target="_blank" rel="noopener">
+                Open tool
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+              <a class="tool-link" href="https://github.com/danitbensimon/competitor-discovery" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+          <div class="tool-visual">
+            <iframe src="https://www.youtube-nocookie.com/embed/kxp30DWq9Cw?rel=0" title="CompetitorCustomer demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="tool" data-reveal>
+        <div class="tool-inner">
+          <div class="tool-visual">
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs><linearGradient id="ga2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#16161f"/><stop offset="100%" stop-color="#0a0a0f"/></linearGradient></defs>
+              <rect width="400" height="250" fill="url(#ga2)"/>
+              <g transform="translate(120,145)">
+                <path d="M -70 0 A 70 70 0 0 1 70 0" fill="none" stroke="#26262f" stroke-width="10" stroke-linecap="round"/>
+                <path d="M -70 0 A 70 70 0 0 1 49.5 -49.5" fill="none" stroke="#d4ff4a" stroke-width="10" stroke-linecap="round"/>
+                <text x="0" y="-15" text-anchor="middle" font-family="Inter,sans-serif" font-size="26" font-weight="700" fill="#f5f5f7">78</text>
+                <text x="0" y="2" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#9a9aa6">AI READINESS</text>
+              </g>
+              <g transform="translate(240,55)" font-family="Inter,sans-serif" font-size="11" fill="#d0d0d8">
+                <g transform="translate(0,0)"><rect width="14" height="14" rx="3" fill="#d4ff4a"/><path d="M 3.5 7 L 6 9.5 L 10.5 4.5" stroke="#0a0a0f" stroke-width="2" fill="none" stroke-linecap="round"/><text x="22" y="11">Content workflow</text></g>
+                <g transform="translate(0,28)"><rect width="14" height="14" rx="3" fill="#d4ff4a"/><path d="M 3.5 7 L 6 9.5 L 10.5 4.5" stroke="#0a0a0f" stroke-width="2" fill="none" stroke-linecap="round"/><text x="22" y="11">Lead scoring</text></g>
+                <g transform="translate(0,56)"><rect width="14" height="14" rx="3" fill="none" stroke="#9a9aa6" stroke-width="1.5"/><text x="22" y="11" fill="#9a9aa6">Outbound personalization</text></g>
+                <g transform="translate(0,84)"><rect width="14" height="14" rx="3" fill="none" stroke="#9a9aa6" stroke-width="1.5"/><text x="22" y="11" fill="#9a9aa6">Campaign reporting</text></g>
+                <g transform="translate(0,112)"><rect width="14" height="14" rx="3" fill="none" stroke="#9a9aa6" stroke-width="1.5"/><text x="22" y="11" fill="#9a9aa6">SDR follow-up</text></g>
+              </g>
+            </svg>
+          </div>
+          <div class="tool-content">
+            <div class="tool-meta">
+              <span class="tool-num">02 —</span>
+              <span class="tool-tag">Assessment</span>
+            </div>
+            <h3>AI-Growth Assessment Tool</h3>
+            <p class="tool-desc">Marketing teams take a short self-assessment and get a custom plan showing which workflows to automate first — to hit revenue goals faster. Built end-to-end in Claude Code.</p>
+            <div class="tool-links">
+              <a class="tool-link primary" href="https://project-awesome-moon-804.magicpatterns.app" target="_blank" rel="noopener">Open tool
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="tool" data-reveal>
+        <div class="tool-inner">
+          <div class="tool-visual">
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs><linearGradient id="gc3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#16161f"/><stop offset="100%" stop-color="#0a0a0f"/></linearGradient></defs>
+              <rect width="400" height="250" fill="url(#gc3)"/>
+              <g transform="translate(28,28)"><circle cx="0" cy="0" r="4" fill="#ff4a6b"/><text x="14" y="4" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#f5f5f7">LIVE CALL</text></g>
+              <g transform="translate(28,110)" fill="#d4ff4a">
+                <rect x="0" y="-8" width="3" height="16" rx="1.5"/><rect x="8" y="-14" width="3" height="28" rx="1.5"/><rect x="16" y="-20" width="3" height="40" rx="1.5"/><rect x="24" y="-12" width="3" height="24" rx="1.5"/><rect x="32" y="-6" width="3" height="12" rx="1.5"/><rect x="40" y="-16" width="3" height="32" rx="1.5"/><rect x="48" y="-22" width="3" height="44" rx="1.5"/><rect x="56" y="-10" width="3" height="20" rx="1.5"/><rect x="64" y="-4" width="3" height="8" rx="1.5"/><rect x="72" y="-14" width="3" height="28" rx="1.5"/><rect x="80" y="-18" width="3" height="36" rx="1.5"/><rect x="88" y="-8" width="3" height="16" rx="1.5"/><rect x="96" y="-12" width="3" height="24" rx="1.5"/><rect x="104" y="-20" width="3" height="40" rx="1.5"/><rect x="112" y="-6" width="3" height="12" rx="1.5"/><rect x="120" y="-16" width="3" height="32" rx="1.5"/><rect x="128" y="-10" width="3" height="20" rx="1.5"/><rect x="136" y="-14" width="3" height="28" rx="1.5" opacity="0.5"/><rect x="144" y="-6" width="3" height="12" rx="1.5" opacity="0.5"/><rect x="152" y="-10" width="3" height="20" rx="1.5" opacity="0.3"/>
+              </g>
+              <g transform="translate(28,160)">
+                <rect x="0" y="0" width="344" height="56" rx="8" fill="#1a1a24" stroke="#d4ff4a" stroke-width="1"/>
+                <circle cx="18" cy="28" r="9" fill="#d4ff4a"/>
+                <text x="18" y="32" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="800" fill="#0a0a0f">AI</text>
+                <text x="36" y="22" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#d4ff4a">SUGGESTION</text>
+                <text x="36" y="40" font-family="Inter,sans-serif" font-size="11" fill="#d0d0d8">Ask about their current</text>
+                <text x="36" y="52" font-family="Inter,sans-serif" font-size="11" fill="#d0d0d8">vendor before pricing →</text>
+              </g>
+            </svg>
+          </div>
+          <div class="tool-content">
+            <div class="tool-meta">
+              <span class="tool-num">03 —</span>
+              <span class="tool-tag">Coming Soon</span>
+            </div>
+            <h3>Real-Time Sales Coach</h3>
+            <p class="tool-desc">Live AI agent that listens to sales calls (Deepgram streaming) and surfaces in-call coaching — objection handling, next questions, missed signals. Built with Claude Code &amp; Cowork.</p>
+            <div class="tool-links">
+              <span class="tool-link" style="opacity:0.6;cursor:default;">In development</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 FEATURED -->
+      <article class="tool feature" data-reveal>
+        <div class="tool-inner">
+          <div class="tool-content">
+            <div class="tool-meta">
+              <span class="tool-num">04 —</span>
+              <span class="tool-tag">ABM Lead Gen</span>
+            </div>
+            <h3>Event Attendee Scraper</h3>
+            <p class="tool-desc">Pulls speakers, sponsors, and attendees from public event pages (Black Hat, RSA, etc.) into clean lists. 350 CISO and sponsor names in one click. Replaces ZoomInfo for event-based ABM.</p>
+            <div class="tool-links">
+              <a class="tool-link primary" href="https://github.com/danitbensimon" target="_blank" rel="noopener">
+                View on GitHub
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="tool-visual">
+            <iframe src="https://www.youtube-nocookie.com/embed/KoMtRFmZx_M?rel=0" title="Event Scraper demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 -->
+      <article class="tool" data-reveal>
+        <div class="tool-inner">
+          <div class="tool-visual">
+            <iframe src="https://www.youtube-nocookie.com/embed/35kVuKJSqKQ?rel=0" title="LinkedIn Post Engagement demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="tool-content">
+            <div class="tool-meta">
+              <span class="tool-num">05 —</span>
+              <span class="tool-tag">Chrome Ext</span>
+            </div>
+            <h3>LinkedIn Post Engagement Scraper</h3>
+            <p class="tool-desc">Scrapes everyone who reacted to a LinkedIn post (e.g. Black Hat page posts) into a clean lead list. Demo: scraping engagers from Black Hat LinkedIn page posts.</p>
+            <div class="tool-links">
+              <a class="tool-link primary" href="https://drive.google.com/drive/folders/1zICc4enXBH8-P6C0p_21OEpVjlkNA5SQ?usp=sharing" target="_blank" rel="noopener">Chrome Extension
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 -->
+      <article class="tool" data-reveal>
+        <div class="tool-inner">
+          <div class="tool-visual">
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs><linearGradient id="gl6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#16161f"/><stop offset="100%" stop-color="#0a0a0f"/></linearGradient></defs>
+              <rect width="400" height="250" fill="url(#gl6)"/>
+              <g transform="translate(60,90)"><circle cx="0" cy="0" r="28" fill="#1a1a24" stroke="#26262f"/><path d="M 0 -10 L 0 10 M -10 0 L 10 0" stroke="#d4ff4a" stroke-width="3" stroke-linecap="round"/></g>
+              <g transform="translate(48,45)" opacity="0.6"><circle cx="0" cy="0" r="14" fill="#1a1a24" stroke="#26262f"/><path d="M -5 -1 a 3.5 3.5 0 0 1 5 -1 a 3.5 3.5 0 0 1 5 1 c 0 3 -5 7 -5 7 s -5 -4 -5 -7 z" fill="#ff4a6b"/></g>
+              <g transform="translate(48,135)" opacity="0.5"><circle cx="0" cy="0" r="12" fill="#1a1a24" stroke="#26262f"/><path d="M -4 -2 L 4 -2 L 4 2 L 2 2 L 0 5 L -2 2 L -4 2 Z" fill="#6b8cff"/></g>
+              <path d="M 110 120 L 200 120" stroke="#d4ff4a" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+              <path d="M 195 115 L 205 120 L 195 125" stroke="#d4ff4a" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+              <g transform="translate(220,45)" font-family="Inter,sans-serif">
+                <g transform="translate(0,0)"><rect width="150" height="40" rx="6" fill="#1a1a24" stroke="#26262f"/><circle cx="20" cy="20" r="10" fill="#d4ff4a"/><text x="20" y="24" text-anchor="middle" font-size="9" font-weight="700" fill="#0a0a0f">SC</text><text x="36" y="17" font-size="10" font-weight="600" fill="#f5f5f7">Sarah Chen</text><text x="36" y="29" font-size="8" fill="#9a9aa6">VP Marketing</text></g>
+                <g transform="translate(0,52)"><rect width="150" height="40" rx="6" fill="#1a1a24" stroke="#26262f"/><circle cx="20" cy="20" r="10" fill="#6b8cff"/><text x="20" y="24" text-anchor="middle" font-size="9" font-weight="700" fill="#0a0a0f">MK</text><text x="36" y="17" font-size="10" font-weight="600" fill="#f5f5f7">Mike Klein</text><text x="36" y="29" font-size="8" fill="#9a9aa6">Head of Demand</text></g>
+                <g transform="translate(0,104)"><rect width="150" height="40" rx="6" fill="#1a1a24" stroke="#26262f"/><circle cx="20" cy="20" r="10" fill="#ff4a6b"/><text x="20" y="24" text-anchor="middle" font-size="9" font-weight="700" fill="#0a0a0f">AR</text><text x="36" y="17" font-size="10" font-weight="600" fill="#f5f5f7">Anya Rao</text><text x="36" y="29" font-size="8" fill="#9a9aa6">CMO</text></g>
+              </g>
+            </svg>
+          </div>
+          <div class="tool-content">
+            <div class="tool-meta">
+              <span class="tool-num">06 —</span>
+              <span class="tool-tag">Apify · Published</span>
+            </div>
+            <h3>LinkedIn Engagement Lead Finder</h3>
+            <p class="tool-desc">Published Apify actor. Pulls warm leads from engagement signals on LinkedIn. Usage-based revenue, ranked for inbound discovery on the Apify marketplace.</p>
+            <div class="tool-links">
+              <a class="tool-link primary" href="https://apify.com/danitbensimon/linkedin-engagement-lead-finder" target="_blank" rel="noopener">Open on Apify
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 07 -->
+      <article class="tool" data-reveal>
+        <div class="tool-inner">
+          <div class="tool-visual">
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs><linearGradient id="gh7" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#16161f"/><stop offset="100%" stop-color="#0a0a0f"/></linearGradient></defs>
+              <rect width="400" height="250" fill="url(#gh7)"/>
+              <text x="200" y="170" text-anchor="middle" font-family="Instrument Serif, serif" font-size="200" fill="#d4ff4a" opacity="0.08">#</text>
+              <g font-family="Inter,sans-serif" font-size="11" font-weight="600">
+                <g transform="translate(40,45)"><rect width="98" height="28" rx="14" fill="#1a1a24" stroke="#d4ff4a"/><text x="49" y="18" text-anchor="middle" fill="#d4ff4a">#B2BMarketing</text></g>
+                <g transform="translate(155,60)"><rect width="82" height="28" rx="14" fill="#1a1a24" stroke="#26262f"/><text x="41" y="18" text-anchor="middle" fill="#d0d0d8">#DemandGen</text></g>
+                <g transform="translate(255,45)"><rect width="74" height="28" rx="14" fill="#1a1a24" stroke="#26262f"/><text x="37" y="18" text-anchor="middle" fill="#d0d0d8">#GTMTeam</text></g>
+                <g transform="translate(60,190)"><rect width="72" height="28" rx="14" fill="#1a1a24" stroke="#26262f"/><text x="36" y="18" text-anchor="middle" fill="#d0d0d8">#SaaS</text></g>
+                <g transform="translate(150,190)"><rect width="100" height="28" rx="14" fill="#1a1a24" stroke="#d4ff4a"/><text x="50" y="18" text-anchor="middle" fill="#d4ff4a">#RevOps</text></g>
+                <g transform="translate(270,190)"><rect width="84" height="28" rx="14" fill="#1a1a24" stroke="#26262f"/><text x="42" y="18" text-anchor="middle" fill="#d0d0d8">#Pipeline</text></g>
+              </g>
+              <g transform="translate(200,140)" font-family="Inter,sans-serif" text-anchor="middle">
+                <text font-size="10" letter-spacing="2" fill="#9a9aa6">LEADS FOUND</text>
+                <text y="24" font-size="24" font-weight="800" fill="#f5f5f7">1,247</text>
+              </g>
+            </svg>
+          </div>
+          <div class="tool-content">
+            <div class="tool-meta">
+              <span class="tool-num">07 —</span>
+              <span class="tool-tag">Apify · Published</span>
+            </div>
+            <h3>LinkedIn Hashtag Scraper</h3>
+            <p class="tool-desc">Second published Apify actor. Surfaces leads from post likes, comments, and hashtag activity. Live in the Apify marketplace.</p>
+            <div class="tool-links">
+              <a class="tool-link primary" href="https://apify.com/danitbensimon/linkedin-hashtag-scraper----leads-from-posts-likes-comments" target="_blank" rel="noopener">Open on Apify
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 08 -->
+      <article class="tool" data-reveal>
+        <div class="tool-inner">
+          <div class="tool-visual">
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="gs8" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a1a24"/><stop offset="100%" stop-color="#0a0a0f"/></linearGradient>
+                <radialGradient id="gs8b" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ffd4e5" stop-opacity="0.3"/><stop offset="100%" stop-color="#ffd4e5" stop-opacity="0"/></radialGradient>
+              </defs>
+              <rect width="400" height="250" fill="url(#gs8)"/>
+              <circle cx="200" cy="125" r="120" fill="url(#gs8b)"/>
+              <g transform="translate(120,125)">
+                <circle cx="0" cy="0" r="60" fill="#1a1a24" stroke="#26262f"/>
+                <text y="6" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" letter-spacing="3" fill="#9a9aa6">BEFORE</text>
+              </g>
+              <g transform="translate(280,125)">
+                <circle cx="0" cy="0" r="60" fill="#d4ff4a" opacity="0.15" stroke="#d4ff4a" stroke-width="1.5"/>
+                <text y="6" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" letter-spacing="3" fill="#d4ff4a">AFTER</text>
+              </g>
+              <path d="M 190 125 L 215 125" stroke="#d4ff4a" stroke-width="1.5" fill="none"/>
+              <path d="M 210 120 L 220 125 L 210 130" stroke="#d4ff4a" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="tool-content">
+            <div class="tool-meta">
+              <span class="tool-num">08 —</span>
+              <span class="tool-tag">Consumer SaaS</span>
+            </div>
+            <h3>Glow Lab</h3>
+            <p class="tool-desc">Personalized Korean skincare routine, backed by science. Consumer SaaS — photo-to-diagnosis flow, custom routines, built solo from scratch.</p>
+            <div class="tool-links">
+              <a class="tool-link primary" href="https://kglowskin.com" target="_blank" rel="noopener">Visit kglowskin.com
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 09 FEATURED -->
+      <article class="tool feature" data-reveal>
+        <div class="tool-inner">
+          <div class="tool-content">
+            <div class="tool-meta">
+              <span class="tool-num">09 —</span>
+              <span class="tool-tag">Community · Founder</span>
+            </div>
+            <h3>CMO Club</h3>
+            <p class="tool-desc">Inner circle for CMOs and VP Marketing in B2B Tech. Founder &amp; host. Free playbooks, prompts, and growth tactics — including the "Steal Your Competitors' Customers" prompt download.</p>
+            <div class="tool-links">
+              <a class="tool-link primary" href="https://mycmoclub.com" target="_blank" rel="noopener">
+                Visit mycmoclub.com
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="tool-visual">
+            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs><linearGradient id="gm9" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#16161f"/><stop offset="100%" stop-color="#0a0a0f"/></linearGradient></defs>
+              <rect width="600" height="400" fill="url(#gm9)"/>
+              <g transform="translate(300,200)">
+                <circle r="160" fill="none" stroke="#26262f" stroke-width="1"/>
+                <circle r="115" fill="none" stroke="#26262f" stroke-width="1"/>
+                <circle r="70" fill="none" stroke="#d4ff4a" stroke-width="1.5" stroke-dasharray="5,4"/>
+                <circle r="36" fill="#d4ff4a"/>
+                <text y="10" text-anchor="middle" font-family="Instrument Serif, serif" font-size="36" font-weight="700" fill="#0a0a0f">C</text>
+              </g>
+              <g font-family="Inter,sans-serif" font-size="10" font-weight="700">
+                <g transform="translate(300,40)"><circle r="14" fill="#1a1a24" stroke="#d4ff4a"/><text y="4" text-anchor="middle" fill="#d4ff4a">VP</text></g>
+                <g transform="translate(460,200)"><circle r="14" fill="#1a1a24" stroke="#d4ff4a"/><text y="4" text-anchor="middle" fill="#d4ff4a">CMO</text></g>
+                <g transform="translate(300,360)"><circle r="14" fill="#1a1a24" stroke="#d4ff4a"/><text y="4" text-anchor="middle" fill="#d4ff4a">DG</text></g>
+                <g transform="translate(140,200)"><circle r="14" fill="#1a1a24" stroke="#d4ff4a"/><text y="4" text-anchor="middle" fill="#d4ff4a">VP</text></g>
+                <g transform="translate(424,85)"><circle r="10" fill="#1a1a24" stroke="#26262f"/></g>
+                <g transform="translate(424,315)"><circle r="10" fill="#1a1a24" stroke="#26262f"/></g>
+                <g transform="translate(176,85)"><circle r="10" fill="#1a1a24" stroke="#26262f"/></g>
+                <g transform="translate(176,315)"><circle r="10" fill="#1a1a24" stroke="#26262f"/></g>
+              </g>
+              <text x="300" y="345" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" fill="#9a9aa6">INNER CIRCLE · B2B TECH</text>
+            </svg>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="container">
+    <div class="cta-inner">
+      <span class="section-label" style="margin-bottom:24px;">Get in touch</span>
+      <h2>Want one of these built <em>for you?</em></h2>
+      <p>I work with B2B SaaS teams on AI-Growth — strategy, builds, and pipeline. Always open for a quick call.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="https://meetings-eu1.hubspot.com/dben-simon" target="_blank" rel="noopener">
+          Book a call
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn btn-secondary" href="mailto:danitbensimon@gmail.com">Send an email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Danit Ben Simon</div>
+        <p class="footer-tag">AI-Growth tools &amp; agents that drive pipeline for B2B SaaS.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Builds</h4>
+        <ul>
+          <li><a href="https://competitorcustomer.com" target="_blank" rel="noopener">CompetitorCustomer</a></li>
+          <li><a href="https://apify.com/danitbensimon" target="_blank" rel="noopener">Apify Actors</a></li>
+          <li><a href="https://kglowskin.com" target="_blank" rel="noopener">Glow Lab</a></li>
+          <li><a href="https://mycmoclub.com" target="_blank" rel="noopener">CMO Club</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:danitbensimon@gmail.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/danitbensimon" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/danitbensimon" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://meetings-eu1.hubspot.com/dben-simon" target="_blank" rel="noopener">Book a call</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Danit Ben Simon</span>
+      <span>Built with Claude Code &amp; Cowork</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const reveal = () => {
+    const els = document.querySelectorAll('[data-reveal]');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => io.observe(el));
+  };
+
+  // Nav hide on scroll down, show on scroll up
+  const nav = document.getElementById('nav');
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > 80 && y > lastY) nav.classList.add('hidden');
+    else nav.classList.remove('hidden');
+    lastY = y;
+  }, { passive: true });
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  reveal();
+</script>
+
+</body>
+</html>
