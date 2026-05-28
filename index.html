@@ -173,24 +173,25 @@
 
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 64px;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: 48px;
     align-items: center;
   }
 
   h1.hero-title {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(48px, 7.5vw, 96px);
-    line-height: 0.98;
+    font-size: clamp(44px, 6.2vw, 80px);
+    line-height: 1;
     font-weight: 800;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.028em;
     margin-bottom: 32px;
   }
   h1.hero-title .line {
     display: block;
     overflow: hidden;
-    padding-bottom: 0.06em;
+    padding-bottom: 0.22em;
   }
+  h1.hero-title .line span { white-space: nowrap; }
   h1.hero-title .line span {
     display: block;
     transform: translateY(110%);
@@ -282,10 +283,9 @@
   /* photo */
   .hero-photo {
     position: relative;
-    width: 100%;
-    max-width: 380px;
+    width: 380px;
+    max-width: 100%;
     aspect-ratio: 1;
-    justify-self: end;
     opacity: 0;
     animation: photoIn 1s var(--ease) 0.3s forwards;
   }
