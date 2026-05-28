@@ -874,13 +874,17 @@
   }
 
   .chat-body {
-    padding: 18px 20px;
+    padding: 18px 18px 8px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-height: 220px;
+    max-height: 380px;
+    min-height: 200px;
     overflow-y: auto;
+    scroll-behavior: smooth;
   }
+  .chat-body::-webkit-scrollbar { width: 6px; }
+  .chat-body::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
   .chat-bubble {
     background: var(--bg-elev);
     color: var(--text-dim);
@@ -888,73 +892,113 @@
     border-radius: 16px 16px 16px 4px;
     font-size: 14px;
     line-height: 1.5;
-    max-width: 90%;
+    max-width: 92%;
+    align-self: flex-start;
+    word-wrap: break-word;
   }
   .chat-bubble strong { color: var(--text); font-weight: 600; }
-  .chat-bubble.system {
-    background: rgba(212,255,74,0.08);
+  .chat-bubble em { font-style: normal; color: var(--accent); }
+  .chat-bubble a {
     color: var(--accent);
-    border: 1px solid rgba(212,255,74,0.25);
-    align-self: center;
-    text-align: center;
-    border-radius: 12px;
-    font-size: 13px;
-    max-width: 100%;
+    border-bottom: 1px solid rgba(212,255,74,0.4);
+    transition: border-color 0.2s;
+  }
+  .chat-bubble a:hover { border-bottom-color: var(--accent); }
+  .chat-bubble.user {
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 16px 16px 4px 16px;
+    align-self: flex-end;
+    font-weight: 500;
+  }
+  .chat-bubble.user a, .chat-bubble.user em { color: var(--bg); }
+  .chat-bubble.typing {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 16px;
+    min-height: 36px;
+  }
+  .chat-bubble.typing span {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--muted);
+    animation: chatDot 1.2s infinite ease-in-out;
+  }
+  .chat-bubble.typing span:nth-child(2) { animation-delay: 0.15s; }
+  .chat-bubble.typing span:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes chatDot {
+    0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(-3px); }
+  }
+
+  .chat-quick {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .chat-quick button {
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    color: var(--text-dim);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: all 0.2s var(--ease);
+  }
+  .chat-quick button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
   }
 
   .chat-form {
-    padding: 14px 16px 16px;
+    padding: 12px 16px 16px;
     border-top: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
   }
-  .chat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .chat-form input,
-  .chat-form textarea {
+  .chat-input-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .chat-input-row input {
+    flex: 1;
     background: var(--bg-elev);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 10px 12px;
+    border-radius: 100px;
+    padding: 11px 16px;
     font-family: inherit;
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--text);
-    resize: none;
-    width: 100%;
     transition: border-color 0.2s;
   }
-  .chat-form input::placeholder,
-  .chat-form textarea::placeholder { color: var(--muted); }
-  .chat-form input:focus,
-  .chat-form textarea:focus {
+  .chat-input-row input::placeholder { color: var(--muted); }
+  .chat-input-row input:focus {
     outline: none;
     border-color: var(--accent);
   }
-  .chat-send {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  .chat-send-btn {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     background: var(--accent);
     color: var(--bg);
     border: none;
-    padding: 11px 16px;
-    border-radius: 10px;
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     transition: transform 0.2s var(--ease);
-    margin-top: 4px;
   }
-  .chat-send:hover { transform: translateY(-1px); }
-  .chat-send:disabled { opacity: 0.6; cursor: wait; }
-  .chat-send svg { width: 14px; height: 14px; }
+  .chat-send-btn:hover { transform: scale(1.06); }
+  .chat-send-btn svg { width: 16px; height: 16px; }
 
   @media (max-width: 480px) {
     .chat-widget { bottom: 16px; right: 16px; }
     .chat-panel { width: calc(100vw - 32px); right: -4px; }
-    .chat-row { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -1436,23 +1480,16 @@
     </div>
     <div class="chat-body" id="chatBody">
       <div class="chat-bubble">
-        Hey! I'm Danit. Have a question about any of the tools, or want to talk about AI-Growth for your team? Drop a note below.
+        Hey! I'm Danit. Ask me about any of the tools, how I work, or what I could build for your team. Try: <em>"show me the tools"</em>, <em>"how do I work with you"</em>, <em>"book a call"</em>.
       </div>
     </div>
-    <form class="chat-form" id="chatForm" action="https://formsubmit.co/danitbensimon@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New message from your portfolio chat">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none">
-      <div class="chat-row">
-        <input type="text" name="Name" placeholder="Your name" required autocomplete="name">
-        <input type="email" name="Email" placeholder="Email" required autocomplete="email">
+    <form class="chat-form" id="chatForm" autocomplete="off">
+      <div class="chat-input-row">
+        <input type="text" id="chatInput" placeholder="Type a message…" required>
+        <button type="submit" class="chat-send-btn" aria-label="Send message">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </button>
       </div>
-      <textarea name="Message" placeholder="What can I help with?" rows="3" required></textarea>
-      <button type="submit" class="chat-send">
-        Send message
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </button>
     </form>
   </div>
 </div>
@@ -1491,19 +1528,21 @@
 
   reveal();
 
-  // ===== Chat widget =====
+  // ===== Chat widget (conversational bot) =====
   (function initChat() {
     const toggle = document.getElementById('chatToggle');
     const panel = document.getElementById('chatPanel');
     const form = document.getElementById('chatForm');
+    const input = document.getElementById('chatInput');
     const body = document.getElementById('chatBody');
-    if (!toggle || !panel || !form || !body) return;
+    if (!toggle || !panel || !form || !input || !body) return;
 
     toggle.addEventListener('click', () => {
       const willOpen = panel.hidden;
       panel.hidden = !willOpen;
       toggle.setAttribute('aria-expanded', String(willOpen));
       toggle.classList.toggle('is-open', willOpen);
+      if (willOpen) setTimeout(() => input.focus(), 200);
     });
 
     document.addEventListener('keydown', (e) => {
@@ -1514,38 +1553,124 @@
       }
     });
 
-    function appendBubble(text, cls) {
-      const div = document.createElement('div');
-      div.className = 'chat-bubble' + (cls ? ' ' + cls : '');
-      div.innerHTML = text;
-      body.appendChild(div);
-      body.scrollTop = body.scrollHeight;
+    // --- Knowledge base ---
+    const KB = {
+      hi:        "Hi! 👋 Want a tour of the tools, or are you wondering if I could build something for your team?",
+      tools:     "I've shipped 9 AI-growth tools so far. The highlights:<br>• <strong>CompetitorCustomer</strong> — finds any competitor's customers<br>• <strong>AI-Growth Assessment</strong> — diagnoses your team's AI-readiness<br>• <strong>Real-Time Sales Coach</strong> — live AI coaching on calls<br>• <strong>Event Attendee Scraper</strong> — pulls speakers, sponsors, attendees<br>• 2 published <strong>Apify actors</strong> for LinkedIn lead gen<br><br>Which one do you want to dig into?",
+      competitor:"<strong>CompetitorCustomer</strong> pulls any competitor's customer list from 6 signal sources: job posts, review sites, marketplaces, case studies, LinkedIn, and tech stack. It came out of a 10× outbound campaign that hit 60% meeting-to-opportunity. Try it at <a href='https://competitorcustomer.com' target='_blank'>competitorcustomer.com</a>.",
+      assessment:"The <strong>AI-Growth Assessment</strong> is a short self-quiz for marketing teams — at the end you get a custom plan showing which workflows to automate first. Built end-to-end in Claude Code. <a href='https://project-awesome-moon-804.magicpatterns.app' target='_blank'>Try it here</a>.",
+      sales:     "The <strong>Real-Time Sales Coach</strong> listens to live calls (Deepgram streaming) and surfaces in-call coaching — objection handling, next questions, missed signals. Built with Claude Code + Cowork. In development right now.",
+      event:     "The <strong>Event Attendee Scraper</strong> pulls speakers, sponsors, and attendees from public event pages (Black Hat, RSA, etc.) into clean lists — 350 CISO + sponsor names in one click. Replaces ZoomInfo for event-based ABM.",
+      linkedin:  "I've got three LinkedIn lead-gen builds:<br>• <strong>Post Engagement Scraper</strong> (Chrome extension)<br>• <strong>Engagement Lead Finder</strong> (published Apify actor)<br>• <strong>Hashtag Scraper</strong> (published Apify actor)<br><br>The two Apify actors are live in the marketplace and have usage-based revenue. Want links?",
+      apify:     "Two of my LinkedIn lead-gen tools are <strong>published Apify actors</strong> — Engagement Lead Finder and Hashtag Scraper. Both ranked for inbound discovery on the Apify marketplace. <a href='https://apify.com/danitbensimon' target='_blank'>Find them here</a>.",
+      glow:      "<strong>Glow Lab</strong> is my consumer SaaS — personalized Korean skincare routines, backed by science. Photo-to-diagnosis flow, custom routines, built solo from scratch. <a href='https://kglowskin.app' target='_blank'>Visit kglowskin.app</a>.",
+      cmo:       "<strong>CMO Club</strong> is the inner circle I founded for CMOs and VP Marketing in B2B Tech. Free playbooks, prompts, and growth tactics — including my <em>Steal Your Competitors' Customers</em> prompt download. <a href='https://mycmoclub.com' target='_blank'>mycmoclub.com</a>.",
+      about:     "I'm a demand gen + ABM marketer turned builder. 10+ years in B2B SaaS — led GTM at <strong>Vendict</strong>, <strong>InfiniGrow</strong>, <strong>Walnut.io</strong>, and <strong>K2view</strong>. Now I ship AI tools that replace manual GTM work, mostly with Claude Code and Cowork.",
+      hire:      "Yes! I work with B2B SaaS teams on AI-Growth — strategy, custom builds, and pipeline. Easiest way to start: <a href='https://meetings-eu1.hubspot.com/dben-simon' target='_blank'>book a 20-min call</a> and I'll show you what's possible.",
+      pricing:   "Pricing depends on scope — a one-off custom build, ongoing AI-Growth advisory, or building an internal team capability are all different. Quickest answer: <a href='https://meetings-eu1.hubspot.com/dben-simon' target='_blank'>book a 20-min call</a> and we'll scope it.",
+      book:      "Great — <a href='https://meetings-eu1.hubspot.com/dben-simon' target='_blank'>grab a slot here</a> 📅. We'll talk for 20 min and I'll show you where AI fits in your GTM.",
+      time:      "Most builds take 1–3 weeks depending on scope. Quick prototypes (like the Assessment tool) take a few days. Want to scope something specific?",
+      contact:   "Email me at <a href='mailto:danitbensimon@gmail.com'>danitbensimon@gmail.com</a>, find me on <a href='https://www.linkedin.com/in/danitbensimon' target='_blank'>LinkedIn</a>, or <a href='https://meetings-eu1.hubspot.com/dben-simon' target='_blank'>book a call</a>.",
+      ai:        "Most of these were built with <strong>Claude Code</strong> + <strong>Cowork</strong>. I lean on AI for code, copy, agent orchestration, and the chat UX you're using right now. Want to talk about how to use AI for your GTM?",
+      thanks:    "Anytime! 🙌 If you want to keep going, just type another question, or <a href='https://meetings-eu1.hubspot.com/dben-simon' target='_blank'>book a quick call</a>.",
+      bye:       "Catch you later! Bookmark the page and ping me anytime. 👋",
+      fallback:  "Good question — that one's better in a real conversation. Want to <a href='https://meetings-eu1.hubspot.com/dben-simon' target='_blank'>book a 20-min call</a>, or email me at <a href='mailto:danitbensimon@gmail.com'>danitbensimon@gmail.com</a>?",
+    };
+
+    // Intent matching: order matters (most specific first)
+    const intents = [
+      ['competitor', /competitor|customer.?cust|switch|steal|opp 60|conquest/i],
+      ['assessment', /assess(ment)?|readiness|maturity|quiz|score|magic.?pattern/i],
+      ['sales',      /sales.?coach|deepgram|call.?coach|live.?coach|in.?call/i],
+      ['event',      /event|conference|attend(ee|ees)|black ?hat|rsa|sponsor|speaker/i],
+      ['apify',      /apify|actor|marketplace/i],
+      ['linkedin',   /linkedin|engage|post|hashtag|chrome.?ext/i],
+      ['glow',       /glow.?lab|skin|skincare|korean|kglow/i],
+      ['cmo',        /cmo|inner circle|playbook|community|club/i],
+      ['tools',      /tool|build(s)?|portfolio|work|projects?|show me|what.*do|what.*have|list/i],
+      ['hire',       /hire|work with|consult|engage|help.*team|engagement|services|freelance/i],
+      ['pricing',    /price|pricing|cost|rate|how much|budget|fee|charge/i],
+      ['book',       /book|call|meeting|chat|schedule|calendly|hubspot/i],
+      ['time',       /how long|timeline|fast|quickly|when|delivery|deadline/i],
+      ['contact',    /email|contact|reach|message|dm/i],
+      ['ai',         /claude|cowork|llm|gpt|anthropic|how.*built|stack|code/i],
+      ['about',      /about|who are you|background|experience|story|bio|history|vendict|infinigrow|walnut|k2view|years/i],
+      ['hi',         /^(hi|hey|hello|yo|hola|sup|what'?s up)\b/i],
+      ['thanks',     /thanks|thank you|appreciate|cheers|cool|nice|awesome|great|amazing/i],
+      ['bye',        /^(bye|goodbye|cya|later|ttyl|gotta go|gtg)\b/i],
+    ];
+
+    function classify(text) {
+      for (const [intent, rx] of intents) if (rx.test(text)) return intent;
+      return 'fallback';
     }
 
-    form.addEventListener('submit', async (e) => {
+    function appendBubble(html, cls) {
+      const div = document.createElement('div');
+      div.className = 'chat-bubble' + (cls ? ' ' + cls : '');
+      div.innerHTML = html;
+      body.appendChild(div);
+      body.scrollTop = body.scrollHeight;
+      return div;
+    }
+
+    function showTyping() {
+      const div = document.createElement('div');
+      div.className = 'chat-bubble typing';
+      div.innerHTML = '<span></span><span></span><span></span>';
+      body.appendChild(div);
+      body.scrollTop = body.scrollHeight;
+      return div;
+    }
+
+    function escapeHTML(s) {
+      return s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+    }
+
+    function botReply(userText) {
+      const intent = classify(userText);
+      const reply = KB[intent] || KB.fallback;
+      const typingEl = showTyping();
+      // Variable delay for realism (300–800ms + 12ms per char of reply)
+      const delay = Math.min(1600, 350 + (reply.length * 6));
+      setTimeout(() => {
+        typingEl.remove();
+        appendBubble(reply);
+      }, delay);
+    }
+
+    // Quick suggestions on first open
+    function addQuickReplies() {
+      const wrap = document.createElement('div');
+      wrap.className = 'chat-quick';
+      wrap.innerHTML = `
+        <button data-q="Show me the tools">Show me the tools</button>
+        <button data-q="How do I work with you?">Work with you</button>
+        <button data-q="Book a call">Book a call</button>
+      `;
+      wrap.addEventListener('click', (e) => {
+        const btn = e.target.closest('button');
+        if (!btn) return;
+        const q = btn.dataset.q;
+        wrap.remove();
+        appendBubble(escapeHTML(q), 'user');
+        botReply(q);
+      });
+      body.appendChild(wrap);
+    }
+    addQuickReplies();
+
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const btn = form.querySelector('button[type=submit]');
-      const original = btn.innerHTML;
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-      try {
-        const fd = new FormData(form);
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: fd,
-          headers: { 'Accept': 'application/json' }
-        });
-        if (!res.ok) throw new Error('Network error');
-        const name = fd.get('Name');
-        appendBubble(`<strong>${name ? String(name).split(' ')[0] : 'You'}:</strong> ${String(fd.get('Message')).replace(/</g,'&lt;')}`, '');
-        appendBubble("Thanks! Got your note — I'll reply within a day.", 'system');
-        form.reset();
-        form.hidden = true;
-      } catch (err) {
-        btn.disabled = false;
-        btn.innerHTML = original;
-        appendBubble("Couldn't send right now. Email me directly at <strong>danitbensimon@gmail.com</strong>.", 'system');
-      }
+      const text = input.value.trim();
+      if (!text) return;
+      // remove any leftover quick reply pills after first user message
+      const quick = body.querySelector('.chat-quick');
+      if (quick) quick.remove();
+      appendBubble(escapeHTML(text), 'user');
+      input.value = '';
+      input.focus();
+      botReply(text);
     });
   })();
 </script>
