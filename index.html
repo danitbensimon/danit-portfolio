@@ -794,6 +794,122 @@
     .tool { opacity: 1; transform: none; }
   }
 
+  /* ---------- SERVICES ---------- */
+  .services {
+    padding: 100px 0 120px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-elev);
+  }
+  .services-header {
+    margin-bottom: 56px;
+    max-width: 720px;
+  }
+  .services-header h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-top: 16px;
+  }
+  .services-header h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .service {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .service.is-visible { opacity: 1; transform: translateY(0); }
+  .service::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    z-index: 2;
+  }
+  .service:hover {
+    border-color: rgba(212,255,74,0.4);
+    background: var(--card-hover);
+    transform: translateY(-4px);
+  }
+  .service-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 38px;
+    font-style: italic;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .service h3 {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .service p {
+    font-size: 14.5px;
+    color: var(--text-dim);
+    line-height: 1.55;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .service-price {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+  .service-price span {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0;
+    margin-left: 2px;
+  }
+  .service-price.contact {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+    font-style: italic;
+    letter-spacing: 0;
+  }
+  .service .btn-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 18px;
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 1100px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .services { padding: 72px 0 80px; }
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
   /* ---------- FOCUS STATES ---------- */
   a:focus-visible, button:focus-visible {
     outline: 2px solid var(--accent);
@@ -1474,6 +1590,46 @@
         </a>
         <a class="btn btn-secondary" href="mailto:danitbensimon@gmail.com">Send an email</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / WAYS TO WORK -->
+<section class="services" id="work">
+  <div class="container">
+    <div class="services-header">
+      <span class="section-label">Work with me</span>
+      <h2>Four ways to <em>work together.</em></h2>
+    </div>
+    <div class="services-grid">
+      <article class="service" data-reveal>
+        <div class="service-num">01</div>
+        <h3>Consultation &amp; Mentoring</h3>
+        <p>1:1 session. I teach you how to build your own AI tools, agents and GTM automations with Claude Code &amp; Cowork.</p>
+        <div class="service-price">$250<span> / hour</span></div>
+        <a class="btn btn-primary" href="https://meetings-eu1.hubspot.com/dben-simon" target="_blank" rel="noopener">Book a session</a>
+      </article>
+      <article class="service" data-reveal>
+        <div class="service-num">02</div>
+        <h3>AI Growth Workshop</h3>
+        <p>Half-day workshop for you and your team (up to 5 people). We map your AI-Growth roadmap and ship something live by the end.</p>
+        <div class="service-price">$2,000<span> / half day</span></div>
+        <a class="btn btn-primary" href="https://meetings-eu1.hubspot.com/dben-simon" target="_blank" rel="noopener">Book a workshop</a>
+      </article>
+      <article class="service" data-reveal>
+        <div class="service-num">03</div>
+        <h3>Rent an Agent</h3>
+        <p>Use one of my existing AI-Growth agents on retainer. Plug it into your stack, I keep it running and improving.</p>
+        <div class="service-price contact">Contact Danit</div>
+        <a class="btn btn-primary" href="https://meetings-eu1.hubspot.com/dben-simon" target="_blank" rel="noopener">Get in touch</a>
+      </article>
+      <article class="service" data-reveal>
+        <div class="service-num">04</div>
+        <h3>Custom GTM Agents &amp; Tools</h3>
+        <p>I build a bespoke AI agent or tool for your team. From spec to shipped product in 1&ndash;3 weeks.</p>
+        <div class="service-price contact">Contact Danit</div>
+        <a class="btn btn-primary" href="https://meetings-eu1.hubspot.com/dben-simon" target="_blank" rel="noopener">Get in touch</a>
+      </article>
     </div>
   </div>
 </section>
