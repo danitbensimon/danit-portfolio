@@ -383,11 +383,10 @@
     border-bottom: 1px solid var(--border);
   }
   .about-grid {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 80px;
-    align-items: start;
+    display: block;
+    max-width: 880px;
   }
+  .about-grid > div:first-child { margin-bottom: 28px; }
   .section-label {
     display: inline-flex;
     align-items: center;
@@ -431,7 +430,6 @@
 
   @media (max-width: 900px) {
     .about { padding: 72px 0; }
-    .about-grid { grid-template-columns: 1fr; gap: 24px; }
     .about-body p { font-size: 17px; }
   }
 
