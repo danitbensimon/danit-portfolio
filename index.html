@@ -474,8 +474,8 @@
 
   .tools-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
   }
 
   .tool {
@@ -483,17 +483,16 @@
     --tool-accent-soft: rgba(212, 255, 74, 0.12);
     --tool-accent-border: rgba(212, 255, 74, 0.4);
     position: relative;
-    grid-column: span 3;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s;
+    transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
     opacity: 0;
     transform: translateY(20px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.32);
   }
   .tool::before {
     content: "";
@@ -512,35 +511,28 @@
   .tool[data-cat="pink"]   { --tool-accent: #ff85b3; --tool-accent-soft: rgba(255,133,179,0.14); --tool-accent-border: rgba(255,133,179,0.4); }
   .tool[data-cat="gold"]   { --tool-accent: #e8b94e; --tool-accent-soft: rgba(232,185,78,0.14);  --tool-accent-border: rgba(232,185,78,0.4); }
 
-  .tool { grid-column: 1 / -1; }   /* every tool full width */
   .tool.is-visible { opacity: 1; transform: translateY(0); }
   .tool:hover {
     border-color: var(--tool-accent-border);
     background: var(--card-hover);
-    transform: translateY(-4px);
-    box-shadow: 0 18px 36px rgba(0,0,0,0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.45);
   }
   .tool:hover .tool-visual img,
-  .tool:hover .tool-visual iframe { transform: scale(1.02); }
+  .tool:hover .tool-visual iframe,
+  .tool:hover .tool-visual video { transform: scale(1.03); }
 
   .tool-inner {
-    display: grid;
-    grid-template-columns: 1fr 1.15fr;
-    grid-template-areas: "content visual";
-    min-height: 380px;
-  }
-  /* Alternate every other tool: visual on left */
-  .tool:nth-of-type(even) .tool-inner {
-    grid-template-columns: 1.15fr 1fr;
-    grid-template-areas: "visual content";
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   .tool-visual {
     position: relative;
-    grid-area: visual;
+    aspect-ratio: 4 / 3;
     background: var(--bg-elev);
     overflow: hidden;
-    min-height: 380px;
   }
   .tool-visual img,
   .tool-visual iframe,
@@ -556,23 +548,23 @@
   }
 
   .tool-content {
-    grid-area: content;
-    padding: 56px;
+    padding: 36px 36px 32px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    flex: 1;
   }
   .tool-meta {
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
   .tool-num {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 52px;
+    font-size: 38px;
     color: var(--tool-accent);
     font-style: italic;
+    font-weight: 800;
     line-height: 1;
     letter-spacing: -0.02em;
   }
@@ -588,28 +580,27 @@
     border-radius: 100px;
   }
   .tool h3 {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 800;
-    letter-spacing: -0.022em;
+    letter-spacing: -0.018em;
     margin-bottom: 6px;
-    line-height: 1.15;
-    max-width: 22ch;
+    line-height: 1.2;
   }
   .tool-product {
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 700;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--tool-accent);
-    margin-bottom: 22px;
+    margin-bottom: 16px;
     opacity: 0.85;
   }
   .tool-desc {
-    font-size: 15.5px;
+    font-size: 14.5px;
     color: var(--text-dim);
-    line-height: 1.6;
-    margin-bottom: 28px;
-    max-width: 52ch;
+    line-height: 1.55;
+    margin-bottom: 22px;
+    flex: 1;
   }
   .tool-links {
     display: flex;
@@ -660,20 +651,17 @@
   .play-btn svg { width: 26px; height: 26px; margin-left: 3px; }
 
   @media (max-width: 900px) {
-    .tool-inner,
-    .tool:nth-of-type(even) .tool-inner {
-      grid-template-columns: 1fr !important;
-      grid-template-areas: "visual" "content" !important;
-      min-height: 0;
-    }
-    .tool-visual { min-height: 0; aspect-ratio: 16/10; }
+    .tools-grid { grid-template-columns: 1fr; gap: 32px; }
+    .tool-visual { aspect-ratio: 16/10; }
     .tool-content { padding: 32px; }
     .tool h3 { font-size: 26px; }
     .tool-num { font-size: 40px; }
   }
   @media (max-width: 640px) {
     .tools { padding: 72px 0 80px; }
-    .tools-grid { gap: 16px; }
+    .tools-grid { gap: 28px; }
+    .tool-content { padding: 28px 24px; }
+    .tool h3 { font-size: 22px; }
   }
 
   /* ---------- CTA ---------- */
@@ -1317,7 +1305,7 @@
             </div>
             <h3>Find companies using your competitor.</h3>
             <p class="tool-product">CompetitorCustomer</p>
-            <p class="tool-desc">AI tool that finds any competitor's customers across 6 signal sources: job posts, review sites, marketplaces, case studies, LinkedIn, and tech stack. Born from a competitor-switch campaign that delivered 10× outbound and 60% meeting-to-opportunity.</p>
+            <p class="tool-desc">Pulls any competitor's customer list from 6 signal sources. Born from a campaign that hit 10× outbound and 60% meeting-to-opportunity.</p>
             <div class="tool-links">
               <a class="tool-link primary" href="https://competitorcustomer.com" target="_blank" rel="noopener">
                 Open tool
@@ -1346,7 +1334,7 @@
             </div>
             <h3>See where AI fits in your GTM in 3 minutes.</h3>
             <p class="tool-product">AI-Growth Assessment</p>
-            <p class="tool-desc">Marketing teams take a short self-assessment and get a custom plan showing which workflows to automate first, to hit revenue goals faster. Built end-to-end in Claude Code.</p>
+            <p class="tool-desc">Short self-assessment for marketing teams. Get a custom plan showing which AI workflows to automate first.</p>
             <div class="tool-links">
               <a class="tool-link primary" href="https://project-awesome-moon-804.magicpatterns.app" target="_blank" rel="noopener">Open tool
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
@@ -1384,7 +1372,7 @@
             </div>
             <h3>Win more deals with live AI coaching on every call.</h3>
             <p class="tool-product">Real-Time Sales Coach</p>
-            <p class="tool-desc">Live AI agent that listens to sales calls (Deepgram streaming) and surfaces in-call coaching: objection handling, next questions, missed signals. Built with Claude Code &amp; Cowork.</p>
+            <p class="tool-desc">Listens to live sales calls and surfaces in-call coaching: objections, next questions, missed signals.</p>
             <div class="tool-links">
               <span class="tool-link" style="opacity:0.6;cursor:default;">In development</span>
             </div>
@@ -1402,7 +1390,7 @@
             </div>
             <h3>Pull every speaker, sponsor &amp; attendee from any event.</h3>
             <p class="tool-product">Event Attendee Scraper</p>
-            <p class="tool-desc">Pulls speakers, sponsors, and attendees from public event pages (Black Hat, RSA, etc.) into clean lists. 350 CISO and sponsor names in one click. Replaces ZoomInfo for event-based ABM.</p>
+            <p class="tool-desc">Pulls every speaker, sponsor, and attendee from any event page into a clean list. 350 names in one click.</p>
             <div class="tool-links">
               <a class="tool-link primary" href="https://github.com/danitbensimon" target="_blank" rel="noopener">
                 View on GitHub
@@ -1431,7 +1419,7 @@
             </div>
             <h3>Turn every LinkedIn post reaction into a warm lead.</h3>
             <p class="tool-product">LinkedIn Post Engagement Scraper</p>
-            <p class="tool-desc">Scrapes everyone who reacted to a LinkedIn post (e.g. Black Hat page posts) into a clean lead list. Demo: scraping engagers from Black Hat LinkedIn page posts.</p>
+            <p class="tool-desc">Scrapes everyone who reacted to a LinkedIn post into a clean lead list. Chrome extension.</p>
             <div class="tool-links">
               <a class="tool-link primary" href="https://drive.google.com/drive/folders/1zICc4enXBH8-P6C0p_21OEpVjlkNA5SQ?usp=sharing" target="_blank" rel="noopener">Chrome Extension
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
@@ -1467,7 +1455,7 @@
             </div>
             <h3>Find warm leads from your competitors' LinkedIn engagement.</h3>
             <p class="tool-product">LinkedIn Engagement Lead Finder</p>
-            <p class="tool-desc">Published Apify actor. Pulls warm leads from engagement signals on LinkedIn. Usage-based revenue, ranked for inbound discovery on the Apify marketplace.</p>
+            <p class="tool-desc">Published Apify actor that pulls warm leads from LinkedIn engagement signals. Usage-based revenue, live in the marketplace.</p>
             <div class="tool-links">
               <a class="tool-link primary" href="https://apify.com/danitbensimon/linkedin-engagement-lead-finder" target="_blank" rel="noopener">Open on Apify
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
@@ -1506,7 +1494,7 @@
             </div>
             <h3>Mine fresh leads from any LinkedIn hashtag.</h3>
             <p class="tool-product">LinkedIn Hashtag Scraper</p>
-            <p class="tool-desc">Second published Apify actor. Surfaces leads from post likes, comments, and hashtag activity. Live in the Apify marketplace.</p>
+            <p class="tool-desc">Published Apify actor that surfaces leads from post likes, comments, and hashtag activity.</p>
             <div class="tool-links">
               <a class="tool-link primary" href="https://apify.com/danitbensimon/linkedin-hashtag-scraper----leads-from-posts-likes-comments" target="_blank" rel="noopener">Open on Apify
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
@@ -1531,7 +1519,7 @@
             </div>
             <h3>From dull to Glow Skin in 12 weeks.</h3>
             <p class="tool-product">Glow Lab</p>
-            <p class="tool-desc">Personalized Korean skincare routine, backed by science. Consumer SaaS. Photo-to-diagnosis flow, custom routines, built solo from scratch.</p>
+            <p class="tool-desc">Consumer SaaS for personalized Korean skincare. Photo-to-diagnosis flow, built solo from scratch.</p>
             <div class="tool-links">
               <a class="tool-link primary" href="https://kglowskin.app" target="_blank" rel="noopener">Visit kglowskin.app
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
@@ -1551,7 +1539,7 @@
             </div>
             <h3>The inner circle for B2B Tech CMOs.</h3>
             <p class="tool-product">CMO Club</p>
-            <p class="tool-desc">Inner circle for CMOs and VP Marketing in B2B Tech. Founder &amp; host. Free playbooks, prompts, and growth tactics, including the "Steal Your Competitors' Customers" prompt download.</p>
+            <p class="tool-desc">Inner circle for B2B Tech CMOs and VP Marketing. Free playbooks, prompts, and growth tactics from the founder.</p>
             <div class="tool-links">
               <a class="tool-link primary" href="https://mycmoclub.com" target="_blank" rel="noopener">
                 Visit mycmoclub.com
