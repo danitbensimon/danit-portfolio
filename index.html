@@ -451,12 +451,21 @@
     border-bottom: 1px solid var(--border);
   }
   .communities {
-    padding: 100px 0 120px;
+    padding: 80px 0 90px;
     background:
       radial-gradient(ellipse 70% 50% at 50% 100%, rgba(37,211,102,0.05), transparent 60%),
       var(--bg-elev);
     border-bottom: 1px solid var(--border);
   }
+  .communities .tool { box-shadow: none; }
+  .communities .tool-inner { min-height: 0; }
+  .communities .tool-content { padding: 28px 32px; }
+  .communities .tool h3 { font-size: 22px; max-width: 26ch; }
+  .communities .tool-desc { font-size: 14px; margin-bottom: 18px; }
+  .communities .tool-num { font-size: 32px; }
+  .communities .tools-grid { gap: 24px; }
+  @media (max-width: 900px) { .communities .tools-grid { grid-template-columns: 1fr; } }
+
   .tools-header {
     display: flex;
     justify-content: space-between;
@@ -1576,66 +1585,12 @@
               </a>
             </div>
           </div>
-          <div class="tool-visual">
-            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs><linearGradient id="gm9" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#242D43"/><stop offset="100%" stop-color="#0E1322"/></linearGradient></defs>
-              <rect width="600" height="400" fill="url(#gm9)"/>
-              <g transform="translate(300,200)">
-                <circle r="160" fill="none" stroke="#2E3848" stroke-width="1"/>
-                <circle r="115" fill="none" stroke="#2E3848" stroke-width="1"/>
-                <circle r="70" fill="none" stroke="#e8b94e" stroke-width="1.5" stroke-dasharray="5,4"/>
-                <circle r="36" fill="#e8b94e"/>
-                <text y="10" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="36" font-weight="700" fill="#242D43">C</text>
-              </g>
-              <g font-family="Inter,sans-serif" font-size="10" font-weight="700">
-                <g transform="translate(300,40)"><circle r="14" fill="#242D43" stroke="#e8b94e"/><text y="4" text-anchor="middle" fill="#e8b94e">VP</text></g>
-                <g transform="translate(460,200)"><circle r="14" fill="#242D43" stroke="#e8b94e"/><text y="4" text-anchor="middle" fill="#e8b94e">CMO</text></g>
-                <g transform="translate(300,360)"><circle r="14" fill="#242D43" stroke="#e8b94e"/><text y="4" text-anchor="middle" fill="#e8b94e">DG</text></g>
-                <g transform="translate(140,200)"><circle r="14" fill="#242D43" stroke="#e8b94e"/><text y="4" text-anchor="middle" fill="#e8b94e">VP</text></g>
-                <g transform="translate(424,85)"><circle r="10" fill="#242D43" stroke="#2E3848"/></g>
-                <g transform="translate(424,315)"><circle r="10" fill="#242D43" stroke="#2E3848"/></g>
-                <g transform="translate(176,85)"><circle r="10" fill="#242D43" stroke="#2E3848"/></g>
-                <g transform="translate(176,315)"><circle r="10" fill="#242D43" stroke="#2E3848"/></g>
-              </g>
-              <text x="300" y="345" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" fill="#9a9aa6">INNER CIRCLE · B2B TECH</text>
-            </svg>
           </div>
-        </div>
       </article>
 
       <!-- COMMUNITY 02 -->
       <article class="tool" data-cat="green" data-reveal>
         <div class="tool-inner">
-          <div class="tool-visual">
-            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs>
-                <linearGradient id="gpx9" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#1B2E2A"/>
-                  <stop offset="100%" stop-color="#0E1322"/>
-                </linearGradient>
-              </defs>
-              <rect width="400" height="300" fill="url(#gpx9)"/>
-              <text x="200" y="38" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" letter-spacing="4" fill="#5A8770">PIPEX, INSIDERS GROUP</text>
-
-              <g transform="translate(30, 65)">
-                <rect width="240" height="52" rx="16" fill="#1A2238" stroke="#3A4564" stroke-width="1"/>
-                <text x="18" y="22" font-family="Inter,sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#25D366">DANIT</text>
-                <text x="18" y="42" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#F0F1F5">New tool just dropped, try it now</text>
-              </g>
-
-              <g transform="translate(125, 135)">
-                <rect width="245" height="52" rx="16" fill="#25D366"/>
-                <text x="18" y="22" font-family="Inter,sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#0B3320">MEMBER</text>
-                <text x="18" y="42" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#0B3320">Already 10x'd my pipeline</text>
-              </g>
-
-              <g transform="translate(30, 205)">
-                <rect width="240" height="52" rx="16" fill="#1A2238" stroke="#3A4564" stroke-width="1"/>
-                <text x="18" y="22" font-family="Inter,sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#25D366">DANIT</text>
-                <text x="18" y="42" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#F0F1F5">Playbook drops tomorrow at 9 am</text>
-              </g>
-            </svg>
-          </div>
           <div class="tool-content">
             <div class="tool-meta">
               <span class="tool-num">02</span>
