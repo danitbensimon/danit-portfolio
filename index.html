@@ -1197,6 +1197,70 @@
     .chat-widget { bottom: 16px; right: 16px; }
     .chat-panel { width: calc(100vw - 32px); right: -4px; }
   }
+
+  /* ---------- VIDEO LIGHTBOX ---------- */
+  .video-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(8,11,22,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    animation: vmFade 0.25s var(--ease);
+  }
+  .video-modal[hidden] { display: none !important; }
+  @keyframes vmFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .video-modal-inner {
+    position: relative;
+    width: min(96vw, 1180px);
+    aspect-ratio: 16 / 9;
+    max-height: calc(100vh - 120px);
+    background: #000;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,255,74,0.08);
+    animation: vmIn 0.35s var(--ease);
+  }
+  @keyframes vmIn {
+    from { opacity: 0; transform: translateY(12px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .video-modal-frame,
+  .video-modal-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .video-modal-close {
+    position: absolute;
+    top: -48px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.08);
+    color: #F0F1F5;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .video-modal-close:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); transform: scale(1.05); }
+  .video-modal-close svg { width: 18px; height: 18px; }
+  @media (max-width: 700px) {
+    .video-modal { padding: 72px 12px 12px; }
+    .video-modal-close { top: -52px; }
+  }
 </style>
 </head>
 <body>
@@ -1797,6 +1861,82 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   reveal();
+
+  // ===== Video lightbox =====
+  (function initVideoModal() {
+    // Inject the modal markup once
+    const modal = document.createElement('div');
+    modal.className = 'video-modal';
+    modal.id = 'videoModal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Video player');
+    modal.hidden = true;
+    modal.innerHTML = `
+      <div class="video-modal-inner">
+        <button class="video-modal-close" id="videoModalClose" type="button" aria-label="Close video">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+        <div class="video-modal-frame" id="videoModalFrame"></div>
+      </div>`;
+    document.body.appendChild(modal);
+    const frame = modal.querySelector('#videoModalFrame');
+    const close = modal.querySelector('#videoModalClose');
+
+    function parseYouTube(url) {
+      try {
+        const u = new URL(url, location.href);
+        const host = u.hostname.replace(/^www\./, '');
+        let id = null;
+        if (host === 'youtu.be') {
+          id = u.pathname.slice(1).split('/')[0];
+        } else if (host.endsWith('youtube.com') || host.endsWith('youtube-nocookie.com')) {
+          if (u.pathname === '/watch') id = u.searchParams.get('v');
+          else if (u.pathname.startsWith('/embed/')) id = u.pathname.split('/')[2];
+        }
+        if (!id || !/^[A-Za-z0-9_-]{11}$/.test(id)) return null;
+        const list = u.searchParams.get('list');
+        return { id, list };
+      } catch (e) { return null; }
+    }
+
+    function open(data) {
+      const params = new URLSearchParams({
+        autoplay: '1',
+        rel: '0',
+        modestbranding: '1',
+        playsinline: '1'
+      });
+      if (data.list) params.set('list', data.list);
+      const src = `https://www.youtube-nocookie.com/embed/${data.id}?${params.toString()}`;
+      frame.innerHTML = `<iframe src="${src}" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function shut() {
+      modal.hidden = true;
+      frame.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    // Intercept any click on a YouTube link
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href*="youtu"]');
+      if (!a) return;
+      const data = parseYouTube(a.getAttribute('href'));
+      if (!data) return;
+      e.preventDefault();
+      open(data);
+    });
+
+    close.addEventListener('click', shut);
+    modal.addEventListener('click', (e) => { if (e.target === modal) shut(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) shut(); });
+  })();
 
   // ===== Chat widget (conversational bot) =====
   (function initChat() {
