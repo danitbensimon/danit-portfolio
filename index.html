@@ -1319,6 +1319,21 @@
     will-change: transform;
   }
   .marquee-row:last-child { margin-bottom: 0; }
+  .marquee-row[data-marquee-dir="right"] {
+    animation: marqueeScrollRight 38s linear infinite;
+  }
+  .marquee-row[data-marquee-dir="left"] {
+    animation: marqueeScrollLeft 38s linear infinite;
+  }
+  @keyframes marqueeScrollRight {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-33.3333%); }
+  }
+  @keyframes marqueeScrollLeft {
+    from { transform: translateX(-33.3333%); }
+    to   { transform: translateX(0); }
+  }
+  .marquee:hover .marquee-row { animation-play-state: paused; }
   .marquee-pill {
     flex-shrink: 0;
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -1343,9 +1358,8 @@
     flex-shrink: 0;
   }
   .marquee-row.outline .marquee-pill {
-    -webkit-text-stroke: 1.5px #FFFFFF;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: #FFFFFF;
+    opacity: 0.45;
   }
   @media (max-width: 700px) {
     .marquee { padding: 56px 0; }
@@ -1542,15 +1556,15 @@
 <!-- MARQUEE -->
 <section class="marquee" aria-label="What I've built" id="marquee">
   <div class="marquee-row" data-marquee-dir="right">
-    <span class="marquee-pill">CompetitorCustomer</span>
+    <span class="marquee-pill">Competitor Customer</span>
     <span class="marquee-pill">Real-Time Sales Coach</span>
     <span class="marquee-pill">LinkedIn Post Scraper</span>
     <span class="marquee-pill">AI-Growth Assessment</span>
-    <span class="marquee-pill">CompetitorCustomer</span>
+    <span class="marquee-pill">Competitor Customer</span>
     <span class="marquee-pill">Real-Time Sales Coach</span>
     <span class="marquee-pill">LinkedIn Post Scraper</span>
     <span class="marquee-pill">AI-Growth Assessment</span>
-    <span class="marquee-pill">CompetitorCustomer</span>
+    <span class="marquee-pill">Competitor Customer</span>
     <span class="marquee-pill">Real-Time Sales Coach</span>
     <span class="marquee-pill">LinkedIn Post Scraper</span>
     <span class="marquee-pill">AI-Growth Assessment</span>
@@ -2153,23 +2167,6 @@
     window.addEventListener('scroll', update, { passive: true });
     update();
   });
-
-  // Scroll-driven horizontal marquee
-  (function initMarquee() {
-    const section = document.getElementById('marquee');
-    if (!section) return;
-    const rows = section.querySelectorAll('.marquee-row');
-    function update() {
-      const r = section.getBoundingClientRect();
-      const offset = (window.innerHeight - r.top) * 0.3 - 200;
-      rows.forEach((row) => {
-        const dir = row.dataset.marqueeDir === 'left' ? -1 : 1;
-        row.style.transform = `translateX(${dir * offset}px)`;
-      });
-    }
-    window.addEventListener('scroll', update, { passive: true });
-    update();
-  })();
 
   // Sticky-stack tools: scale down cards as later cards stack on top
   (function initStickyStack() {
