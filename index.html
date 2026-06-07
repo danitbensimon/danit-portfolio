@@ -1198,6 +1198,122 @@
     .chat-panel { width: calc(100vw - 32px); right: -4px; }
   }
 
+  /* ---------- GRADIENT TEXT + MOTION UPGRADES ---------- */
+  .grad-text {
+    background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  .magnetic { will-change: transform; }
+
+  .char-reveal { display: inline; }
+  .char-reveal .char {
+    display: inline-block;
+    opacity: 0.18;
+    transition: opacity 0.5s var(--ease);
+    white-space: pre;
+  }
+  .char-reveal .char.is-lit { opacity: 1; }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee {
+    background: var(--bg);
+    padding: 96px 0 56px;
+    overflow: hidden;
+    position: relative;
+  }
+  .marquee-row {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    will-change: transform;
+  }
+  .marquee-tile {
+    flex-shrink: 0;
+    width: 380px;
+    height: 240px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+  .marquee-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 700px) {
+    .marquee { padding: 56px 0 32px; }
+    .marquee-tile { width: 280px; height: 178px; }
+  }
+
+  /* ---------- STICKY-STACK TOOLS ---------- */
+  .tools.stack-mode .tools-grid {
+    display: block;
+  }
+  .tools.stack-mode .tool {
+    grid-column: auto;
+    width: 100%;
+    margin-bottom: 28px;
+    position: sticky;
+    top: 100px;
+    transform-origin: center top;
+    transition: transform 0.4s var(--ease);
+  }
+  .tools.stack-mode .tool-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    grid-template-areas: "content visual";
+    min-height: 460px;
+  }
+  .tools.stack-mode .tool-visual {
+    grid-area: visual;
+    aspect-ratio: auto;
+    height: auto;
+    min-height: 460px;
+    order: 0;
+    border-bottom: none;
+  }
+  .tools.stack-mode .tool-content {
+    grid-area: content;
+    padding: 56px;
+    order: 0;
+    justify-content: center;
+  }
+  .tools.stack-mode .tool h3 { font-size: 32px; max-width: 22ch; }
+  .tools.stack-mode .tool-num { font-size: 48px; }
+  @media (max-width: 900px) {
+    .tools.stack-mode .tool-inner {
+      grid-template-columns: 1fr;
+      grid-template-areas: "visual" "content";
+      min-height: 0;
+    }
+    .tools.stack-mode .tool-visual { min-height: 0; aspect-ratio: 16/10; }
+    .tools.stack-mode .tool-content { padding: 32px; }
+    .tools.stack-mode .tool h3 { font-size: 24px; }
+    .tools.stack-mode .tool { position: static; transform: none !important; }
+  }
+
+  /* Rounded section corners (Jack-style) */
+  .services {
+    border-radius: 50px 50px 0 0;
+    margin-top: -30px;
+    position: relative;
+    z-index: 2;
+  }
+  .communities {
+    border-radius: 50px 50px 0 0;
+    margin-top: -30px;
+    position: relative;
+    z-index: 2;
+  }
+  @media (max-width: 700px) {
+    .services, .communities { border-radius: 32px 32px 0 0; margin-top: -20px; }
+  }
+
   /* ---------- VIDEO LIGHTBOX ---------- */
   .video-modal {
     position: fixed;
@@ -1285,11 +1401,11 @@
     <div class="hero-grid">
       <div class="hero-text">
         <h1 class="hero-title">
-          <span class="line"><span>GTM tools &amp; agents</span></span>
-          <span class="line"><span>that drive</span></span>
+          <span class="line"><span class="grad-text">GTM tools &amp; agents</span></span>
+          <span class="line"><span class="grad-text">that drive</span></span>
           <span class="line"><span><em>pipeline.</em></span></span>
         </h1>
-        <p class="hero-sub">Demand gen &amp; ABM marketer turned builder. I spot where AI can replace manual GTM work, then ship the tools to do it.</p>
+        <p class="hero-sub" data-char-reveal>Demand gen &amp; ABM marketer turned builder. I spot where AI can replace manual GTM work, then ship the tools to do it.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#tools">
             See the builds
@@ -1312,7 +1428,7 @@
           </a>
         </div>
       </div>
-      <div class="hero-photo">
+      <div class="hero-photo magnetic" data-magnetic data-magnetic-strength="3" data-magnetic-padding="160">
         <div class="hero-photo-inner">
           <video autoplay muted loop playsinline preload="auto" aria-label="Danit Ben Simon">
             <source src="assets/hero.mp4" type="video/mp4">
@@ -1320,6 +1436,55 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<section class="marquee" aria-label="Tool previews" id="marquee">
+  <div class="marquee-row" data-marquee-dir="right">
+    <img src="https://img.youtube.com/vi/kxp30DWq9Cw/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/ai-assessment-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/FzWOmDGK-xg/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/KoMtRFmZx_M/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/linkedin-post-scraper-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/glowlab-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/F00R3hhD9fQ/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/kxp30DWq9Cw/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/ai-assessment-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/FzWOmDGK-xg/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/KoMtRFmZx_M/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/linkedin-post-scraper-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/glowlab-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/F00R3hhD9fQ/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/kxp30DWq9Cw/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/ai-assessment-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/FzWOmDGK-xg/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/KoMtRFmZx_M/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/linkedin-post-scraper-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/glowlab-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/F00R3hhD9fQ/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+  </div>
+  <div class="marquee-row" data-marquee-dir="left">
+    <img src="https://img.youtube.com/vi/KoMtRFmZx_M/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/glowlab-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/F00R3hhD9fQ/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/ai-assessment-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/kxp30DWq9Cw/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/linkedin-post-scraper-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/FzWOmDGK-xg/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/KoMtRFmZx_M/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/glowlab-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/F00R3hhD9fQ/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/ai-assessment-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/kxp30DWq9Cw/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/linkedin-post-scraper-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/FzWOmDGK-xg/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/KoMtRFmZx_M/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/glowlab-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/F00R3hhD9fQ/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/ai-assessment-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="https://img.youtube.com/vi/kxp30DWq9Cw/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <img src="assets/linkedin-post-scraper-poster.jpg" alt="" loading="lazy" class="marquee-tile">
   </div>
 </section>
 
@@ -1371,12 +1536,12 @@
 </section>
 
 <!-- TOOLS -->
-<section class="tools" id="tools">
+<section class="tools stack-mode" id="tools">
   <div class="container">
     <div class="tools-header">
       <div class="tools-header-text">
         <span class="section-label">The Builds</span>
-        <h2>Tools I've shipped <em>recently.</em></h2>
+        <h2><span class="grad-text">Tools I've shipped</span> <em>recently.</em></h2>
       </div>
       <span class="tools-count">8 builds</span>
     </div>
@@ -1649,7 +1814,7 @@
     <div class="tools-header">
       <div class="tools-header-text">
         <span class="section-label">Communities</span>
-        <h2>Where pipeline-first marketers <em>connect.</em></h2>
+        <h2><span class="grad-text">Where pipeline-first marketers</span> <em>connect.</em></h2>
       </div>
       <span class="tools-count">2 groups</span>
     </div>
@@ -1706,7 +1871,7 @@
   <div class="container">
     <div class="cta-inner">
       <span class="section-label" style="margin-bottom:24px;">Get in touch</span>
-      <h2>Want one of these built <em>for you?</em></h2>
+      <h2><span class="grad-text">Want one of these built</span> <em>for you?</em></h2>
       <p>I work with B2B SaaS teams on AI-Growth: strategy, builds, and pipeline. Always open for a quick call.</p>
       <div class="cta-actions">
         <a class="btn btn-primary" href="https://meetings-eu1.hubspot.com/dben-simon" target="_blank" rel="noopener">
@@ -1724,7 +1889,7 @@
   <div class="container">
     <div class="services-header">
       <span class="section-label">Work with me</span>
-      <h2>Four ways to <em>work together.</em></h2>
+      <h2><span class="grad-text">Four ways to</span> <em>work together.</em></h2>
     </div>
     <div class="services-grid">
       <article class="service" data-reveal>
@@ -1861,6 +2026,94 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   reveal();
+
+  // ===== Motion upgrades =====
+  // Magnetic hover (cursor-tracking translate)
+  document.querySelectorAll('[data-magnetic]').forEach((el) => {
+    const strength = parseFloat(el.dataset.magneticStrength) || 3;
+    const padding  = parseFloat(el.dataset.magneticPadding) || 150;
+    let active = false;
+    document.addEventListener('mousemove', (e) => {
+      const r = el.getBoundingClientRect();
+      const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      const dx = e.clientX - cx, dy = e.clientY - cy;
+      const dist = Math.hypot(dx, dy);
+      const radius = Math.max(r.width, r.height) / 2 + padding;
+      if (dist < radius) {
+        if (!active) { el.style.transition = 'transform 0.3s ease-out'; active = true; }
+        el.style.transform = `translate3d(${dx / strength}px, ${dy / strength}px, 0)`;
+      } else if (active) {
+        el.style.transition = 'transform 0.6s ease-in-out';
+        el.style.transform = 'translate3d(0,0,0)';
+        active = false;
+      }
+    }, { passive: true });
+  });
+
+  // Character-by-character scroll reveal
+  document.querySelectorAll('[data-char-reveal]').forEach((el) => {
+    const text = el.textContent;
+    el.classList.add('char-reveal');
+    el.innerHTML = '';
+    const chars = [];
+    for (const c of text) {
+      const span = document.createElement('span');
+      span.className = 'char';
+      span.textContent = c;
+      el.appendChild(span);
+      chars.push(span);
+    }
+    function update() {
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const start = vh * 0.85;
+      const end   = vh * 0.25;
+      const p = Math.max(0, Math.min(1, (start - r.top) / (start - end)));
+      const lit = Math.floor(p * chars.length);
+      chars.forEach((c, i) => c.classList.toggle('is-lit', i < lit));
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  });
+
+  // Scroll-driven horizontal marquee
+  (function initMarquee() {
+    const section = document.getElementById('marquee');
+    if (!section) return;
+    const rows = section.querySelectorAll('.marquee-row');
+    function update() {
+      const r = section.getBoundingClientRect();
+      const offset = (window.innerHeight - r.top) * 0.3 - 200;
+      rows.forEach((row) => {
+        const dir = row.dataset.marqueeDir === 'left' ? -1 : 1;
+        row.style.transform = `translateX(${dir * offset}px)`;
+      });
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+
+  // Sticky-stack tools: scale down cards as later cards stack on top
+  (function initStickyStack() {
+    const stackSection = document.querySelector('.tools.stack-mode');
+    if (!stackSection) return;
+    const cards = Array.from(stackSection.querySelectorAll('.tool'));
+    function update() {
+      if (window.innerWidth <= 900) return;
+      cards.forEach((card, i) => {
+        let aboveCount = 0;
+        for (let j = i + 1; j < cards.length; j++) {
+          const next = cards[j].getBoundingClientRect();
+          if (next.top < window.innerHeight * 0.55) aboveCount++;
+        }
+        const targetScale = 1 - aboveCount * 0.025;
+        card.style.transform = `scale(${targetScale})`;
+      });
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+  })();
 
   // ===== Video lightbox =====
   (function initVideoModal() {
