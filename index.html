@@ -94,18 +94,24 @@
   }
   .nav-links {
     display: flex;
-    gap: 4px;
-    font-size: 13px;
-    font-weight: 500;
+    gap: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
   }
   .nav-links a {
     padding: 8px 14px;
     border-radius: 100px;
     color: var(--text-dim);
-    transition: color 0.2s, background 0.2s;
+    transition: color 0.2s, background 0.2s, opacity 0.2s;
     cursor: pointer;
+    position: relative;
   }
   .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+  .nav-links a.is-active {
+    color: var(--accent);
+  }
   .nav-cta {
     padding: 9px 16px;
     background: var(--cta-bg);
@@ -1421,7 +1427,8 @@
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#tools">Builds</a>
-    <a href="#communities">Communities</a>
+    <a href="#communities">Community</a>
+    <a href="#work">Work</a>
     <a href="#contact">Contact</a>
   </div>
   <a class="nav-cta" href="https://meetings-eu1.hubspot.com/dben-simon" target="_blank" rel="noopener">Book a call</a>
@@ -1842,12 +1849,9 @@
 <!-- COMMUNITIES -->
 <section class="communities" id="communities">
   <div class="container">
-    <div class="tools-header">
-      <div class="tools-header-text">
-        <span class="section-label">Communities</span>
-        <h2><span class="grad-text">Where pipeline-first marketers</span> <em>connect.</em></h2>
-      </div>
-      <span class="tools-count">2 groups</span>
+    <div class="about-stack" style="margin-bottom: 64px;">
+      <span class="section-label centered">Community</span>
+      <h2 class="about-heading">Where pipeline-first marketers connect.</h2>
     </div>
     <div class="tools-grid">
 
@@ -2042,6 +2046,25 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     els.forEach(el => io.observe(el));
   };
+
+  // Nav: highlight active section as you scroll
+  (function initScrollSpy() {
+    const links = document.querySelectorAll('.nav-links a[href^="#"]');
+    if (!links.length) return;
+    const sectionIds = Array.from(links).map(a => a.getAttribute('href').slice(1));
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+    if (!sections.length) return;
+    function update() {
+      const y = window.scrollY + window.innerHeight * 0.3;
+      let active = sections[0].id;
+      for (const s of sections) {
+        if (s.offsetTop <= y) active = s.id;
+      }
+      links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + active));
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
 
   // Nav hide on scroll down, show on scroll up
   const nav = document.getElementById('nav');
