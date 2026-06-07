@@ -227,7 +227,8 @@
   .hero-sub {
     font-size: 20px;
     line-height: 1.55;
-    color: var(--text-dim);
+    color: #FFFFFF;
+    font-weight: 500;
     max-width: 560px;
     margin-bottom: 40px;
     opacity: 0;
@@ -289,6 +290,10 @@
   .hero-meta svg { width: 14px; height: 14px; }
 
   /* photo */
+  @keyframes heroFloat {
+    0%, 100% { transform: translateY(-12px) rotate(-1deg); }
+    50%      { transform: translateY(12px) rotate(1deg); }
+  }
   .hero-photo {
     position: relative;
     width: 380px;
@@ -296,6 +301,9 @@
     aspect-ratio: 1;
     opacity: 0;
     animation: photoIn 1s var(--ease) 0.3s forwards;
+  }
+  .hero-photo-inner {
+    animation: heroFloat 6s ease-in-out infinite;
   }
   .hero-photo-inner {
     position: relative;
@@ -1200,7 +1208,7 @@
 
   /* ---------- GRADIENT TEXT + MOTION UPGRADES ---------- */
   .grad-text {
-    background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+    background: linear-gradient(180deg, #FFFFFF 0%, #d4ff4a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1405,7 +1413,7 @@
           <span class="line"><span class="grad-text">that drive</span></span>
           <span class="line"><span><em>pipeline.</em></span></span>
         </h1>
-        <p class="hero-sub" data-char-reveal>Demand gen &amp; ABM marketer turned builder. I spot where AI can replace manual GTM work, then ship the tools to do it.</p>
+        <p class="hero-sub">Demand gen &amp; ABM marketer turned builder. I spot where AI can replace manual GTM work, then ship the tools to do it.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#tools">
             See the builds
