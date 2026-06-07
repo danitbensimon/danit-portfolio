@@ -258,8 +258,8 @@
     align-items: center;
     gap: 8px;
     font-size: 14px;
-    font-weight: 600;
-    padding: 14px 22px;
+    font-weight: 700;
+    padding: 15px 24px;
     border-radius: 100px;
     transition: transform 0.25s var(--ease), background 0.25s, border-color 0.25s, box-shadow 0.25s;
     cursor: pointer;
@@ -372,6 +372,8 @@
   @media (max-width: 900px) {
     .hero { padding: 130px 0 60px; }
     .hero-sub { font-size: 17px; }
+    .hero-tag { font-size: 10px; margin-bottom: 24px; }
+    h1.hero-title { margin-bottom: 24px; }
   }
 
   /* ---------- STATS BAR ---------- */
@@ -417,7 +419,7 @@
 
   /* ---------- ABOUT ---------- */
   .about {
-    padding: 140px 0;
+    padding: 120px 0;
     border-bottom: 1px solid var(--border);
     text-align: center;
   }
@@ -426,7 +428,7 @@
     flex-direction: column;
     align-items: center;
     gap: 36px;
-    max-width: 760px;
+    max-width: 820px;
     margin: 0 auto;
     text-align: center;
   }
@@ -510,7 +512,7 @@
 
   /* ---------- TOOLS ---------- */
   .tools {
-    padding: 100px 0 120px;
+    padding: 120px 0;
     background:
       radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,255,74,0.05), transparent 60%),
       #0F0F0F;
@@ -518,7 +520,7 @@
     border-bottom: 1px solid var(--border);
   }
   .communities {
-    padding: 80px 0 90px;
+    padding: 120px 0;
     background:
       radial-gradient(ellipse 70% 50% at 50% 100%, rgba(37,211,102,0.05), transparent 60%),
       var(--bg-elev);
@@ -885,7 +887,7 @@
 
   /* ---------- SERVICES ---------- */
   .services {
-    padding: 100px 0 120px;
+    padding: 120px 0;
     border-top: 1px solid var(--border);
     background: var(--bg-elev);
   }
@@ -1004,6 +1006,7 @@
   /* ---------- FOCUS STATES ---------- */
   a:focus-visible, button:focus-visible {
     outline: 2px solid var(--accent);
+    outline-offset: 4px;
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -1287,7 +1290,7 @@
   /* ---------- MARQUEE ---------- */
   .marquee {
     background: var(--bg);
-    padding: 96px 0 56px;
+    padding: 64px 0 48px;
     overflow: hidden;
     position: relative;
   }
@@ -1351,7 +1354,7 @@
     justify-content: center;
   }
   .tools.stack-mode .tool h3 { font-size: 32px; max-width: 22ch; }
-  .tools.stack-mode .tool-num { font-size: 48px; }
+  .tools.stack-mode .tool-num { font-size: 56px; font-weight: 900; }
   @media (max-width: 900px) {
     .tools.stack-mode .tool-inner {
       grid-template-columns: 1fr;
