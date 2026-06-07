@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Danit Ben Simon · AI-Growth Tools & Agents</title>
-<meta name="description" content="Demand gen & ABM marketer turned builder. GTM tools and agents that drive pipeline for B2B SaaS.">
+<meta name="description" content="AI tools that help B2B SaaS teams hit revenue targets with smaller GTM teams. Less manual work, more pipeline.">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -193,7 +193,7 @@
 
   h1.hero-title {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(44px, 7vw, 92px);
+    font-size: clamp(36px, 5.2vw, 68px);
     line-height: 0.98;
     font-weight: 900;
     text-transform: uppercase;
@@ -435,7 +435,7 @@
   .section-label.centered::before { display: none; }
   .about-heading {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(40px, 7vw, 96px);
+    font-size: clamp(36px, 5.2vw, 68px);
     font-weight: 900;
     text-transform: uppercase;
     line-height: 0.98;
@@ -1290,34 +1290,53 @@
   /* ---------- MARQUEE ---------- */
   .marquee {
     background: var(--bg);
-    padding: 64px 0 48px;
+    padding: 80px 0;
     overflow: hidden;
     position: relative;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
   .marquee-row {
     display: flex;
-    gap: 14px;
-    margin-bottom: 14px;
+    align-items: center;
+    gap: 48px;
+    margin-bottom: 28px;
     will-change: transform;
   }
-  .marquee-tile {
+  .marquee-row:last-child { margin-bottom: 0; }
+  .marquee-pill {
     flex-shrink: 0;
-    width: 380px;
-    height: 240px;
-    border-radius: 16px;
-    overflow: hidden;
-    background: var(--card);
-    border: 1px solid var(--border);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(40px, 5.6vw, 80px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+    color: #FFFFFF;
+    line-height: 1;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 48px;
   }
-  .marquee-tile img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .marquee-pill::after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 14px rgba(212,255,74,0.5);
+    flex-shrink: 0;
+  }
+  .marquee-row.outline .marquee-pill {
+    -webkit-text-stroke: 1.5px #FFFFFF;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
   @media (max-width: 700px) {
-    .marquee { padding: 56px 0 32px; }
-    .marquee-tile { width: 280px; height: 178px; }
+    .marquee { padding: 56px 0; }
+    .marquee-row { gap: 32px; margin-bottom: 20px; }
+    .marquee-pill { gap: 32px; }
+    .marquee-pill::after { width: 12px; height: 12px; }
   }
 
   /* ---------- STICKY-STACK TOOLS ---------- */
@@ -1479,7 +1498,7 @@
         <span class="line"><span>GTM tools &amp; agents</span></span>
         <span class="line"><span>that drive <em>pipeline.</em></span></span>
       </h1>
-      <p class="hero-sub">Demand gen &amp; ABM marketer turned builder. I spot where AI can replace manual GTM work, then ship the tools to do it.</p>
+      <p class="hero-sub">I build AI tools that help B2B SaaS teams hit revenue targets with smaller GTM teams. Less manual work, more pipeline.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#tools">
           See the builds
@@ -1506,51 +1525,34 @@
 </section>
 
 <!-- MARQUEE -->
-<section class="marquee" aria-label="Tool previews" id="marquee">
+<section class="marquee" aria-label="What I've built" id="marquee">
   <div class="marquee-row" data-marquee-dir="right">
-    <img src="https://img.youtube.com/vi/kxp30DWq9Cw/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/ai-assessment-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/FzWOmDGK-xg/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/KoMtRFmZx_M/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/linkedin-post-scraper-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/glowlab-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/F00R3hhD9fQ/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/kxp30DWq9Cw/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/ai-assessment-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/FzWOmDGK-xg/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/KoMtRFmZx_M/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/linkedin-post-scraper-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/glowlab-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/F00R3hhD9fQ/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/kxp30DWq9Cw/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/ai-assessment-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/FzWOmDGK-xg/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/KoMtRFmZx_M/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/linkedin-post-scraper-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/glowlab-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/F00R3hhD9fQ/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
+    <span class="marquee-pill">CompetitorCustomer</span>
+    <span class="marquee-pill">Real-Time Sales Coach</span>
+    <span class="marquee-pill">LinkedIn Post Scraper</span>
+    <span class="marquee-pill">AI-Growth Assessment</span>
+    <span class="marquee-pill">CompetitorCustomer</span>
+    <span class="marquee-pill">Real-Time Sales Coach</span>
+    <span class="marquee-pill">LinkedIn Post Scraper</span>
+    <span class="marquee-pill">AI-Growth Assessment</span>
+    <span class="marquee-pill">CompetitorCustomer</span>
+    <span class="marquee-pill">Real-Time Sales Coach</span>
+    <span class="marquee-pill">LinkedIn Post Scraper</span>
+    <span class="marquee-pill">AI-Growth Assessment</span>
   </div>
-  <div class="marquee-row" data-marquee-dir="left">
-    <img src="https://img.youtube.com/vi/KoMtRFmZx_M/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/glowlab-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/F00R3hhD9fQ/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/ai-assessment-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/kxp30DWq9Cw/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/linkedin-post-scraper-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/FzWOmDGK-xg/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/KoMtRFmZx_M/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/glowlab-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/F00R3hhD9fQ/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/ai-assessment-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/kxp30DWq9Cw/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/linkedin-post-scraper-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/FzWOmDGK-xg/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/KoMtRFmZx_M/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/glowlab-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/F00R3hhD9fQ/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/ai-assessment-poster.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="https://img.youtube.com/vi/kxp30DWq9Cw/maxresdefault.jpg" alt="" loading="lazy" class="marquee-tile">
-    <img src="assets/linkedin-post-scraper-poster.jpg" alt="" loading="lazy" class="marquee-tile">
+  <div class="marquee-row outline" data-marquee-dir="left">
+    <span class="marquee-pill">Event Attendee Scraper</span>
+    <span class="marquee-pill">Glow Lab Skincare</span>
+    <span class="marquee-pill">Intent Outreach Workflow</span>
+    <span class="marquee-pill">Webinar Enrichment Workflow</span>
+    <span class="marquee-pill">Event Attendee Scraper</span>
+    <span class="marquee-pill">Glow Lab Skincare</span>
+    <span class="marquee-pill">Intent Outreach Workflow</span>
+    <span class="marquee-pill">Webinar Enrichment Workflow</span>
+    <span class="marquee-pill">Event Attendee Scraper</span>
+    <span class="marquee-pill">Glow Lab Skincare</span>
+    <span class="marquee-pill">Intent Outreach Workflow</span>
+    <span class="marquee-pill">Webinar Enrichment Workflow</span>
   </div>
 </section>
 
