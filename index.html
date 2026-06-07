@@ -193,7 +193,7 @@
 
   h1.hero-title {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(36px, 5.2vw, 68px);
+    font-size: clamp(32px, 3.6vw, 52px);
     line-height: 0.98;
     font-weight: 900;
     text-transform: uppercase;
@@ -233,7 +233,7 @@
   }
 
   .hero-sub {
-    font-size: 19px;
+    font-size: 17px;
     line-height: 1.55;
     color: #FFFFFF;
     font-weight: 500;
@@ -370,10 +370,21 @@
   }
 
   @media (max-width: 900px) {
-    .hero { padding: 130px 0 60px; }
-    .hero-sub { font-size: 17px; }
-    .hero-tag { font-size: 10px; margin-bottom: 24px; }
+    .hero { padding: 120px 0 60px; min-height: auto; }
+    .hero-sub { font-size: 16px; }
+    .hero-tag { font-size: 10px; margin-bottom: 24px; padding: 6px 12px; }
     h1.hero-title { margin-bottom: 24px; }
+  }
+  @media (max-width: 700px) {
+    .hero { padding: 100px 0 40px; }
+    h1.hero-title { font-size: clamp(28px, 8vw, 40px); }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions .btn { justify-content: center; }
+    .hero-meta { flex-direction: column; gap: 12px; align-items: flex-start; }
+    .about-heading { font-size: clamp(28px, 8vw, 40px) !important; }
+    .marquee-pill { font-size: 20px !important; }
+    .stat-num { font-size: 32px !important; }
+    .stats-grid { gap: 24px 12px !important; }
   }
 
   /* ---------- STATS BAR ---------- */
@@ -393,7 +404,7 @@
   }
   .stat-num {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 56px;
+    font-size: 42px;
     line-height: 1;
     color: var(--text);
     margin-bottom: 8px;
@@ -435,7 +446,7 @@
   .section-label.centered::before { display: none; }
   .about-heading {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(36px, 5.2vw, 68px);
+    font-size: clamp(32px, 3.6vw, 52px);
     font-weight: 900;
     text-transform: uppercase;
     line-height: 0.98;
@@ -451,7 +462,7 @@
     font-weight: 800;
   }
   .about-lead {
-    font-size: clamp(17px, 1.7vw, 22px);
+    font-size: clamp(16px, 1.4vw, 18px);
     line-height: 1.6;
     color: #D7E2EA;
     font-weight: 500;
@@ -1290,7 +1301,7 @@
   /* ---------- MARQUEE ---------- */
   .marquee {
     background: var(--bg);
-    padding: 80px 0;
+    padding: 56px 0;
     overflow: hidden;
     position: relative;
     border-top: 1px solid var(--border);
@@ -1299,32 +1310,32 @@
   .marquee-row {
     display: flex;
     align-items: center;
-    gap: 48px;
-    margin-bottom: 28px;
+    gap: 28px;
+    margin-bottom: 20px;
     will-change: transform;
   }
   .marquee-row:last-child { margin-bottom: 0; }
   .marquee-pill {
     flex-shrink: 0;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(40px, 5.6vw, 80px);
-    font-weight: 900;
+    font-size: clamp(22px, 2.2vw, 34px);
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.015em;
     color: #FFFFFF;
     line-height: 1;
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
-    gap: 48px;
+    gap: 28px;
   }
   .marquee-pill::after {
     content: "";
-    width: 16px;
-    height: 16px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: var(--accent);
-    box-shadow: 0 0 14px rgba(212,255,74,0.5);
+    box-shadow: 0 0 10px rgba(212,255,74,0.6);
     flex-shrink: 0;
   }
   .marquee-row.outline .marquee-pill {
