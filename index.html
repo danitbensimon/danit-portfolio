@@ -391,14 +391,44 @@
 
   /* ---------- ABOUT ---------- */
   .about {
-    padding: 100px 0;
+    padding: 140px 0;
     border-bottom: 1px solid var(--border);
+    text-align: center;
   }
-  .about-grid {
-    display: block;
-    max-width: 880px;
+  .about-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
   }
-  .about-grid > div:first-child { margin-bottom: 28px; }
+  .section-label.centered::before { display: none; }
+  .about-heading {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(56px, 12vw, 160px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    color: #FFFFFF;
+    margin: 0;
+  }
+  .about-lead {
+    font-size: clamp(17px, 1.7vw, 22px);
+    line-height: 1.6;
+    color: #D7E2EA;
+    font-weight: 500;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .about-cta { margin-top: 8px; }
+  .about .chips { justify-content: center; }
+  @media (max-width: 700px) {
+    .about { padding: 96px 0; }
+    .about-stack { gap: 28px; }
+  }
   .section-label {
     display: inline-flex;
     align-items: center;
@@ -1516,22 +1546,22 @@
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="container">
-    <div class="about-grid">
-      <div>
-        <span class="section-label">About</span>
+    <div class="about-stack">
+      <span class="section-label centered">About</span>
+      <h2 class="about-heading">About me</h2>
+      <p class="about-lead" data-char-reveal>I've led demand gen and ABM at Vendict, InfiniGrow, Walnut.io, and K2view. Today I build the tools and agents that drive that pipeline. With Claude Code and Cowork, I ship working products: competitor discovery engines, event scrapers, LinkedIn lead-gen actors, AI maturity assessments, and real-time sales coaches.</p>
+      <div class="chips">
+        <span class="chip featured">B2B SaaS</span>
+        <span class="chip">Vendict</span>
+        <span class="chip">InfiniGrow</span>
+        <span class="chip">Walnut.io</span>
+        <span class="chip">K2view</span>
+        <span class="chip">MBA · Bar-Ilan</span>
       </div>
-      <div class="about-body">
-        <p>I've led demand gen &amp; ABM at <strong>Vendict</strong>, <strong>InfiniGrow</strong>, <strong>Walnut.io</strong>, and <strong>K2view</strong>. All B2B SaaS startups with long sales cycles and tight pipeline targets.</p>
-        <p>Today I build the tools and agents that drive that pipeline. Using Claude Code and Cowork, I ship working products: competitor discovery engines, event scrapers, LinkedIn lead-gen actors, AI maturity assessments, and real-time sales coaches.</p>
-        <div class="chips">
-          <span class="chip featured">B2B SaaS</span>
-          <span class="chip">Vendict</span>
-          <span class="chip">InfiniGrow</span>
-          <span class="chip">Walnut.io</span>
-          <span class="chip">K2view</span>
-          <span class="chip">MBA · Bar-Ilan</span>
-        </div>
-      </div>
+      <a class="btn btn-primary about-cta" href="https://meetings-eu1.hubspot.com/dben-simon" target="_blank" rel="noopener">
+        Let's build together
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
     </div>
   </div>
 </section>
