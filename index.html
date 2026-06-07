@@ -18,19 +18,19 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #0E1322;
-    --bg-elev: #161C2D;
-    --card: #242D43;
-    --card-hover: #2D3753;
-    --border: #364159;
-    --border-strong: #4A5575;
-    --text: #F0F1F5;
-    --text-dim: #C3C6D2;
-    --muted: #8C94A4;
+    --bg: #0C0C0C;
+    --bg-elev: #161616;
+    --card: #1C1C1C;
+    --card-hover: #232323;
+    --border: #2A2A2A;
+    --border-strong: #3A3A3A;
+    --text: #FFFFFF;
+    --text-dim: #D7E2EA;
+    --muted: #8A8A8A;
     --accent: #d4ff4a;
     --accent-dim: rgba(212, 255, 74, 0.12);
     --cta-bg: #d4ff4a;
-    --cta-text: #0E1322;
+    --cta-text: #0C0C0C;
     --radius-sm: 8px;
     --radius: 14px;
     --radius-lg: 20px;
@@ -127,7 +127,7 @@
     position: relative;
     padding: 160px 0 80px;
     overflow: hidden;
-    background: linear-gradient(180deg, #07091A 0%, #0B1020 60%, var(--bg) 100%);
+    background: var(--bg);
     border-bottom: 1px solid var(--border);
   }
   .hero-bg {
@@ -181,14 +181,14 @@
 
   .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 460px;
+    grid-template-columns: minmax(0, 1fr) 380px;
     gap: 48px;
     align-items: center;
   }
 
   h1.hero-title {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(44px, 6.2vw, 80px);
+    font-size: clamp(40px, 5.8vw, 72px);
     line-height: 1;
     font-weight: 800;
     letter-spacing: -0.028em;
@@ -291,19 +291,22 @@
 
   /* photo */
   @keyframes heroFloat {
-    0%, 100% { transform: translateY(-12px) rotate(-1deg); }
-    50%      { transform: translateY(12px) rotate(1deg); }
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    25%  { transform: translate(22px, -28px) rotate(3deg); }
+    50%  { transform: translate(0, -42px) rotate(0deg); }
+    75%  { transform: translate(-22px, -28px) rotate(-3deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
   }
   .hero-photo {
     position: relative;
-    width: 460px;
+    width: 380px;
     max-width: 100%;
     opacity: 0;
     animation: photoIn 1s var(--ease) 0.3s forwards;
-    filter: drop-shadow(0 30px 50px rgba(0,0,0,0.45));
+    filter: drop-shadow(0 30px 50px rgba(0,0,0,0.7));
   }
   .hero-photo-inner {
-    animation: heroFloat 6s ease-in-out infinite;
+    animation: heroFloat 9s ease-in-out infinite;
     position: relative;
     width: 100%;
   }
@@ -447,7 +450,7 @@
     padding: 100px 0 120px;
     background:
       radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,255,74,0.05), transparent 60%),
-      #131829;
+      #0F0F0F;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
@@ -1402,9 +1405,8 @@
     <div class="hero-grid">
       <div class="hero-text">
         <h1 class="hero-title">
-          <span class="line"><span class="grad-text">GTM tools &amp; agents</span></span>
-          <span class="line"><span class="grad-text">that drive</span></span>
-          <span class="line"><span><em>pipeline.</em></span></span>
+          <span class="line"><span>GTM tools &amp; agents</span></span>
+          <span class="line"><span>that drive <em>pipeline.</em></span></span>
         </h1>
         <p class="hero-sub">Demand gen &amp; ABM marketer turned builder. I spot where AI can replace manual GTM work, then ship the tools to do it.</p>
         <div class="hero-actions">
@@ -1701,15 +1703,15 @@
             <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <defs>
                 <linearGradient id="gw8" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#242D43"/>
-                  <stop offset="100%" stop-color="#0E1322"/>
+                  <stop offset="0%" stop-color="#1C1C1C"/>
+                  <stop offset="100%" stop-color="#0C0C0C"/>
                 </linearGradient>
               </defs>
               <rect width="400" height="300" fill="url(#gw8)"/>
 
               <!-- Step 1 -->
               <g transform="translate(35, 50)">
-                <rect width="150" height="95" rx="14" fill="#1A2238" stroke="#3a4564" stroke-width="1.2"/>
+                <rect width="150" height="95" rx="14" fill="#1C1C1C" stroke="#3A3A3A" stroke-width="1.2"/>
                 <text x="20" y="32" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#b08cff">STEP 01</text>
                 <text x="20" y="62" font-family="Inter,sans-serif" font-size="15" font-weight="800" fill="#F0F1F5">Build a free</text>
                 <text x="20" y="80" font-family="Inter,sans-serif" font-size="15" font-weight="800" fill="#F0F1F5">lead-gen tool</text>
@@ -1723,7 +1725,7 @@
 
               <!-- Step 2 -->
               <g transform="translate(215, 50)">
-                <rect width="150" height="95" rx="14" fill="#1A2238" stroke="#3a4564" stroke-width="1.2"/>
+                <rect width="150" height="95" rx="14" fill="#1C1C1C" stroke="#3A3A3A" stroke-width="1.2"/>
                 <text x="20" y="32" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#b08cff">STEP 02</text>
                 <text x="20" y="62" font-family="Inter,sans-serif" font-size="15" font-weight="800" fill="#F0F1F5">Post on</text>
                 <text x="20" y="80" font-family="Inter,sans-serif" font-size="15" font-weight="800" fill="#F0F1F5">LinkedIn / Meta</text>
@@ -1737,7 +1739,7 @@
 
               <!-- Step 3 -->
               <g transform="translate(215, 172)">
-                <rect width="150" height="95" rx="14" fill="#1A2238" stroke="#3a4564" stroke-width="1.2"/>
+                <rect width="150" height="95" rx="14" fill="#1C1C1C" stroke="#3A3A3A" stroke-width="1.2"/>
                 <text x="20" y="32" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#b08cff">STEP 03</text>
                 <text x="20" y="62" font-family="Inter,sans-serif" font-size="15" font-weight="800" fill="#F0F1F5">Collect</text>
                 <text x="20" y="80" font-family="Inter,sans-serif" font-size="15" font-weight="800" fill="#F0F1F5">interactions</text>
@@ -1751,7 +1753,7 @@
 
               <!-- Step 4 -->
               <g transform="translate(35, 172)">
-                <rect width="150" height="95" rx="14" fill="#1A2238" stroke="#3a4564" stroke-width="1.2"/>
+                <rect width="150" height="95" rx="14" fill="#1C1C1C" stroke="#3A3A3A" stroke-width="1.2"/>
                 <text x="20" y="32" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#b08cff">STEP 04</text>
                 <text x="20" y="62" font-family="Inter,sans-serif" font-size="15" font-weight="800" fill="#F0F1F5">Reach out with</text>
                 <text x="20" y="80" font-family="Inter,sans-serif" font-size="15" font-weight="800" fill="#F0F1F5">your offer</text>
