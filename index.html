@@ -233,14 +233,17 @@
   }
 
   .hero-sub {
-    font-size: 17px;
-    line-height: 1.55;
+    font-size: clamp(18px, 1.5vw, 22px);
+    line-height: 1.5;
     color: #FFFFFF;
     font-weight: 500;
     max-width: 720px;
     margin-bottom: 40px;
     opacity: 0;
     animation: fadeUp 0.8s var(--ease) 0.7s forwards;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
   }
 
   .hero-actions {
@@ -466,12 +469,16 @@
     font-weight: 800;
   }
   .about-lead {
-    font-size: clamp(16px, 1.4vw, 18px);
+    font-size: clamp(17px, 1.5vw, 20px);
     line-height: 1.6;
     color: #D7E2EA;
     font-weight: 500;
-    max-width: 620px;
+    max-width: 680px;
     margin: 0 auto;
+    text-align: center;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
   }
   .about-cta { margin-top: 8px; }
   .about .chips { justify-content: center; }
@@ -1613,9 +1620,8 @@
 <section class="about" id="about">
   <div class="container">
     <div class="about-stack">
-      <span class="section-label centered">About</span>
       <h2 class="about-heading">About me</h2>
-      <p class="about-lead" data-char-reveal>I've led demand gen and ABM at Vendict, InfiniGrow, Walnut.io, and K2view. Today I build the tools and agents that drive that pipeline. With Claude Code and Cowork, I ship working products: competitor discovery engines, event scrapers, LinkedIn lead-gen actors, AI maturity assessments, and real-time sales coaches.</p>
+      <p class="about-lead">I've led demand gen and ABM at Vendict, InfiniGrow, Walnut.io, and K2view. Today I build the tools and agents that drive that pipeline. With Claude Code and Cowork, I ship working products: competitor discovery engines, event scrapers, LinkedIn lead-gen actors, AI maturity assessments, and real-time sales coaches.</p>
       <div class="chips">
         <span class="chip featured">B2B SaaS</span>
         <span class="chip">Vendict</span>
