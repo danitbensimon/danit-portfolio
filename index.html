@@ -194,9 +194,10 @@
 
   h1.hero-title {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(40px, 5.8vw, 72px);
+    font-size: clamp(44px, 6.2vw, 84px);
     line-height: 1;
-    font-weight: 800;
+    font-weight: 900;
+    text-transform: uppercase;
     letter-spacing: -0.028em;
     margin-bottom: 32px;
   }
@@ -218,6 +219,8 @@
     font-style: italic;
     color: var(--accent);
     position: relative;
+    text-transform: none;
+    font-weight: 800;
   }
   h1.hero-title em::after {
     content: "";
@@ -377,13 +380,19 @@
   }
   .stat-num {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 48px;
+    font-size: 56px;
     line-height: 1;
     color: var(--text);
     margin-bottom: 8px;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    font-weight: 900;
+    text-transform: uppercase;
   }
-  .stat-num em { font-style: italic; color: var(--accent); }
+  .stat-num em { font-style: italic; color: var(--accent); font-weight: 800; text-transform: none; }
+  .stat-label {
+    color: var(--text-dim) !important;
+    font-weight: 600;
+  }
   .stat-label {
     font-size: 12px;
     text-transform: uppercase;
@@ -413,13 +422,19 @@
   .section-label.centered::before { display: none; }
   .about-heading {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(56px, 12vw, 160px);
+    font-size: clamp(48px, 10vw, 132px);
     font-weight: 900;
     text-transform: uppercase;
     line-height: 0.95;
     letter-spacing: -0.025em;
     color: #FFFFFF;
     margin: 0;
+  }
+  .about-heading em {
+    font-style: italic;
+    color: var(--accent);
+    text-transform: none;
+    font-weight: 800;
   }
   .about-lead {
     font-size: clamp(17px, 1.7vw, 22px);
@@ -1576,12 +1591,9 @@
 <!-- TOOLS -->
 <section class="tools stack-mode" id="tools">
   <div class="container">
-    <div class="tools-header">
-      <div class="tools-header-text">
-        <span class="section-label">The Builds</span>
-        <h2><span class="grad-text">Tools I've shipped</span> <em>recently.</em></h2>
-      </div>
-      <span class="tools-count">8 builds</span>
+    <div class="about-stack" style="margin-bottom: 64px;">
+      <span class="section-label centered">The Builds</span>
+      <h2 class="about-heading">Tools I've shipped <em>recently.</em></h2>
     </div>
 
     <div class="tools-grid">
@@ -1851,7 +1863,7 @@
   <div class="container">
     <div class="about-stack" style="margin-bottom: 64px;">
       <span class="section-label centered">Community</span>
-      <h2 class="about-heading">Where pipeline-first marketers connect.</h2>
+      <h2 class="about-heading">Where pipeline-first marketers <em>connect.</em></h2>
     </div>
     <div class="tools-grid">
 
@@ -1904,9 +1916,9 @@
 <!-- SERVICES / WAYS TO WORK -->
 <section class="services" id="work">
   <div class="container">
-    <div class="services-header">
-      <span class="section-label">Work with me</span>
-      <h2><span class="grad-text">Four ways to</span> <em>work together.</em></h2>
+    <div class="about-stack" style="margin-bottom: 64px;">
+      <span class="section-label centered">Work with me</span>
+      <h2 class="about-heading">Four ways to <em>work together.</em></h2>
     </div>
     <div class="services-grid">
       <article class="service" data-reveal>
