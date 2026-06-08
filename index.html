@@ -1305,14 +1305,7 @@
   }
   .magnetic { will-change: transform; }
 
-  .char-reveal { display: inline; }
-  .char-reveal .char {
-    display: inline-block;
-    opacity: 0.18;
-    transition: opacity 0.5s var(--ease);
-    white-space: pre;
-  }
-  .char-reveal .char.is-lit { opacity: 1; }
+  /* char-reveal removed: was creating per-character inline-block spans that broke words mid-letter */
 
   /* ---------- MARQUEE ---------- */
   .marquee {
@@ -2153,31 +2146,7 @@
     }, { passive: true });
   });
 
-  // Character-by-character scroll reveal
-  document.querySelectorAll('[data-char-reveal]').forEach((el) => {
-    const text = el.textContent;
-    el.classList.add('char-reveal');
-    el.innerHTML = '';
-    const chars = [];
-    for (const c of text) {
-      const span = document.createElement('span');
-      span.className = 'char';
-      span.textContent = c;
-      el.appendChild(span);
-      chars.push(span);
-    }
-    function update() {
-      const r = el.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const start = vh * 0.85;
-      const end   = vh * 0.25;
-      const p = Math.max(0, Math.min(1, (start - r.top) / (start - end)));
-      const lit = Math.floor(p * chars.length);
-      chars.forEach((c, i) => c.classList.toggle('is-lit', i < lit));
-    }
-    window.addEventListener('scroll', update, { passive: true });
-    update();
-  });
+  // Character-by-character scroll reveal — removed: was breaking words mid-letter
 
   // Sticky-stack tools: scale down cards as later cards stack on top
   (function initStickyStack() {
