@@ -469,16 +469,20 @@
     font-weight: 800;
   }
   .about-lead {
-    font-size: clamp(17px, 1.5vw, 20px);
-    line-height: 1.6;
+    font-size: clamp(17px, 1.4vw, 19px);
+    line-height: 1.65;
     color: #D7E2EA;
     font-weight: 500;
-    max-width: 680px;
+    max-width: 620px;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
-    word-break: normal;
-    overflow-wrap: normal;
-    hyphens: none;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+    -ms-hyphens: none !important;
+    text-wrap: pretty;
   }
   .about-cta { margin-top: 8px; }
   .about .chips { justify-content: center; }
