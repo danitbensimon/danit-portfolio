@@ -276,6 +276,44 @@
   .svc.flagship{border-width:2px}
 
   .preview-flag{position:fixed;bottom:14px;left:14px;z-index:99;background:#fff;border:1px solid var(--line);color:var(--muted);font-size:11.5px;padding:7px 12px;border-radius:999px;box-shadow:var(--shadow)}
+
+  /* ===== animations ===== */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+    .reveal.in{opacity:1;transform:none}
+    .hero h1,.hero .sub,.hero .cta-row,.hero .trust-mini,.hero .eyebrow{animation:heroIn .8s both}
+    .hero .eyebrow{animation-delay:.02s}.hero h1{animation-delay:.08s}.hero .sub{animation-delay:.18s}
+    .hero .cta-row{animation-delay:.28s}.hero .trust-mini{animation-delay:.38s}
+    .hero-card{animation:heroCard 1s .12s both}
+    @keyframes heroIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    @keyframes heroCard{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
+    .btn{transition:transform .15s, box-shadow .2s, filter .15s, background .15s, border-color .15s, color .15s}
+    .btn-primary:hover{box-shadow:0 8px 22px rgba(215,45,31,.32)}
+    .stat:hover,.chip:hover{transform:translateY(-2px);transition:transform .18s}
+    .hero-caric{transition:transform .4s}
+    .hero-card:hover .hero-caric{transform:scale(1.04)}
+    .topbar{animation:topbarIn .6s both}
+    @keyframes topbarIn{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:none}}
+  }
+
+
+  /* ===== follow section ===== */
+  #follow .follow-grid{display:grid;grid-template-columns:1fr 504px;gap:32px;align-items:start}
+  @media(max-width:920px){#follow .follow-grid{grid-template-columns:1fr;justify-items:center}}
+  .follow-links{display:flex;flex-direction:column;gap:14px;width:100%;max-width:560px}
+  .social-card{display:flex;align-items:center;gap:14px;background:var(--card);border:1.5px solid var(--green);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);transition:transform .18s}
+  .social-card:hover{transform:translateY(-2px)}
+  .social-card .si{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:20px;color:#fff;background:var(--red);flex:none}
+  .social-card.li .si{background:#0a66c2}
+  .social-card.ig .si{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#bc1888)}
+  .social-card.yt .si{background:#ff0000}
+  .social-card b{display:block;font-size:16px}
+  .social-card>div{flex:1}
+  .social-card>div span{font-size:13px;color:var(--muted)}
+  .social-card .go{color:var(--red);font-weight:700;font-size:14px;white-space:nowrap}
+  .follow-embed{width:100%;max-width:504px;justify-self:center}
+  .follow-embed iframe{width:100%;max-width:504px;height:895px;border:1.5px solid var(--green);border-radius:var(--radius);background:#fff;display:block}
+
 </style>
 </head>
 <body>
@@ -578,6 +616,39 @@
   </div>
 </section>
 
+<!-- FOLLOW -->
+<section id="follow" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Follow</span>
+      <h2>Follow along</h2>
+      <p class="lead">Daily AI-Growth playbooks, demos and behind-the-scenes. Pick your platform.</p>
+    </div>
+    <div class="follow-grid">
+      <div class="follow-links">
+        <a class="social-card li" href="https://www.linkedin.com/in/danitbensimon" target="_blank" rel="noopener">
+          <span class="si">in</span>
+          <div><b>LinkedIn</b><span>Playbooks, posts &amp; pipeline tactics</span></div>
+          <span class="go">Follow -&gt;</span>
+        </a>
+        <a class="social-card ig" href="https://www.instagram.com/danitbensimon" target="_blank" rel="noopener">
+          <span class="si">&#9673;</span>
+          <div><b>Instagram</b><span>Behind the scenes &amp; reels</span></div>
+          <span class="go">Follow -&gt;</span>
+        </a>
+        <a class="social-card yt" href="https://www.youtube.com/@danitbensimon-b2bmarketingai" target="_blank" rel="noopener">
+          <span class="si">&#9654;</span>
+          <div><b>YouTube</b><span>Talks, demos &amp; tutorials</span></div>
+          <span class="go">Subscribe -&gt;</span>
+        </a>
+      </div>
+      <div class="follow-embed">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7475449968456179712?collapsed=1" height="895" width="504" frameborder="0" allowfullscreen title="Embedded LinkedIn post" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section id="faq">
   <div class="wrap" style="max-width:820px">
@@ -639,6 +710,56 @@
   </div>
   <div class="wrap" style="margin-top:20px;color:var(--muted-2)">© 2026 Danit Ben Simon · Built with Claude Code &amp; Cowork</div>
 </footer>
+
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // count-up for stats (runs regardless, quick)
+  function easeOut(t){return 1-Math.pow(1-t,3);}
+  function animateNum(el){
+    var raw=(el.getAttribute('data-final')||el.textContent).trim();
+    var m=raw.match(/^(\d+)(.*)$/); if(!m){return;}
+    el.setAttribute('data-final',raw);
+    if(reduce){el.textContent=raw;return;}
+    var target=parseInt(m[1],10), suffix=m[2], start=null, dur=1200;
+    function step(ts){ if(!start)start=ts; var p=Math.min((ts-start)/dur,1);
+      el.textContent=Math.round(target*easeOut(p))+suffix;
+      if(p<1){requestAnimationFrame(step);} else {el.textContent=raw;} }
+    requestAnimationFrame(step);
+  }
+
+  if(reduce){
+    document.querySelectorAll('.stat b').forEach(animateNum);
+    return;
+  }
+
+  // scroll reveal
+  var sel='.section-head, .why, .about-photo, .about > *, .svc, .talk, .tst, .build, .comm, details, .final-card, .logos .wrap';
+  var els=Array.prototype.slice.call(document.querySelectorAll(sel));
+  els.forEach(function(el){el.classList.add('reveal');});
+
+  // stagger inside grids
+  document.querySelectorAll('.why-grid, .svc-grid, .builds-grid, .tst-grid, .comm-grid, .talks-grid').forEach(function(g){
+    Array.prototype.forEach.call(g.children, function(c,i){ if(c.classList.contains('reveal')) c.style.transitionDelay=(i*0.08)+'s'; });
+  });
+
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        e.target.querySelectorAll && e.target.querySelectorAll('.stat b').forEach(animateNum);
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){io.observe(el);});
+
+  // hero stats animate shortly after load (hero card not in reveal set)
+  setTimeout(function(){ document.querySelectorAll('.hero-card .stat b').forEach(animateNum); }, 650);
+})();
+</script>
 
 </body>
 </html>
