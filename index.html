@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" sizes="180x180" href="assets/favicon-180.png" />
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png" />
+<link rel="apple-touch-icon" href="assets/favicon-180.png" />
+<link rel="shortcut icon" href="assets/favicon.ico" />
+
 
 <!-- ============ SEO ============ -->
 <title>Danit Ben Simon - AI-Growth Workshops, Tools &amp; Agents for B2B SaaS</title>
@@ -336,17 +341,28 @@
   }
 
 
-  /* ===== site-wide leopard background ===== */
-  .leopard-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;
-    background:url(assets/leopard-pattern.svg) repeat;background-size:300px;
-    opacity:.5;animation:drift 80s linear infinite}
-  @keyframes drift{from{background-position:0 0}to{background-position:300px 300px}}
-  @media (prefers-reduced-motion: reduce){.leopard-bg{animation:none}}
+  /* ===== site-wide leopard mascots ===== */
+  .leo-deco{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+  .leo-deco .leo{position:absolute;filter:drop-shadow(0 8px 16px rgba(0,0,0,.07))}
+  .leo-a{width:240px;left:-52px;bottom:-12px;opacity:.45;animation:floatY 9s ease-in-out infinite}
+  .leo-b{width:240px;right:-60px;top:33%;opacity:.4;animation:floatYflip 12s ease-in-out infinite}
+  .leo-c{width:165px;right:1%;bottom:-8px;opacity:.4;animation:floatY 8s ease-in-out infinite}
+  .leo-d{width:118px;left:2%;top:15%;opacity:.6;animation:sway 7s ease-in-out infinite}
+  @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+  @keyframes floatYflip{0%,100%{transform:scaleX(-1) translateY(0)}50%{transform:scaleX(-1) translateY(-18px)}}
+  @keyframes sway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+  @media (prefers-reduced-motion: reduce){.leo-a,.leo-b,.leo-c,.leo-d{animation:none}.leo-b{transform:scaleX(-1)}}
+  @media (max-width:980px){.leo-deco{display:none}}
 
 </style>
 </head>
 <body>
-<div class="leopard-bg" aria-hidden="true"></div>
+<div class="leo-deco" aria-hidden="true">
+  <img class="leo leo-a" src="assets/leo-walk-web.png" alt="" loading="lazy">
+  <img class="leo leo-b" src="assets/leo-roar-web.png" alt="" loading="lazy">
+  <img class="leo leo-c" src="assets/leo-stand-web.png" alt="" loading="lazy">
+  <img class="leo leo-d" src="assets/leo-bow-web.png" alt="" loading="lazy">
+</div>
 
 
 <div class="topbar">
@@ -372,9 +388,6 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-glow"></div>
-  <span class="paw paw1" aria-hidden="true">&#128062;</span>
-  <span class="paw paw2" aria-hidden="true">&#128062;</span>
-  <span class="paw paw3" aria-hidden="true">&#128062;</span>
 
   <div class="wrap hero-grid">
     <div>
