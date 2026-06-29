@@ -85,7 +85,7 @@
 <style>
   :root{
     --bg:#FBF6E9;        /* bright cream */
-    --bg-2:#F2E8D2;      /* deeper cream */
+    --bg-2:rgba(242,232,210,.55); /* deeper cream (translucent) */
     --card:#FFFFFF;
     --card-2:#FFFDF7;
     --line:#E7DBC1;      /* warm border */
@@ -103,9 +103,9 @@
     --shadow:0 6px 24px rgba(34,30,22,.07);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;background:var(--bg)}
   body{
-    background:var(--bg);
+    background:transparent;
     color:var(--text);
     font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
     line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;
@@ -335,9 +335,18 @@
     .hero-glow{animation:none}
   }
 
+
+  /* ===== site-wide leopard background ===== */
+  .leopard-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:url(assets/leopard-pattern.svg) repeat;background-size:300px;
+    opacity:.5;animation:drift 80s linear infinite}
+  @keyframes drift{from{background-position:0 0}to{background-position:300px 300px}}
+  @media (prefers-reduced-motion: reduce){.leopard-bg{animation:none}}
+
 </style>
 </head>
 <body>
+<div class="leopard-bg" aria-hidden="true"></div>
 
 
 <div class="topbar">
