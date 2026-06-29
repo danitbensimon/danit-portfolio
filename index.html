@@ -341,13 +341,15 @@
   }
 
 
-  /* ===== sparse per-section leopard accents ===== */
+  /* ===== leopard accent in headings + logo ===== */
   section{position:relative}
   .wrap{position:relative;z-index:1}
-  .sec-leo{position:absolute;z-index:0;pointer-events:none;opacity:.5;
-    filter:drop-shadow(0 8px 16px rgba(0,0,0,.06));animation:floatY 9s ease-in-out infinite}
-  @media (prefers-reduced-motion: reduce){.sec-leo{animation:none}}
-  @media (max-width:1180px){.sec-leo{display:none}}
+  .head-leo{height:54px;width:auto;vertical-align:middle;margin-left:16px;
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,.08));animation:bob 5s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  .brand .brand-leo{width:38px;height:38px;border-radius:10px;object-fit:cover;background:var(--green-bright);flex:none}
+  @media (prefers-reduced-motion: reduce){.head-leo{animation:none}}
+  @media (max-width:560px){.head-leo{height:38px;margin-left:10px}}
 
 </style>
 </head>
@@ -360,7 +362,7 @@
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top"><span class="dot">D</span> Danit Ben Simon</a>
+    <a class="brand" href="#top"><img class="brand-leo" src="assets/favicon-180.png" alt="Danit Ben Simon"> Danit Ben Simon</a>
     <nav>
       <ul>
         <li><a href="#work">Work with me</a></li>
@@ -430,11 +432,10 @@
 
 <!-- WHY -->
 <section id="why">
-  <img class="sec-leo" src="assets/leo-walk-web.png" alt="" loading="lazy" style="right:0;bottom:18px;width:120px">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Why me</span>
-      <h2>Why work with me</h2>
+      <h2>Why work with me <img class="head-leo" src="assets/leo-walk-web.png" alt="" loading="lazy"></h2>
     </div>
     <div class="why-grid">
       <div class="why">
@@ -481,11 +482,10 @@
 
 <!-- WORK WITH ME -->
 <section id="work">
-  <img class="sec-leo" src="assets/leo-stand-web.png" alt="" loading="lazy" style="left:0;top:80px;width:115px">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Services</span>
-      <h2>Work with me</h2>
+      <h2>Work with me <img class="head-leo" src="assets/leo-stand-web.png" alt="" loading="lazy"></h2>
       <p class="lead">Most teams start with a workshop and leave with something live. Everything begins with a short call.</p>
     </div>
     <div class="svc-grid">
@@ -574,11 +574,10 @@
 
 <!-- BUILDS -->
 <section id="builds" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <img class="sec-leo" src="assets/leo-bow-web.png" alt="" loading="lazy" style="right:1%;top:64px;width:100px">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Builds</span>
-      <h2>Portfolio</h2>
+      <h2>Portfolio <img class="head-leo" src="assets/leo-bow-web.png" alt="" loading="lazy"></h2>
       <p class="lead">Real products in use today - proof the playbooks work.</p>
     </div>
     <div class="builds-grid">
@@ -693,11 +692,10 @@
 
 <!-- FAQ -->
 <section id="faq">
-  <img class="sec-leo" src="assets/leo-roar-web.png" alt="" loading="lazy" style="left:0;top:38%;width:120px">
   <div class="wrap" style="max-width:820px">
     <div class="section-head" style="margin:0 auto 38px;text-align:center">
       <span class="eyebrow">FAQ</span>
-      <h2>Common questions</h2>
+      <h2>Common questions <img class="head-leo" src="assets/leo-roar-web.png" alt="" loading="lazy"></h2>
     </div>
     <details open>
       <summary>What exactly do you do? <span class="plus">+</span></summary>
@@ -740,7 +738,7 @@
 <footer>
   <div class="wrap foot-grid">
     <div>
-      <div class="brand" style="margin-bottom:8px"><span class="dot">D</span> Danit Ben Simon</div>
+      <div class="brand" style="margin-bottom:8px"><img class="brand-leo" src="assets/favicon-180.png" alt="Danit Ben Simon"> Danit Ben Simon</div>
       <div style="max-width:280px;color:var(--muted)">AI-Growth workshops, tools &amp; agents that drive pipeline for B2B SaaS.</div>
     </div>
     <div class="foot-links">
