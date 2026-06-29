@@ -314,6 +314,27 @@
   .follow-embed{width:100%;max-width:504px;justify-self:center}
   .follow-embed iframe{width:100%;max-width:504px;height:895px;border:1.5px solid var(--green);border-radius:var(--radius);background:#fff;display:block}
 
+
+  /* ===== extra motion + leopard elements ===== */
+  .marquee{overflow:hidden;background:var(--red);color:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .marquee .track{display:inline-flex;white-space:nowrap;will-change:transform;animation:marq 28s linear infinite;font-weight:800;letter-spacing:.05em;font-size:15px;text-transform:uppercase;padding:12px 0}
+  .marquee .track span{padding:0 22px}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .hero .paw{position:absolute;font-size:42px;opacity:.13;pointer-events:none;user-select:none}
+  .paw1{top:16%;left:5%;animation:float1 7s ease-in-out infinite}
+  .paw2{bottom:14%;left:43%;font-size:30px;animation:float2 9s ease-in-out infinite}
+  .paw3{top:30%;right:4%;font-size:34px;animation:float1 8s ease-in-out infinite}
+  @keyframes float1{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-16px) rotate(6deg)}}
+  @keyframes float2{0%,100%{transform:translateY(0) rotate(6deg)}50%{transform:translateY(14px) rotate(-6deg)}}
+  .hero-glow{animation:glowpulse 9s ease-in-out infinite}
+  @keyframes glowpulse{0%,100%{opacity:1}50%{opacity:.55}}
+  .section-head h2 em, .accent{position:relative}
+  @media (prefers-reduced-motion: reduce){
+    .marquee .track{animation:none}
+    .hero .paw{animation:none}
+    .hero-glow{animation:none}
+  }
+
 </style>
 </head>
 <body>
@@ -342,6 +363,10 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-glow"></div>
+  <span class="paw paw1" aria-hidden="true">&#128062;</span>
+  <span class="paw paw2" aria-hidden="true">&#128062;</span>
+  <span class="paw paw3" aria-hidden="true">&#128062;</span>
+
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow" style="font-size:16px;letter-spacing:.12em">AI-Growth for B2B SaaS</span>
@@ -360,7 +385,7 @@
     <div class="hero-card">
       <div class="hero-avatar-wrap">
         <span class="ring"></span>
-        <img class="hero-caric" src="assets/danit-leopard.png" alt="Danit Ben Simon" loading="lazy" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'hero-caric caric-fallback',textContent:'DBS'}))" />
+        <img class="hero-caric" src="assets/danit-leopard.gif" alt="Danit Ben Simon" loading="lazy" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'hero-caric caric-fallback',textContent:'DBS'}))" />
       </div>
       <div class="name">
         <strong>Danit Ben Simon</strong><br>
@@ -381,6 +406,14 @@
   <div class="wrap">
     <span class="label">Built &amp; led growth at</span>
     <div class="names"><span>Vendict</span><span>InfiniGrow</span><span>Walnut.io</span><span>K2view</span><span>MBA · Bar-Ilan</span></div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>AI-Growth</span><span>&#128006;</span><span>Pipeline</span><span>&#128062;</span><span>Workshops</span><span>&#128006;</span><span>Claude Code</span><span>&#128062;</span><span>AI Agents</span><span>&#128006;</span><span>GTM Automation</span><span>&#128062;</span><span>Less manual work</span><span>&#128006;</span>
+    <span>AI-Growth</span><span>&#128006;</span><span>Pipeline</span><span>&#128062;</span><span>Workshops</span><span>&#128006;</span><span>Claude Code</span><span>&#128062;</span><span>AI Agents</span><span>&#128006;</span><span>GTM Automation</span><span>&#128062;</span><span>Less manual work</span><span>&#128006;</span>
   </div>
 </div>
 
@@ -448,28 +481,24 @@
         <span class="num">01</span>
         <h3>AI-Growth Workshop</h3>
         <p>Half-day, hands-on session for your team (up to 5). We map your AI-Growth roadmap and ship something live by the end. The fastest way to upskill a GTM team on AI.</p>
-        <div class="price">$2,000 <span style="color:var(--muted);font-weight:500;font-size:14px">/ half day</span></div>
         <a class="go" href="https://meetings-eu1.hubspot.com/dben-simon">Book the workshop →</a>
       </div>
       <div class="svc">
         <span class="num">02</span>
         <h3>Consultation &amp; Mentoring</h3>
         <p>1:1 session. I teach you to build your own AI tools, agents and GTM automations with Claude Code &amp; Cowork.</p>
-        <div class="price">$250 <span style="color:var(--muted);font-weight:500;font-size:14px">/ hour</span></div>
         <a class="go" href="https://meetings-eu1.hubspot.com/dben-simon">Book a session →</a>
       </div>
       <div class="svc">
         <span class="num">03</span>
         <h3>Custom GTM Agents &amp; Tools</h3>
         <p>I build a bespoke AI agent or tool for your team - from spec to shipped product in 1-3 weeks.</p>
-        <div class="price">Custom <span style="color:var(--muted);font-weight:500;font-size:14px">scope-based</span></div>
         <a class="go" href="https://meetings-eu1.hubspot.com/dben-simon">Get in touch →</a>
       </div>
       <div class="svc">
         <span class="num">04</span>
         <h3>Rent an Agent</h3>
         <p>Use one of my existing AI-Growth agents on retainer. Plug it into your stack - I keep it running and improving.</p>
-        <div class="price">Retainer <span style="color:var(--muted);font-weight:500;font-size:14px">monthly</span></div>
         <a class="go" href="https://meetings-eu1.hubspot.com/dben-simon">Get in touch →</a>
       </div>
     </div>
@@ -610,7 +639,6 @@
         <h3>PipeX - get the tools first</h3>
         <p>Join the insiders group. Early access to every new tool, playbook and workflow before they go public.</p>
         <a class="btn btn-primary" href="https://chat.whatsapp.com/J06BrRE1cQaE91uFu1e5jF?mode=gi_t">Join PipeX</a>
-        <img class="pipex-sig" src="assets/pipex-signature.gif" alt="PipeX animated signature" loading="lazy" />
       </div>
     </div>
   </div>
