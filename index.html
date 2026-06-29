@@ -341,28 +341,17 @@
   }
 
 
-  /* ===== site-wide leopard mascots ===== */
-  .leo-deco{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-  .leo-deco .leo{position:absolute;filter:drop-shadow(0 8px 16px rgba(0,0,0,.07))}
-  .leo-a{width:240px;left:-52px;bottom:-12px;opacity:.45;animation:floatY 9s ease-in-out infinite}
-  .leo-b{width:240px;right:-60px;top:33%;opacity:.4;animation:floatYflip 12s ease-in-out infinite}
-  .leo-c{width:165px;right:1%;bottom:-8px;opacity:.4;animation:floatY 8s ease-in-out infinite}
-  .leo-d{width:118px;left:2%;top:15%;opacity:.6;animation:sway 7s ease-in-out infinite}
-  @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
-  @keyframes floatYflip{0%,100%{transform:scaleX(-1) translateY(0)}50%{transform:scaleX(-1) translateY(-18px)}}
-  @keyframes sway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
-  @media (prefers-reduced-motion: reduce){.leo-a,.leo-b,.leo-c,.leo-d{animation:none}.leo-b{transform:scaleX(-1)}}
-  @media (max-width:980px){.leo-deco{display:none}}
+  /* ===== sparse per-section leopard accents ===== */
+  section{position:relative}
+  .wrap{position:relative;z-index:1}
+  .sec-leo{position:absolute;z-index:0;pointer-events:none;opacity:.5;
+    filter:drop-shadow(0 8px 16px rgba(0,0,0,.06));animation:floatY 9s ease-in-out infinite}
+  @media (prefers-reduced-motion: reduce){.sec-leo{animation:none}}
+  @media (max-width:1180px){.sec-leo{display:none}}
 
 </style>
 </head>
 <body>
-<div class="leo-deco" aria-hidden="true">
-  <img class="leo leo-a" src="assets/leo-walk-web.png" alt="" loading="lazy">
-  <img class="leo leo-b" src="assets/leo-roar-web.png" alt="" loading="lazy">
-  <img class="leo leo-c" src="assets/leo-stand-web.png" alt="" loading="lazy">
-  <img class="leo leo-d" src="assets/leo-bow-web.png" alt="" loading="lazy">
-</div>
 
 
 <div class="topbar">
@@ -441,6 +430,7 @@
 
 <!-- WHY -->
 <section id="why">
+  <img class="sec-leo" src="assets/leo-walk-web.png" alt="" loading="lazy" style="right:0;bottom:18px;width:120px">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Why me</span>
@@ -491,6 +481,7 @@
 
 <!-- WORK WITH ME -->
 <section id="work">
+  <img class="sec-leo" src="assets/leo-stand-web.png" alt="" loading="lazy" style="left:0;top:80px;width:115px">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Services</span>
@@ -583,6 +574,7 @@
 
 <!-- BUILDS -->
 <section id="builds" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <img class="sec-leo" src="assets/leo-bow-web.png" alt="" loading="lazy" style="right:1%;top:64px;width:100px">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Builds</span>
@@ -701,6 +693,7 @@
 
 <!-- FAQ -->
 <section id="faq">
+  <img class="sec-leo" src="assets/leo-roar-web.png" alt="" loading="lazy" style="left:0;top:38%;width:120px">
   <div class="wrap" style="max-width:820px">
     <div class="section-head" style="margin:0 auto 38px;text-align:center">
       <span class="eyebrow">FAQ</span>
