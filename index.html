@@ -249,7 +249,7 @@
   .project-media img,.project-media iframe,.project-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
   .project:hover .project-media img,.project:hover .project-media iframe,.project:hover .project-media video{transform:scale(1.04)}
   /* live site preview: render page at desktop width, scale down to fit (sized by JS) */
-  .project-media.site iframe{inset:auto;top:0;left:0;width:1440px;height:900px;object-fit:unset;transform-origin:top left;pointer-events:none;transition:none}
+  .project-media.site iframe{inset:auto;top:0;left:0;width:1440px;height:810px;object-fit:unset;transform-origin:top left;pointer-events:none;transition:none}
   .project:hover .project-media.site iframe{transform:none}
   .project-body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
   .project .tag{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
@@ -450,20 +450,6 @@
     </div>
     <div class="projects-grid">
 
-      <!-- Nadlan Investment Agent (newest build, featured) -->
-      <article class="project featured">
-        <span class="badge-new">New</span>
-        <div class="project-media site">
-          <iframe src="https://danitbensimon.github.io/nadlan-investment-agent/index.html" title="Real Estate Investment Agent preview" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
-        </div>
-        <div class="project-body">
-          <span class="tag">AI Agent · Real Estate</span>
-          <h3>Real Estate Investment Agent</h3>
-          <p>An agent that scans residential markets in Tel Aviv, Athens, Lesbos and Cyprus, scores every deal by rental yield, price gap and micro-location, then produces an interactive report where each number links back to its public source. The rule: a number without a source doesn't exist.</p>
-          <a class="go" href="https://danitbensimon.github.io/nadlan-investment-agent/index.html" target="_blank" rel="noopener">Open the agent →</a>
-        </div>
-      </article>
-
       <article class="project">
         <div class="project-media">
           <iframe src="https://www.youtube-nocookie.com/embed/kxp30DWq9Cw?rel=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=kxp30DWq9Cw&amp;controls=0&amp;modestbranding=1&amp;playsinline=1" title="CompetitorCustomer demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -551,6 +537,20 @@
           <h3>Webinar Enrichment Workflow</h3>
           <p>Enrich every sign-up with LinkedIn data, send a personal connect, then deliver the guide. Cold leads warm up.</p>
           <a class="go" href="https://youtu.be/T-xRHclACYo" target="_blank" rel="noopener">Watch the video →</a>
+        </div>
+      </article>
+
+      <!-- Real Estate Investment Agent (newest build) -->
+      <article class="project">
+        <span class="badge-new">New</span>
+        <div class="project-media site">
+          <iframe src="https://danitbensimon.github.io/nadlan-investment-agent/index.html" title="Real Estate Investment Agent preview" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+        </div>
+        <div class="project-body">
+          <span class="tag">AI Agent · Real Estate</span>
+          <h3>Real Estate Investment Agent</h3>
+          <p>An agent that scans residential markets in Tel Aviv, Athens, Lesbos and Cyprus, scores every deal by rental yield, price gap and micro-location, then produces an interactive report where each number links back to its public source. The rule: a number without a source doesn't exist.</p>
+          <a class="go" href="https://danitbensimon.github.io/nadlan-investment-agent/index.html" target="_blank" rel="noopener">Open the agent →</a>
         </div>
       </article>
 
@@ -791,7 +791,7 @@
       var f=box.querySelector('iframe'); if(!f) return;
       var w=box.clientWidth, base=1440, s=w/base;
       f.style.transform='scale('+s+')';
-      box.style.height=(900*s)+'px';
+      box.style.height=(810*s)+'px';
     });
   }
   fitSite();
