@@ -236,16 +236,27 @@
   .tst .who span{font-size:12.5px;color:var(--muted-2)}
   .sample-tag{display:inline-block;background:rgba(124,181,24,.16);color:var(--green);font-size:11px;font-weight:700;letter-spacing:.05em;padding:4px 10px;border-radius:999px;margin-top:10px}
 
-  /* builds */
-  .builds-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  @media(max-width:880px){.builds-grid{grid-template-columns:1fr 1fr}}
-  @media(max-width:560px){.builds-grid{grid-template-columns:1fr}}
-  .build{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:8px;transition:.18s;box-shadow:var(--shadow)}
-  .build:hover{transform:translateY(-2px)}
-  .build .tag{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
-  .build h3{font-size:17px}
-  .build p{color:var(--muted);font-size:13.5px;flex:1}
-  .build a.go{color:var(--red);font-weight:700;font-size:13.5px}
+  /* projects (media-first) */
+  .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+  @media(max-width:820px){.projects-grid{grid-template-columns:1fr;gap:22px}}
+  .project{position:relative;background:var(--card);border:1.5px solid var(--green);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+  .project:hover{transform:translateY(-4px);box-shadow:0 18px 42px rgba(34,30,22,.13)}
+  .project.featured{grid-column:1 / -1}
+  @media(max-width:820px){.project.featured{grid-column:auto}}
+  .project-media{position:relative;aspect-ratio:16/9;background:#0e1230;overflow:hidden;border-bottom:1.5px solid var(--green)}
+  .project.featured .project-media{aspect-ratio:16/7}
+  @media(max-width:640px){.project.featured .project-media{aspect-ratio:16/9}}
+  .project-media img,.project-media iframe,.project-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .project:hover .project-media img,.project:hover .project-media iframe,.project:hover .project-media video{transform:scale(1.04)}
+  /* live site preview: render page at desktop width, scale down to fit (sized by JS) */
+  .project-media.site iframe{inset:auto;top:0;left:0;width:1440px;height:900px;object-fit:unset;transform-origin:top left;pointer-events:none;transition:none}
+  .project:hover .project-media.site iframe{transform:none}
+  .project-body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .project .tag{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+  .project h3{font-size:19px}
+  .project p{color:var(--muted);font-size:14.5px;flex:1}
+  .project a.go{color:var(--red);font-weight:700;font-size:14px;margin-top:4px;align-self:flex-start}
+  .project .badge-new{position:absolute;top:14px;left:14px;z-index:4;background:var(--red);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px;box-shadow:0 4px 12px rgba(215,45,31,.32)}
 
   /* community */
   #community{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -365,11 +376,10 @@
     <a class="brand" href="#top"><img class="brand-leo" src="assets/favicon-180.png" alt="Danit Ben Simon"> Danit Ben Simon</a>
     <nav>
       <ul>
-        <li><a href="#work">Book a meeting</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#builds">Projects</a></li>
         <li><a href="#results">Talks</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#testimonials">Reviews</a></li>
-        <li><a href="#builds">Builds</a></li>
       </ul>
     </nav>
     <a class="btn btn-primary" href="https://meetings-eu1.hubspot.com/dben-simon">Book a call</a>
@@ -434,59 +444,116 @@
 <section id="builds" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Builds</span>
-      <h2>Portfolio <img class="head-leo" src="assets/leo-bow-web.png" alt="" loading="lazy"></h2>
-      <p class="lead">Real products in use today - proof the playbooks work.</p>
+      <span class="eyebrow">Projects</span>
+      <h2>Things I've built <img class="head-leo" src="assets/leo-bow-web.png" alt="" loading="lazy"></h2>
+      <p class="lead">Real products shipped and in use today, each one designed, built and launched hands-on.</p>
     </div>
-    <div class="builds-grid">
-      <div class="build">
-        <span class="tag">Featured</span>
-        <h3>CompetitorCustomer</h3>
-        <p>Pulls any competitor's customer list from 6 signal sources. The engine behind the 10× outbound campaign.</p>
-        <a class="go" href="https://competitorcustomer.com">Open tool →</a>
-      </div>
-      <div class="build" id="assessment">
-        <span class="tag">Assessment</span>
-        <h3>AI-Growth Assessment</h3>
-        <p>3-minute self-assessment for marketing teams. Get a custom plan of which AI workflows to automate first.</p>
-        <a class="go" href="https://project-awesome-moon-804.magicpatterns.app">Take it free →</a>
-      </div>
-      <div class="build">
-        <span class="tag">New</span>
-        <h3>Real-Time Sales Coach</h3>
-        <p>Listens to live sales calls and surfaces in-call coaching - objections, next questions, missed signals.</p>
-        <a class="go" href="https://youtu.be/FzWOmDGK-xg">Watch the demo →</a>
-      </div>
-      <div class="build">
-        <span class="tag">ABM Lead Gen</span>
-        <h3>Event Attendee Scraper</h3>
-        <p>Pulls every speaker, sponsor and attendee from any event page into a clean list - 350 names in one click.</p>
-        <a class="go" href="https://drive.google.com/drive/folders/1389Frjkx11nc-7pkdqsYGHD3gJLpp9xO?usp=drive_link">Chrome extension →</a>
-      </div>
-      <div class="build">
-        <span class="tag">Chrome Ext</span>
-        <h3>LinkedIn Post Engagement Scraper</h3>
-        <p>Scrapes everyone who reacted to a LinkedIn post into a clean lead list.</p>
-        <a class="go" href="https://drive.google.com/drive/folders/1zICc4enXBH8-P6C0p_21OEpVjlkNA5SQ?usp=sharing">Chrome extension →</a>
-      </div>
-      <div class="build">
-        <span class="tag">Consumer SaaS</span>
-        <h3>Glow Lab</h3>
-        <p>Consumer SaaS for personalized Korean skincare. Photo-to-diagnosis flow, built solo from scratch.</p>
-        <a class="go" href="https://kglowskin.app">Visit kglowskin.app →</a>
-      </div>
-      <div class="build">
-        <span class="tag">Playbook</span>
-        <h3>Intent Outreach Workflow</h3>
-        <p>Build a free tool, post it, capture every interaction, reach out with intent. CPL drops, conversion climbs.</p>
-        <a class="go" href="https://meetings-eu1.hubspot.com/dben-simon">Book a workshop →</a>
-      </div>
-      <div class="build">
-        <span class="tag">Playbook</span>
-        <h3>Webinar Enrichment Workflow</h3>
-        <p>Enrich every sign-up with LinkedIn data, send a personal connect, deliver the guide. Cold leads warm up.</p>
-        <a class="go" href="https://youtu.be/T-xRHclACYo">Watch the video →</a>
-      </div>
+    <div class="projects-grid">
+
+      <!-- Nadlan Investment Agent (newest build, featured) -->
+      <article class="project featured">
+        <span class="badge-new">New</span>
+        <div class="project-media site">
+          <iframe src="https://danitbensimon.github.io/nadlan-investment-agent/index.html" title="Real Estate Investment Agent preview" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+        </div>
+        <div class="project-body">
+          <span class="tag">AI Agent · Real Estate</span>
+          <h3>Real Estate Investment Agent</h3>
+          <p>An agent that scans residential markets in Tel Aviv, Athens, Lesbos and Cyprus, scores every deal by rental yield, price gap and micro-location, then produces an interactive report where each number links back to its public source. The rule: a number without a source doesn't exist.</p>
+          <a class="go" href="https://danitbensimon.github.io/nadlan-investment-agent/index.html" target="_blank" rel="noopener">Open the agent →</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-media">
+          <iframe src="https://www.youtube-nocookie.com/embed/kxp30DWq9Cw?rel=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=kxp30DWq9Cw&amp;controls=0&amp;modestbranding=1&amp;playsinline=1" title="CompetitorCustomer demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="project-body">
+          <span class="tag">Featured</span>
+          <h3>CompetitorCustomer</h3>
+          <p>Pulls any competitor's customer list from 6 signal sources. The engine behind the 10× outbound campaign.</p>
+          <a class="go" href="https://competitorcustomer.com" target="_blank" rel="noopener">Open tool →</a>
+        </div>
+      </article>
+
+      <article class="project" id="assessment">
+        <div class="project-media">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/ai-assessment-poster.jpg" aria-label="AI-Growth Assessment demo">
+            <source src="assets/ai-assessment.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-body">
+          <span class="tag">Assessment</span>
+          <h3>AI-Growth Assessment</h3>
+          <p>A 3-minute self-assessment for marketing teams. Get a custom plan of which AI workflows to automate first.</p>
+          <a class="go" href="https://project-awesome-moon-804.magicpatterns.app" target="_blank" rel="noopener">Take it free →</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-media">
+          <iframe src="https://www.youtube-nocookie.com/embed/FzWOmDGK-xg?rel=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=FzWOmDGK-xg&amp;controls=0&amp;modestbranding=1&amp;playsinline=1" title="Real-Time Sales Coach demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="project-body">
+          <span class="tag">New</span>
+          <h3>Real-Time Sales Coach</h3>
+          <p>Listens to live sales calls and surfaces in-call coaching: objections, next questions, missed signals.</p>
+          <a class="go" href="https://youtu.be/FzWOmDGK-xg" target="_blank" rel="noopener">Watch the demo →</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-media">
+          <iframe src="https://www.youtube-nocookie.com/embed/KoMtRFmZx_M?rel=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=KoMtRFmZx_M&amp;controls=0&amp;modestbranding=1&amp;playsinline=1" title="Event Attendee Scraper demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="project-body">
+          <span class="tag">ABM Lead Gen</span>
+          <h3>Event Attendee Scraper</h3>
+          <p>Pulls every speaker, sponsor and attendee from any event page into a clean list, 350 names in one click.</p>
+          <a class="go" href="https://drive.google.com/drive/folders/1389Frjkx11nc-7pkdqsYGHD3gJLpp9xO?usp=drive_link" target="_blank" rel="noopener">Chrome extension →</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-media">
+          <video controls preload="metadata" poster="assets/linkedin-post-scraper-poster.jpg" aria-label="LinkedIn Post Engagement Scraper demo">
+            <source src="assets/linkedin-post-scraper.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-body">
+          <span class="tag">Chrome Ext</span>
+          <h3>LinkedIn Post Engagement Scraper</h3>
+          <p>Scrapes everyone who reacted to a LinkedIn post into a clean lead list.</p>
+          <a class="go" href="https://drive.google.com/drive/folders/1zICc4enXBH8-P6C0p_21OEpVjlkNA5SQ?usp=sharing" target="_blank" rel="noopener">Chrome extension →</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-media">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/glowlab-poster.jpg" aria-label="Glow Lab product demo">
+            <source src="assets/glowlab.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-body">
+          <span class="tag">Consumer SaaS</span>
+          <h3>Glow Lab</h3>
+          <p>Consumer SaaS for personalized Korean skincare. Photo-to-diagnosis flow, built solo from scratch.</p>
+          <a class="go" href="https://kglowskin.app" target="_blank" rel="noopener">Visit kglowskin.app →</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-media">
+          <iframe src="https://www.youtube-nocookie.com/embed/F00R3hhD9fQ?rel=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=F00R3hhD9fQ&amp;controls=0&amp;modestbranding=1&amp;playsinline=1" title="Webinar Enrichment Workflow demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="project-body">
+          <span class="tag">Playbook</span>
+          <h3>Webinar Enrichment Workflow</h3>
+          <p>Enrich every sign-up with LinkedIn data, send a personal connect, then deliver the guide. Cold leads warm up.</p>
+          <a class="go" href="https://youtu.be/F00R3hhD9fQ" target="_blank" rel="noopener">Watch the video →</a>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -502,7 +569,7 @@
       <div class="why">
         <div class="ic">🛠️</div>
         <h3>I build - not just talk</h3>
-        <p>I've shipped 8 real AI-Growth tools - competitor discovery engines, event scrapers, LinkedIn actors, a real-time sales coach. Every workshop runs on what works in the field.</p>
+        <p>I've shipped real growth tools: competitor discovery engines, event scrapers, LinkedIn actors, a real-time sales coach, a real estate investment agent. Everything you see here I designed and launched myself.</p>
       </div>
       <div class="why">
         <div class="ic">📈</div>
@@ -536,20 +603,6 @@
       </div>
       <div class="cta-row" style="margin-top:22px">
         <a class="btn btn-primary" href="https://meetings-eu1.hubspot.com/dben-simon">Let's build together →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BOOK A MEETING -->
-<section id="work">
-  <div class="wrap">
-    <div class="section-head" style="margin-bottom:0">
-      <span class="eyebrow">Book a meeting</span>
-      <h2>Let's talk <img class="head-leo" src="assets/leo-stand-web.png" alt="" loading="lazy"></h2>
-      <p class="lead">Grab 30 minutes on my calendar. We'll map where AI fits in your GTM and the fastest first step.</p>
-      <div class="cta-row" style="margin-top:22px">
-        <a class="btn btn-primary" href="https://meetings-eu1.hubspot.com/dben-simon">Book a meeting →</a>
       </div>
     </div>
   </div>
@@ -674,23 +727,23 @@
     </div>
     <details open>
       <summary>What exactly do you do? <span class="plus">+</span></summary>
-      <div class="body">I help B2B SaaS teams use AI to drive pipeline - three ways: I run hands-on workshops that teach your GTM team to build AI tools and automations, I build custom agents and tools for you, and I share the playbooks and tools through my communities. The goal is always the same: more pipeline with a smaller team.</div>
+      <div class="body">I'm a B2B SaaS growth marketer who ships. I plan the pipeline strategy and build the tools and agents that run it, from competitor discovery engines to a real estate investment agent. All of the projects above are live.</div>
     </details>
     <details>
-      <summary>Who is the workshop for? <span class="plus">+</span></summary>
-      <div class="body">Marketing, demand gen, ABM and sales teams at B2B SaaS companies - technical background not required. We work on your real GTM challenges, and your team leaves with a roadmap and something live.</div>
+      <summary>What kind of role are you looking for? <span class="plus">+</span></summary>
+      <div class="body">A senior, full-time growth role at a B2B SaaS company, demand gen, growth or GTM lead, where I can own the pipeline and build the AI that powers it. I led demand gen and ABM at Vendict, InfiniGrow, Walnut.io and K2view.</div>
     </details>
     <details>
-      <summary>Do we need engineers to build these tools? <span class="plus">+</span></summary>
-      <div class="body">No. I build with Claude Code &amp; Cowork, which let non-engineers ship working tools. That's the whole point - your marketers become builders.</div>
+      <summary>Do you write code? <span class="plus">+</span></summary>
+      <div class="body">I build with Claude Code and Cowork. I'm not an engineer by title, but I ship real, working products end to end, everything on this page is proof.</div>
     </details>
     <details>
-      <summary>How fast can you build a custom tool? <span class="plus">+</span></summary>
-      <div class="body">Typically 1-3 weeks from spec to a shipped, working product - not a 6-month roadmap.</div>
+      <summary>How fast do you build? <span class="plus">+</span></summary>
+      <div class="body">Typically 1 to 3 weeks from idea to a shipped, working product, not a 6-month roadmap.</div>
     </details>
     <details>
       <summary>How do we get started? <span class="plus">+</span></summary>
-      <div class="body">Book a short call. We'll figure out whether a workshop, a custom build or a quick consultation is the right first step for your team.</div>
+      <div class="body">Book a short call or grab my CV. We'll figure out where I can drive the most pipeline for your team.</div>
     </details>
   </div>
 </section>
@@ -699,12 +752,12 @@
 <section class="final">
   <div class="wrap">
     <div class="final-card">
-      <span class="eyebrow">Let's build</span>
-      <h2>Ready to put AI to work on your pipeline? <img class="head-leo" src="assets/leo-roar-web.png" alt="" loading="lazy"></h2>
-      <p>Book a 30-minute call. We'll map where AI fits in your GTM and the fastest first step - workshop, build or consultation.</p>
+      <span class="eyebrow">Let's talk</span>
+      <h2>Looking for a growth hire who ships? <img class="head-leo" src="assets/leo-roar-web.png" alt="" loading="lazy"></h2>
+      <p>I'm open to full-time senior growth roles. Book a 30-minute call, or take my CV, and let's see if there's a fit.</p>
       <div class="cta-row" style="justify-content:center">
         <a class="btn btn-primary" href="https://meetings-eu1.hubspot.com/dben-simon">Book a call →</a>
-        <a class="btn btn-ghost" href="#assessment">Or take the free assessment</a>
+        <a class="btn btn-ghost" href="assets/Danit-BenSimon-CV.pdf" download="Danit-BenSimon-CV.pdf">Download my CV</a>
       </div>
     </div>
   </div>
@@ -732,6 +785,19 @@
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // live site previews: render the page at desktop width and scale it to fit the card
+  function fitSite(){
+    document.querySelectorAll('.project-media.site').forEach(function(box){
+      var f=box.querySelector('iframe'); if(!f) return;
+      var w=box.clientWidth, base=1440, s=w/base;
+      f.style.transform='scale('+s+')';
+      box.style.height=(900*s)+'px';
+    });
+  }
+  fitSite();
+  window.addEventListener('load',fitSite);
+  window.addEventListener('resize',fitSite);
+
   // count-up for stats (runs regardless, quick)
   function easeOut(t){return 1-Math.pow(1-t,3);}
   function animateNum(el){
@@ -752,12 +818,12 @@
   }
 
   // scroll reveal
-  var sel='.section-head, .why, .about-photo, .about > *, .svc, .talk, .tst, .build, .comm, details, .final-card, .logos .wrap';
+  var sel='.section-head, .why, .about-photo, .about > *, .svc, .talk, .tst, .project, .comm, details, .final-card, .logos .wrap';
   var els=Array.prototype.slice.call(document.querySelectorAll(sel));
   els.forEach(function(el){el.classList.add('reveal');});
 
   // stagger inside grids
-  document.querySelectorAll('.why-grid, .svc-grid, .builds-grid, .tst-grid, .comm-grid, .talks-grid').forEach(function(g){
+  document.querySelectorAll('.why-grid, .svc-grid, .projects-grid, .tst-grid, .comm-grid, .talks-grid').forEach(function(g){
     Array.prototype.forEach.call(g.children, function(c,i){ if(c.classList.contains('reveal')) c.style.transitionDelay=(i*0.08)+'s'; });
   });
 
