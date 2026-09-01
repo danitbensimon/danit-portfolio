@@ -259,7 +259,17 @@
   .project-body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
   .project .tag{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
   .project h3{font-size:19px}
-  .project p{color:var(--muted);font-size:14.5px;flex:1}
+  .project p{color:var(--text);font-size:16px;line-height:1.55;flex:1}
+  /* expandable project detail */
+  .project details{border:0;background:none;box-shadow:none;margin:0;overflow:visible;border-radius:0}
+  .project details summary{padding:0;font-size:14px;font-weight:800;color:var(--red);display:inline-flex;align-items:center;gap:6px;cursor:pointer;list-style:none}
+  .project details summary::-webkit-details-marker{display:none}
+  .project details summary .chev{font-size:11px;transition:transform .2s}
+  .project details[open] summary .chev{transform:rotate(180deg)}
+  .project details summary .lbl::after{content:"See more"}
+  .project details[open] summary .lbl::after{content:"See less"}
+  .project details .more{padding:0;margin-top:14px;display:flex;flex-direction:column;gap:14px;color:var(--text);font-size:15.5px;line-height:1.55}
+  .project details .more b{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
   .project a.go{color:var(--red);font-weight:700;font-size:14px;margin-top:4px;align-self:flex-start}
   .project .badge-new{position:absolute;top:14px;left:14px;z-index:4;background:var(--red);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px;box-shadow:0 4px 12px rgba(215,45,31,.32)}
 
@@ -471,14 +481,35 @@
         <span class="badge-new">New</span>
         <div class="project-media vertical">
           <img class="vbg" src="assets/guidde-ad-poster.jpg" alt="" aria-hidden="true" loading="lazy">
-          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/guidde-ad-poster.jpg" aria-label="Commercial the competitor ad machine produced for Guidde">
+          <video autoplay muted loop playsinline controls preload="metadata" poster="assets/guidde-ad-poster.jpg" aria-label="Ad Heist, the commercial it produced for Guidde">
             <source src="assets/competitor-ad-machine.mp4" type="video/mp4">
           </video>
         </div>
         <div class="project-body">
           <span class="tag">Ad Intelligence · AI Video</span>
-          <h3>Competitor Ad Machine</h3>
-          <p>You give it a brand name and it comes back with a finished commercial. It pulls that brand's competitors' live Facebook ads, scores which one is actually working and why, tears the winner down into a creative brief and storyboard, then produces the video. The ad playing here is the one it built for Guidde, off a real run against Scribe, Loom, Camtasia and WalkMe.</p>
+          <h3>Ad Heist</h3>
+          <p>Type in a brand name and it hands back a finished commercial, built on whatever is already working for that brand's competitors. The ad playing here is the one it produced for Guidde.</p>
+          <details>
+            <summary><span class="lbl"></span><span class="chev">▼</span></summary>
+            <div class="more">
+              <div>
+                <b>What it does</b>
+                It pulls every Facebook ad your competitors are currently running, scores each one on how long it has been live and how hard the brand keeps repeating it, and surfaces the single ad their budget is really behind. Then it takes that winner apart into a teardown, a creative brief and a shot by shot storyboard, and produces the video.
+              </div>
+              <div>
+                <b>Why it beats a brainstorm</b>
+                An ad that has been running for four months is an ad that is paying for itself. That is a free read on the exact hook, angle and format your shared audience already responds to. Most teams still write their creative off a whiteboard and find out what works only after the spend.
+              </div>
+              <div>
+                <b>What it does for leads and conversions</b>
+                You skip the expensive part of paid social, which is burning budget to learn which angle lands. You launch on an angle a competitor already validated with their own money, so a bigger share of your spend sits behind creative that converts instead of creative that is still being tested. And because a brand name goes in and a finished ad comes out the same afternoon, you can put far more angles in market each month, which is the real driver of cost per lead going down.
+              </div>
+              <div>
+                <b>The Guidde run</b>
+                Everything here came from a live run against Scribe, Loom, Camtasia and WalkMe. The winner was a Scribe car POV ad about documentation pain, and the commercial above is the Guidde version the machine built from it.
+              </div>
+            </div>
+          </details>
           <a class="go" href="https://github.com/danitbensimon/guidde-ad-intel" target="_blank" rel="noopener">See how it works →</a>
         </div>
       </article>
