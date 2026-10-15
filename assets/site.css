@@ -158,3 +158,13 @@ footer{padding:40px 0 48px;border-top:1px solid var(--line)}
 footer .brand .wm-1,footer .brand .wm-2,footer .brand .wm-3{font-size:34px}
 h1.hero-quote{font-size:clamp(26px,3vw,38px);line-height:1.2;font-weight:800;letter-spacing:-.02em;margin-bottom:32px}
 a:focus-visible,.btn:focus-visible,.chip:focus-visible{outline:3px solid var(--accent-2);outline-offset:3px}
+.faq-wrap{max-width:860px}
+.qa-list{display:grid;gap:12px}
+.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:0 24px;transition:border-color .2s ease}
+.qa[open]{border-color:var(--accent-2)}
+.qa summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font-family:var(--head);font-weight:700;font-size:20px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";font-size:28px;font-weight:400;color:var(--accent);line-height:1;transition:transform .2s ease}
+.qa[open] summary::after{transform:rotate(45deg)}
+.qa p{padding:0 0 22px;color:var(--muted);font-size:18px;max-width:68ch}
+.wm-dot{position:absolute;left:0;top:0;border-radius:50%;background:currentColor;pointer-events:none;will-change:transform}
