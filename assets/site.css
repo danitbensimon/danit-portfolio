@@ -29,8 +29,8 @@ h3{font-size:24px;line-height:1.2;font-weight:800;letter-spacing:-.01em}
 
 .btn{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:18px;padding:15px 24px;border-radius:999px;border:2px solid transparent;transition:transform .15s ease,background .15s ease}
 .btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--text);color:#fff}
-.btn-primary:hover{background:var(--red)}
+.btn-primary{background:linear-gradient(120deg,#C0221A 0%,#E2412F 45%,#F2793A 100%);background-size:160% 100%;background-position:0 0;color:#fff;transition:transform .15s ease,background-position .3s ease}
+.btn-primary:hover{background-position:100% 0}
 .btn-ghost{border-color:var(--text);color:var(--text);background:transparent}
 .btn-ghost:hover{background:var(--text);color:#fff}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
@@ -154,4 +154,4 @@ footer{padding:40px 0 48px;border-top:1px solid var(--line)}
 @media (max-width:560px){.gtm-grid.three{grid-template-columns:1fr}}
 @media (max-width:560px){.nav-inner{height:76px;gap:10px}.brand{gap:5px}.wm-1{font-size:27px}.wm-2{font-size:23px}.wm-3{font-size:30px}.nav .btn{padding:10px 14px}}
 footer .brand .wm-1{font-size:36px}footer .brand .wm-2{font-size:32px}footer .brand .wm-3{font-size:40px}
-h1.hero-quote{font-size:clamp(32px,4.2vw,52px);line-height:1.1;margin-bottom:32px}
+h1.hero-quote{font-size:clamp(26px,3vw,38px);line-height:1.2;font-weight:800;letter-spacing:-.02em;margin-bottom:32px}
