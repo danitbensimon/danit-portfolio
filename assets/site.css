@@ -170,3 +170,9 @@ a:focus-visible,.btn:focus-visible,.chip:focus-visible{outline:3px solid var(--a
 .wm-dot{position:absolute;left:0;top:0;border-radius:50%;background:currentColor;pointer-events:none;will-change:transform}
 .faq-after{padding-top:0}
 .faq-after .section-head{margin-bottom:20px}
+.follow{text-align:center;padding:56px 0}
+.follow h2{font-size:clamp(26px,3vw,34px);margin:0 0 22px}
+.social{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.social-link{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-weight:700;font-size:18px;transition:border-color .2s ease,transform .15s ease}
+.social-link svg{width:22px;height:22px;color:var(--accent)}
+.social-link:hover{border-color:var(--accent);transform:translateY(-2px)}
