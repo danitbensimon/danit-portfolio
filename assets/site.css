@@ -207,3 +207,78 @@ a:focus-visible,.btn:focus-visible,.chip:focus-visible{outline:3px solid var(--a
 .rent .funnel{margin:8px 0 0}
 .rent-cta{margin-top:36px}
 .rent-cta .btn-primary{box-shadow:none}
+
+/* Jost warm-paper redesign: thin display type, 1 ink accent, quiet CTAs */
+:root{
+  --bg:#F7F3EC;
+  --bg-2:#EFE9DF;
+  --card:#FBF9F5;
+  --line:#DDD6CA;
+  --text:#21201D;
+  --muted:#6B665D;
+  --accent:#21201D;
+  --accent-2:#6B665D;
+  --accent-soft:#EFE9DF;
+  --grad:none;
+  --shadow:none;
+  --head:'Jost',-apple-system,Helvetica,Arial,sans-serif;
+}
+body{font-family:'Jost',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-weight:400}
+header.nav{background:rgba(247,243,236,.88)}
+.eyebrow{font-weight:500;color:var(--muted);letter-spacing:.04em}
+h1{font-weight:200;letter-spacing:-.01em}
+h1 em{color:inherit;font-weight:500}
+h2{font-weight:300;letter-spacing:-.01em}
+h3{font-weight:500}
+.btn{font-weight:400;letter-spacing:.02em;border-radius:4px;transition:transform 160ms ease-out,background-color 200ms ease,border-color 200ms ease}
+.btn:hover{transform:none}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--text);color:var(--bg);box-shadow:none}
+.btn-primary:hover{background:#3A3833}
+.btn-ghost{border:1px solid var(--line)}
+.btn-link{display:inline-flex;align-items:center;gap:12px;font-size:20px;font-weight:400;color:var(--text);padding:0 0 6px;border-bottom:1px solid rgba(33,32,29,.35);transition:transform 160ms ease-out,border-color 200ms ease}
+.btn-link:hover{border-color:var(--text)}
+.btn-link:active{transform:scale(.97)}
+.btn-link .ar{display:inline-block;transition:transform 200ms ease-out}
+.btn-link:hover .ar{transform:translateX(4px)}
+.btn-link.quiet{color:var(--muted);border-color:transparent}
+.btn-link.quiet:hover{color:var(--text);border-color:rgba(33,32,29,.35)}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px 36px}
+.hero-note{font-size:16px;font-weight:300;color:var(--muted);margin-top:14px}
+h1.hero-quote{font-size:clamp(32px,4.2vw,50px);line-height:1.12;font-weight:200;letter-spacing:-.01em;margin:0 0 36px}
+.proof{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:16px;gap:8px 28px}
+.proof b{color:var(--text);font-weight:500}
+.hero-art{border-radius:4px}
+.pillar,.gtm,.qa,.about-photo{border-radius:6px}
+.pillar li::before{background:var(--muted);width:6px;height:6px;top:11px}
+.tag{font-weight:500;color:var(--text);background:var(--bg-2)}
+.go{font-weight:400;color:var(--text);border-bottom:1px solid rgba(33,32,29,.35);padding-bottom:2px}
+.go:hover{text-decoration:none;border-color:var(--text)}
+.pillar li a{font-weight:500}
+.pillar li a:hover{color:var(--text)}
+.facts li::before{background:var(--muted);width:6px;height:6px;top:12px}
+.facts b{font-weight:500}
+.chip{font-weight:400}
+.chip:hover{border-color:var(--text);color:var(--text)}
+.seg{font-weight:400;letter-spacing:.12em}
+.stage-1 .seg{background:#F7F3EC;color:#21201D}
+.stage-2 .seg{background:#CFC8BC;color:#21201D}
+.stage-3 .seg{background:#A39A8C;color:#21201D}
+.bucket>strong{font-weight:500}
+.rent{background:#21201D}
+.rent .eyebrow{color:#D9CFBF}
+.rent .lead{color:#CFC8BC}
+.rent .chip:hover{border-color:#F7F3EC;color:#F7F3EC}
+.rent .btn-link{color:#F7F3EC;border-color:rgba(247,243,236,.4)}
+.rent .btn-link:hover{border-color:#F7F3EC}
+.qa summary{font-weight:400}
+.qa summary::after{font-weight:200}
+.qa[open]{border-color:var(--muted)}
+.social-link{font-weight:400}
+.social-link:hover{border-color:var(--text)}
+.field label{font-weight:500}
+.list-msg{font-weight:400}
+.gtm-media .play{background:rgba(33,32,29,.88)}
+.soon{font-weight:400}
+a:focus-visible,.btn:focus-visible,.chip:focus-visible,.btn-link:focus-visible{outline:2px solid var(--text);outline-offset:4px}
+.final .hero-cta{justify-content:center}
