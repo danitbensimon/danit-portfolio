@@ -141,8 +141,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@1,700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=20261016b">
-<script src="assets/wordmark.js?v=20261016b" defer></script>
+<link rel="stylesheet" href="assets/site.css?v=20261017">
+<script src="assets/wordmark.js?v=20261017" defer></script>
+<script src="assets/newsletter.js?v=20261017" defer></script>
 </head>
 <body>
 
@@ -206,10 +207,19 @@
         </ul>
         <a class="go" href="https://youtu.be/FzWOmDGK-xg" target="_blank" rel="noopener">Watch Sales Coach demo →</a>
       </article>
-      <article class="pillar pillar-wide">
-        <span class="tag">AI-Growth</span>
-        <p>These tools fill the gaps in your GTM without new hires. They cover every stage from Meta ad creation to sales coaching.</p>
-        <div class="funnel">
+
+    </div>
+  </div>
+</section>
+
+<section class="rent" id="tools">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">AI-Growth</span>
+      <h2>AI-Growth Tools for Rent</h2>
+      <p class="lead">These tools fill the gaps in your GTM without new hires. They cover every stage from Meta ad creation to sales coaching.</p>
+    </div>
+    <div class="funnel">
           <div class="stage stage-1">
             <div class="seg"><span>TOFU</span></div>
             <div class="bucket"><strong>Attract your ICP</strong><div class="chips"><a class="chip" href="gtm-tools/#ad-heist">Ad Heist</a><a class="chip" href="gtm-tools/#chorus">Chorus</a><a class="chip" href="gtm-tools/#comment-copilot">Comment Copilot</a></div></div>
@@ -223,9 +233,7 @@
             <div class="bucket"><strong>Turn meetings into deals</strong><div class="chips"><a class="chip" href="gtm-tools/#sales-coach">Sales Coach</a></div></div>
           </div>
         </div>
-        <a class="go" href="gtm-tools/">See GTM Tools →</a>
-      </article>
-    </div>
+    <div class="cta-row rent-cta"><a class="btn btn-primary" href="gtm-tools/">See all GTM Tools →</a></div>
   </div>
 </section>
 
@@ -251,6 +259,23 @@
     <h2>B2B Founder? Grab Your First 15 Minutes Free</h2>
     <p class="lead">B2B founders get the first <b>15 minutes free</b>. Bring your current funnel, and we'll pick the first step to rebuild.</p>
     <div class="cta-row"><a class="btn btn-primary" href="https://meetings-eu1.hubspot.com/dben-simon">Get your free 15 minutes →</a></div>
+  </div>
+</section>
+
+<section class="list alt" id="list">
+  <div class="wrap list-wrap">
+    <span class="eyebrow">Email List</span>
+    <h2>Learn How to Turn AI Hype Into Meetings and Revenue</h2>
+    <p class="lead">Join my email list for the GTM plays I run with lean B2B teams.</p>
+    <form class="list-form" novalidate>
+        <div class="list-fields">
+          <div class="field"><label for="list-email">Work email</label><input id="list-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></div>
+          <div class="field"><label for="list-seg">I am a</label><select id="list-seg" name="gf_segment" required><option value="">Choose 1</option><option value="founder">Founder or CEO</option><option value="marketer">Marketing leader</option></select></div>
+          <button class="btn btn-primary" type="submit">Send me the plays</button>
+        </div>
+        <p class="list-msg" role="status" aria-live="polite"></p>
+        <p class="list-note">Unsubscribe anytime with 1 click.</p>
+      </form>
   </div>
 </section>
 
@@ -309,6 +334,23 @@
     <p class="copy">© 2026 Danit Ben Simon</p>
   </div>
 </footer>
+
+<dialog class="popup" id="list-popup" aria-labelledby="popup-title">
+  <button class="popup-close" type="button" aria-label="Close">×</button>
+  <span class="eyebrow">Email List</span>
+  <h2 id="popup-title">Learn How to Turn AI Hype Into Meetings and Revenue</h2>
+  <p class="lead">Join my email list for the GTM plays I run with lean B2B teams.</p>
+  <form class="list-form" novalidate>
+        <div class="list-fields">
+          <div class="field"><label for="pop-email">Work email</label><input id="pop-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></div>
+          <div class="field"><label for="pop-seg">I am a</label><select id="pop-seg" name="gf_segment" required><option value="">Choose 1</option><option value="founder">Founder or CEO</option><option value="marketer">Marketing leader</option></select></div>
+          <button class="btn btn-primary" type="submit">Send me the plays</button>
+        </div>
+        <p class="list-msg" role="status" aria-live="polite"></p>
+        <p class="list-note">Unsubscribe anytime with 1 click.</p>
+      </form>
+</dialog>
+
 
 </body>
 </html>

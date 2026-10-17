@@ -176,3 +176,34 @@ a:focus-visible,.btn:focus-visible,.chip:focus-visible{outline:3px solid var(--a
 .social-link{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-weight:700;font-size:18px;transition:border-color .2s ease,transform .15s ease}
 .social-link svg{width:22px;height:22px;color:var(--accent)}
 .social-link:hover{border-color:var(--accent);transform:translateY(-2px)}
+.list-wrap{max-width:860px;text-align:center}
+.list-wrap .lead{margin:0 auto 24px}
+.list-form{max-width:760px;margin:0 auto}
+.list-fields{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) auto;gap:12px;align-items:end;text-align:left}
+.field label{display:block;font-size:18px;font-weight:700;margin-bottom:6px}
+.field input,.field select{width:100%;height:52px;padding:0 16px;font:inherit;font-size:18px;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:12px}
+.field input:focus,.field select:focus{outline:3px solid var(--accent-soft);border-color:var(--accent)}
+.list-form .btn{height:52px}
+.list-msg{min-height:26px;margin-top:12px;font-size:18px;font-weight:600}
+.list-msg.ok{color:var(--accent)}
+.list-msg.err{color:#B42318}
+.list-note{font-size:16px;color:var(--muted)}
+.list-form.done .list-fields{display:none}
+.popup{margin:auto;position:fixed;inset:0;height:fit-content;border:0;border-radius:20px;padding:40px 36px 28px;max-width:560px;width:calc(100% - 32px);background:var(--card);color:var(--text);box-shadow:0 24px 64px rgba(10,10,10,.25);text-align:center}
+.popup::backdrop{background:rgba(10,10,10,.5)}
+.popup h2{font-size:clamp(26px,3.2vw,32px);margin:8px 0 10px}
+.popup .lead{margin:0 auto 20px;font-size:18px}
+.popup .list-fields{grid-template-columns:1fr}
+.popup-close{position:absolute;top:12px;right:14px;width:44px;height:44px;border:0;background:none;font-size:30px;line-height:1;color:var(--muted);cursor:pointer;border-radius:50%}
+.popup-close:hover{background:var(--bg-2);color:var(--text)}
+@media (max-width:760px){.list-fields{grid-template-columns:1fr}.list-form .btn{width:100%;justify-content:center}}
+.rent{background:#0B1F1D;color:#fff}
+.rent .eyebrow{color:#5EEAD4}
+.rent .lead{color:#CBD5D1}
+.rent .bucket>strong{color:#fff}
+.rent .stage+.stage .bucket{border-left-color:rgba(255,255,255,.14)}
+.rent .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff}
+.rent .chip:hover{border-color:#5EEAD4;color:#5EEAD4}
+.rent .funnel{margin:8px 0 0}
+.rent-cta{margin-top:36px}
+.rent-cta .btn-primary{box-shadow:none}
