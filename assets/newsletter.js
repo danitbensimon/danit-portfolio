@@ -60,9 +60,9 @@
       shown = true; store(KEY, String(Date.now()));
       dlg.showModal();
     }
+    setTimeout(open, 20000);
     var coarse = window.matchMedia && matchMedia('(pointer: coarse)').matches;
-    if (coarse) { setTimeout(open, 45000); }
-    else {
+    if (!coarse) {
       var armed = false; setTimeout(function () { armed = true; }, 5000);
       document.addEventListener('mouseout', function (e) { if (armed && !e.relatedTarget && e.clientY <= 0) open(); });
     }
