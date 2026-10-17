@@ -284,3 +284,6 @@ a:focus-visible,.btn:focus-visible,.chip:focus-visible,.btn-link:focus-visible{o
 .final .hero-cta{justify-content:center}
 .qa summary:focus{outline:none}
 .qa summary:focus-visible{outline:2px solid var(--text);outline-offset:4px;border-radius:4px}
+.brand{font-family:'Marcellus','Times New Roman',serif;font-weight:400;font-size:26px;letter-spacing:.08em;text-transform:uppercase;gap:0;line-height:1}
+footer .brand{font-size:22px}
+@media (max-width:560px){.brand{font-size:19px;letter-spacing:.06em}}
