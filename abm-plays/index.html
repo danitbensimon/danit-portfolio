@@ -14,13 +14,13 @@
 :root { --bg:#08080a; --card:#22222a; --line:#41414c; --ink:#f5f5f7; --mute:#b4b4bd; --red:#ff3a55; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--ink); font-family: Inter, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); color: var(--ink); font-family: Inter, sans-serif; font-size: 18px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 a { color: inherit; }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 .eyebrow { display: inline-block; font-size: 18px; font-weight: 700; color: var(--red); letter-spacing: .02em; text-transform: uppercase; }
-h1 { font-weight: 900; font-size: clamp(44px, 7vw, 84px); line-height: .98; letter-spacing: -.035em; margin: 16px 0 20px; }
-h2 { font-weight: 800; font-size: clamp(34px, 5vw, 56px); line-height: 1.04; letter-spacing: -.03em; margin: 12px 0 28px; }
-h3 { font-weight: 800; font-size: 26px; line-height: 1.15; letter-spacing: -.01em; }
+h1 { font-weight: 900; font-size: clamp(44px, 7vw, 84px); line-height: 1.1; letter-spacing: -.035em; margin: 16px 0 20px; }
+h2 { font-weight: 800; font-size: clamp(34px, 5vw, 56px); line-height: 1.15; letter-spacing: -.03em; margin: 12px 0 28px; }
+h3 { font-weight: 800; font-size: 26px; line-height: 1.3; letter-spacing: -.01em; }
 .red { color: var(--red); }
 .mute { color: var(--mute); }
 section { padding: 88px 0; }
@@ -38,7 +38,7 @@ section { padding: 88px 0; }
 .stats { display: flex; gap: 14px; margin: 24px 0 0; flex-wrap: wrap; }
 .stat { flex: 1; min-width: 150px; border: 2px solid var(--line); background: var(--card); border-radius: 18px; padding: 16px 18px; }
 .stat b { display: block; font-size: 36px; font-weight: 900; color: var(--red); line-height: 1; }
-.stat span { font-size: 16px; display: block; margin-top: 6px; }
+.stat span { font-size: 16px; display: block; margin-top: 10px; line-height: 1.5; }
 .cover { position: relative; }
 .cover img { width: 100%; border-radius: 22px; border: 2px solid var(--line); box-shadow: 0 30px 80px rgba(255,58,85,.22); transform: rotate(2deg); }
 
@@ -64,7 +64,7 @@ form.done .done-box { display: block; }
 .row { display: flex; gap: 18px; align-items: center; background: #24242c; border: 2px solid #44444f; border-radius: 20px; padding: 14px 18px 14px 14px; }
 .row img { width: 120px; height: 92px; object-fit: cover; border-radius: 12px; flex: none; border: 2px solid #55555f; filter: brightness(1.25); }
 .row h3 { font-size: 22px; }
-.row p { font-size: 17px; color: #d6d6de; margin-top: 4px; }
+.row p { font-size: 17px; color: #d6d6de; margin-top: 8px; line-height: 1.6; }
 
 /* plays */
 .plays { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
@@ -73,7 +73,7 @@ form.done .done-box { display: block; }
 .play .n { position: absolute; top: 12px; left: 12px; background: var(--red); color: #fff; font-weight: 900; font-size: 22px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; }
 .play .t { padding: 14px 16px 16px; }
 .play .t h3 { font-size: 21px; }
-.play .t p { font-size: 16px; color: var(--mute); margin-top: 4px; }
+.play .t p { font-size: 16px; color: var(--mute); margin-top: 8px; line-height: 1.6; }
 .locked .pic { overflow: hidden; }
 .locked .pic::before { content: ""; position: absolute; inset: -14px; background: inherit; filter: grayscale(.6) brightness(.45) blur(6px); }
 .locked .pic .n, .locked .pic .x { z-index: 1; }
@@ -95,9 +95,9 @@ form.done .done-box { display: block; }
 /* about */
 .about .wrap { display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: start; }
 .about .ph { width: 100%; aspect-ratio: 9/16; border-radius: 24px; border: 3px solid var(--red); background: #000 url(img/danit.jpg) center/contain no-repeat; }
-.facts { display: grid; gap: 12px; }
+.facts { display: grid; gap: 16px; }
 .fact { background: var(--card); border: 2px solid var(--line); border-radius: 18px; padding: 16px 20px; font-size: 18px; }
-.fact b { color: var(--red); font-size: 30px; font-weight: 900; display: block; line-height: 1.1; }
+.fact b { color: var(--red); font-size: 30px; font-weight: 900; display: block; line-height: 1.2; margin-bottom: 6px; }
 .logos { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .logos span { font-size: 16px; font-weight: 700; border: 2px solid var(--line); border-radius: 99px; padding: 4px 14px; }
 .btn.inline { width: auto; }
