@@ -189,11 +189,11 @@ a:focus-visible,.btn:focus-visible,.chip:focus-visible{outline:3px solid var(--a
 .list-msg.err{color:#B42318}
 .list-note{font-size:16px;color:var(--muted)}
 .list-form.done .list-fields{display:none}
-.popup{margin:auto;position:fixed;inset:0;height:fit-content;border:0;border-radius:20px;padding:40px 36px 28px;max-width:560px;width:calc(100% - 32px);background:var(--card);color:var(--text);box-shadow:0 24px 64px rgba(10,10,10,.25);text-align:center}
+.popup{margin:auto;position:fixed;inset:0;height:fit-content;max-height:calc(100vh - 24px);overflow-y:auto;border:0;border-radius:20px;padding:40px 36px 28px;max-width:560px;width:calc(100% - 32px);background:var(--card);color:var(--text);box-shadow:0 24px 64px rgba(10,10,10,.25);text-align:center}
 .popup::backdrop{background:rgba(10,10,10,.5)}
 .popup h2{font-size:clamp(26px,3.2vw,32px);margin:8px 0 10px}
 .popup .lead{margin:0 auto 20px;font-size:18px}
-.popup-cover{display:block;width:150px;margin:0 auto 14px;border-radius:12px;box-shadow:0 14px 34px rgba(10,10,10,.3);transform:rotate(-3deg)}
+.popup-cover{display:block;width:104px;margin:0 auto 10px;border-radius:12px;box-shadow:0 14px 34px rgba(10,10,10,.3);transform:rotate(-3deg)}
 .popup .list-msg a{font-weight:700;text-decoration:underline}
 .popup .list-fields{grid-template-columns:1fr}
 .popup-close{position:absolute;top:12px;right:14px;width:44px;height:44px;border:0;background:none;font-size:30px;line-height:1;color:var(--muted);cursor:pointer;border-radius:50%}
