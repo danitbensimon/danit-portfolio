@@ -102,6 +102,10 @@ form.done .done-box { display: block; }
 .logos span { font-size: 16px; font-weight: 700; border: 2px solid var(--line); border-radius: 99px; padding: 4px 14px; }
 .btn.inline { width: auto; }
 
+/* video */
+.watch { padding-top: 24px; text-align: center; }
+.watch .vid { display: block; width: 100%; max-width: 400px; aspect-ratio: 9/16; margin: 0 auto; border-radius: 22px; border: 3px solid #fff; background: #000; box-shadow: 0 30px 80px rgba(255,58,85,.2); }
+
 /* final */
 .final { text-align: center; }
 .final form { margin: 0 auto; text-align: left; }
@@ -153,6 +157,11 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   <div class="cover"><img src="cover.jpg" alt="Cover of the 12 ABM Plays So Bananas checklist"></div>
 </div></section>
 
+<section class="watch"><div class="wrap">
+  <h2>Watch the First 5 Plays</h2>
+  <video class="vid" src="/assets/video/abm-plays.mp4" poster="/assets/video/abm-plays-poster.jpg" controls playsinline preload="metadata"></video>
+</div></section>
+
 <section><div class="wrap">
   <span class="eyebrow">Inside</span>
   <h2>What's Inside</h2>
@@ -185,7 +194,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 </div></section>
 
 <section class="proof"><div class="wrap">
-  <span class="eyebrow">Proof</span>
   <h2>My ABM Videos Got 450% More Replies</h2>
   <div class="big">450%</div>
   <p class="big-sub">higher reply rate than my cold LinkedIn text messages</p>
