@@ -93,11 +93,11 @@ form.done .done-box { display: block; }
 .vids i { font-style: normal; color: var(--red); }
 
 /* about */
-.about .wrap { display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: start; }
-.about .ph { width: 100%; aspect-ratio: 9/16; border-radius: 24px; border: 3px solid var(--red); background: #000 url(img/danit.jpg) center/contain no-repeat; }
-.facts { display: grid; gap: 16px; }
-.fact { background: var(--card); border: 2px solid var(--line); border-radius: 18px; padding: 16px 20px; font-size: 18px; }
-.fact b { color: var(--red); font-size: 30px; font-weight: 900; display: block; line-height: 1.2; margin-bottom: 6px; }
+.about .wrap { display: grid; grid-template-columns: 300px 1fr; gap: 64px; align-items: center; }
+.about .ph { width: 100%; aspect-ratio: 9/16; border-radius: 24px; border: 2px solid var(--line); background: #000 url(img/danit.jpg) center/contain no-repeat; }
+.facts { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.fact { display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--line); font-size: 20px; }
+.fact b { color: var(--red); font-size: 28px; font-weight: 900; line-height: 1.2; }
 .logos { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .logos span { font-size: 16px; font-weight: 700; border: 2px solid var(--line); border-radius: 99px; padding: 4px 14px; }
 .btn.inline { width: auto; }
@@ -118,7 +118,8 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .logo { font-size: 18px; }
   .top a.book { font-size: 16px; text-align: right; }
   .hero { padding-top: 40px; }
-  .about .ph { max-width: 300px; }
+  .about .ph { max-width: 260px; }
+  .fact { grid-template-columns: 1fr; gap: 4px; }
   .fields { grid-template-columns: 1fr; }
   section { padding: 64px 0; }
 }
@@ -170,7 +171,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     <div class="row"><img src="img/gear.jpg" alt=""><div><h3>5 Growth Rules</h3><p>Analyze your full pipeline before you spend a dollar.</p></div></div>
     <div class="row"><img src="img/calendar.jpg" alt=""><div><h3>A 5-Line Test Plan</h3><p>Fill it in before every play, so you know what success looks like.</p></div></div>
     <div class="row"><img src="img/closedlost.jpg" alt=""><div><h3>A Kill or Scale Rule</h3><p>Stop what doesn't book meetings and double down on what does.</p></div></div>
-    <div class="row"><img src="img/abm_Diagrid.jpg" alt=""><div><h3>9 Real ABM Videos I Sent</h3><p>Watch the videos that got a <b class="red">450%</b> higher reply rate.</p></div></div>
+    <div class="row"><img src="img/abm_Diagrid.jpg" alt=""><div><h3>9 Real ABM Videos I Sent</h3><p>Watch the videos I sent to target accounts.</p></div></div>
   </div>
 </div></section>
 
@@ -194,9 +195,9 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 </div></section>
 
 <section class="proof"><div class="wrap">
-  <h2>My ABM Videos Got 450% More Replies</h2>
+  <h2>My ABM Videos</h2>
   <div class="big">450%</div>
-  <p class="big-sub">higher reply rate than my cold LinkedIn text messages</p>
+  <p class="big-sub">more replies than my cold LinkedIn messages</p>
   <div class="vids">
     <a href="https://youtu.be/MIKLCyb1Nx8" target="_blank" rel="noopener"><img src="img/abm_Diagrid.jpg" alt="Diagrid ABM video"><span>Diagrid <i>▶</i></span></a>
     <a href="https://youtu.be/dULmhdbXmpU" target="_blank" rel="noopener"><img src="img/abm_Coalesce.jpg" alt="Coalesce ABM video"><span>Coalesce <i>▶</i></span></a>
@@ -217,10 +218,8 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     <span class="eyebrow">Who's Behind These Plays</span>
     <h2>Hi, I'm Danit Ben Simon</h2>
     <div class="facts">
-      <div class="fact"><b>8 years</b>Generating B2B pipeline strategy and running it hands-on.</div>
-      <div class="fact">I led ABM and demand gen at these companies.<div class="logos"><span>Vendict</span><span>InfiniGrow</span><span>Walnut.io</span><span>K2view</span></div></div>
-      <div class="fact"><b>450%</b>Higher reply rate from my ABM videos than from my cold LinkedIn text messages.</div>
-      <div class="fact">I send target accounts songs about their company and avatar videos about their CEO's latest post. Each one takes me a few minutes.</div>
+      <div class="fact"><b>8 years</b><span>Generating B2B pipeline and running it hands-on</span></div>
+      <div class="fact"><b>Led ABM at</b><span>Vendict · InfiniGrow · Walnut.io · K2view</span></div>
     </div>
     <a class="btn inline" style="margin-top:22px" href="https://meetings-eu1.hubspot.com/dben-simon">Book Your Free 15 Minutes</a>
   </div>
