@@ -3,7 +3,7 @@
 (function () {
   var PORTAL = '147616801', FORM = '9f81bdd3-ccbf-4cd7-9797-8a4231b5a6dc';
   var HOSTS = ['https://api-eu1.hsforms.com', 'https://api.hsforms.com'];
-  var KEY = 'dbs_list_popup', DAYS = 14;
+  var KEY = 'dbs_abm_popup', DAYS = 14;
 
   function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
   function cookie(name) { var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)')); return m ? m[1] : undefined; }
@@ -31,7 +31,11 @@
       submit(email, seg).then(function () {
         store(KEY, 'joined');
         form.classList.add('done');
-        msg.textContent = "You're on the list. Your first email arrives on Monday.";
+        if (form.closest('#list-popup')) {
+          msg.innerHTML = 'Your checklist is ready. <a href="/abm-plays-bananas/12-abm-plays-so-bananas.pdf" target="_blank" rel="noopener">Download the PDF</a>';
+        } else {
+          msg.textContent = "You're on the list. Your first email arrives on Monday.";
+        }
         msg.className = 'list-msg ok';
       }).catch(function () {
         btn.disabled = false; btn.textContent = 'Send me the plays';
