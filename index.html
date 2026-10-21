@@ -141,7 +141,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=20261021b">
+<link rel="stylesheet" href="assets/site.css?v=20261021c">
 <script src="assets/newsletter.js?v=20261021a" defer></script>
 </head>
 <body>
@@ -290,7 +290,14 @@
 
 <section class="abm-cta alt" id="abm-plays">
   <div class="wrap abm-grid">
-    <img src="/assets/abm-guide-illegal-devices.webp" alt="The 12 ABM Plays That Feel Illegal guide on a laptop, tablet and phone" loading="lazy">
+    <div class="playdeck" aria-label="12 ABM plays, cycling">
+      <div class="pd-glow"></div>
+      <div class="pd-top"><span class="pd-label">ABM Play</span><span class="pd-num"><b id="pdN">01</b> / 12</span></div>
+      <div class="pd-stage" id="pdStage"></div>
+      <div class="pd-bar"><i id="pdBar"></i></div>
+      <div class="pd-chip">450% more replies</div>
+    </div>
+    <script>(function(){var P=[["Banner Plane", "They keep visiting your pricing page", "Fly their name over their office"], ["Food Truck", "You need the whole buying committee", "Park a truck with their logo outside"], ["Private Driver", "Your target flies in for a conference", "Send a driver, and share the ride"], ["Gift Basket", "Your champion starts a new job", "Send a basket in their first week"], ["Reopen Lost Deals", "The person who blocked the deal leaves", "Reconnect with the rest of the committee"], ["Billboard", "A top 10 CEO ignores your outreach", "Rent a billboard on their drive to work"], ["A Song About Them", "Their CEO posts company news", "Send a song written about their company"], ["Hiring for Their Job", "A VP ignores your outreach", "Run an ad for their own job title"], ["Times Square Congrats", "They announce funding", "Put their logo on the biggest screen in town"], ["Their Movie Trailer", "They launch a product", "Send the CEO a trailer starring the launch"], ["AI Avatar Video", "Their CEO posts about your pain", "Reply with a video of your avatar"], ["Funnel Per Account", "An ICP account shows interest", "Build 1 funnel just for them"]],i=0,s=document.getElementById('pdStage'),n=document.getElementById('pdN'),b=document.getElementById('pdBar');if(!s)return;var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;function card(p){var d=document.createElement('div');d.className='pd-card';d.innerHTML='<div class="pd-title">'+p[0]+'</div><div class="pd-row"><span>When</span>'+p[1]+'</div><div class="pd-row"><span>Do</span>'+p[2]+'</div>';return d}function show(){var old=s.querySelector('.pd-card.in');var c=card(P[i]);s.appendChild(c);requestAnimationFrame(function(){requestAnimationFrame(function(){c.classList.add('in')})});if(old){old.classList.remove('in');old.classList.add('out');setTimeout(function(){old.remove()},900)}n.textContent=(i<9?'0':'')+(i+1);b.style.width=((i+1)/12*100)+'%';i=(i+1)%12}show();if(!rm)setInterval(show,2800)})();</script>
     <div>
       <span class="eyebrow">Free ABM Checklist</span>
       <h2>12 ABM Plays That Feel Illegal (But Win Your Dream Accounts)</h2>
