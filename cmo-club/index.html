@@ -1,0 +1,288 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>2026 Stack That Booked Meetings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Outfit:wght@200;300&display=swap">
+<style>
+/* Layout: one question per screen, light single theme, host bar (Danit + The CMO Club) on top, live slide preview beside */
+:root{
+  --bg:#F6F7F3; --surface:#FFFFFF; --fg:#151821; --muted:#5A6070; --line:#DCDFE6;
+  --accent:#3A36E8; --accent-ink:#FFFFFF; --accent-soft:#ECEBFF; --hot:#FF5A36;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--fg)}
+html{background:#E9E4F7}
+body{background:
+  radial-gradient(900px 700px at -5% -10%,#A9A2FF 0%,rgba(169,162,255,0) 62%),
+  radial-gradient(800px 650px at 105% 0%,#FFB59C 0%,rgba(255,181,156,0) 60%),
+  radial-gradient(900px 700px at 70% 110%,#9FE3CF 0%,rgba(159,227,207,0) 62%),
+  radial-gradient(700px 600px at 15% 95%,#FFD9F0 0%,rgba(255,217,240,0) 60%),
+  linear-gradient(160deg,#EEE9FB 0%,#F7EEF0 50%,#E8F4F1 100%);min-height:100vh}
+main{background:rgba(255,255,255,.5);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.9);border-radius:28px;padding:clamp(22px,4vw,44px);box-shadow:0 24px 60px -30px rgba(40,36,120,.35)}
+.club .badge{width:84px;height:84px;border-radius:50%;background:#0B0B0F;color:#fff;display:grid;place-items:center;text-align:center;font:200 16px/1.15 "Outfit",ui-sans-serif,system-ui,sans-serif;letter-spacing:.18em;padding:8px}
+.club .badge b{display:block;font-weight:300;font-size:20px;letter-spacing:.12em}
+body{font:17px/1.55 var(--body);padding-inline:20px;padding-block:20px 48px}
+.host{max-width:1120px;margin:0 auto 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.me{display:flex;align-items:center;gap:12px}
+.me .face{width:52px;height:52px;border-radius:50%;background:var(--accent-soft) center/cover;display:grid;place-items:center;font:800 18px var(--display);color:var(--accent);flex:none}
+.me b{display:block;font:700 17px var(--display)}
+.me span{font-size:16px;color:var(--muted)}
+.club{display:flex;align-items:center;gap:10px}
+.club img{height:44px;width:auto}
+.club .word{font:800 18px/1 var(--display);letter-spacing:.04em;border:2px solid var(--fg);padding:9px 12px;border-radius:8px}
+.wrap{max-width:760px;margin:0 auto;display:grid;gap:32px}
+.host{max-width:760px}
+.bar{height:6px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.step-n{font:500 16px var(--mono);color:var(--muted);margin:16px 0 0;letter-spacing:.04em}
+.stage{min-height:420px;display:flex;flex-direction:column;justify-content:center;padding-block:28px}
+.eyebrow{font:500 16px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+h1{font:800 clamp(34px,6vw,56px)/1.03 var(--display);letter-spacing:-.02em;margin:10px 0 16px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--hot)}
+h2.q{font:700 clamp(26px,4vw,36px)/1.15 var(--display);letter-spacing:-.01em;margin:0 0 10px;text-wrap:balance}
+.hint{font-size:16px;color:var(--muted);margin:0 0 20px;max-width:60ch}
+.lede{font-size:clamp(20px,2.4vw,23px);line-height:1.5;color:var(--fg);max-width:58ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;font:500 17px var(--mono);color:var(--fg)}
+input[type=text],input[type=url],textarea{width:100%;font:20px var(--body);color:var(--fg);background:var(--surface);border:2px solid var(--line);border-radius:12px;padding:16px 16px}
+textarea{min-height:110px;resize:vertical}
+input:focus-visible,textarea:focus-visible,button:focus-visible,.opt input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
+.opts{display:grid;gap:10px;max-width:560px}
+.opts.chips{display:flex;flex-wrap:wrap;max-width:none}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0}
+.opt span{display:block;font-size:17px;padding:13px 18px;border-radius:16px;border:1.5px solid var(--line);background:rgba(255,255,255,.85);cursor:pointer;user-select:none;transition:background .15s,border-color .15s}
+.chips .opt span{border-radius:999px;padding:9px 16px;font-size:16px}
+.opt input:checked+span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.cut .opt input:checked+span{background:var(--hot);border-color:var(--hot);color:#fff}
+.group{margin-bottom:18px}
+.group h3{margin:0 0 8px;font:500 16px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.photo{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:16px}
+.photo .ph{width:96px;height:96px;border-radius:50%;background:var(--accent-soft) center/cover;border:2px dashed var(--accent);flex:none}
+.nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:28px}
+.btn{font:600 17px var(--body);border-radius:12px;padding:16px 26px;cursor:pointer;border:2px solid var(--fg);background:transparent;color:var(--fg)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn[hidden]{display:none}
+.kbd{font:500 16px var(--mono);color:var(--muted)}
+.count{font:500 16px var(--mono);color:var(--muted);text-align:right;margin-top:6px}
+.fade{animation:in .28s ease}
+@keyframes in{from{opacity:.3;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* slide preview */
+aside{display:grid;gap:10px;width:100%;max-width:360px}
+.slide{aspect-ratio:4/5;width:100%;max-width:360px;background:var(--surface);border:2px solid var(--line);color:var(--fg);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:16px;overflow:hidden}
+.s-top{display:flex;justify-content:space-between;font:500 16px var(--mono);color:var(--muted)}
+.s-who{display:flex;gap:16px;align-items:center}
+.s-face{width:64px;height:64px;border-radius:50%;background:var(--accent) center/cover;flex:none;display:grid;place-items:center;font:800 24px var(--display);color:var(--accent-ink)}
+.s-name{font:700 20px/1.15 var(--display)}
+.s-role{font-size:16px;color:var(--muted)}
+.s-label{font:500 16px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.s-hero{font:800 34px/1 var(--display);letter-spacing:-.02em;color:var(--accent);word-break:break-word}
+.s-chips{display:flex;flex-wrap:wrap;gap:6px}
+.s-chips span{font-size:16px;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.s-quote{margin-top:auto;font:500 16px/1.4 var(--body);border-left:3px solid var(--hot);padding-left:12px}
+.cap{font-size:16px;color:var(--muted)}
+.intro{display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:center}
+.intro video{width:100%;aspect-ratio:9/16;border-radius:20px;background:#0B0B0F;object-fit:cover;box-shadow:0 18px 40px -20px rgba(40,36,120,.5)}
+.intro h1{font-size:clamp(32px,4.6vw,46px)}
+.site{font:600 18px var(--body);color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:640px){.intro{grid-template-columns:1fr}.intro video{max-width:280px;margin:0 auto}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="host">
+  <div class="me"><div class="face" id="host-face">DB</div><div><b>Danit Ben Simon</b><span>AI Growth Consultant · Founder, The CMO Club</span></div></div>
+  <div class="club" id="club"><div class="badge" aria-label="The CMO Club"><span>THE<b>CMO</b>CLUB</span></div></div>
+</header>
+
+<div class="wrap">
+<main>
+  <div class="bar"><i id="bar"></i></div>
+  <div class="step-n" id="stepn"></div>
+  <form id="f" novalidate>
+    <div class="stage fade" id="stage"></div>
+    <div class="nav">
+      <button class="btn" type="button" id="back">Back</button>
+      <button class="btn primary" type="submit" id="next">Start</button>
+      <span class="kbd" id="kbd">press Enter ↵</span>
+    </div>
+  </form>
+</main>
+
+<aside aria-label="Your carousel slide preview" id="preview" hidden>
+  <div class="eyebrow">Your slide preview</div>
+  <div class="slide">
+    <div class="s-top"><span>GTM STACK 2026</span><span id="s-stage">·</span></div>
+    <div class="s-who"><div class="s-face" id="s-face">?</div><div><div class="s-name" id="s-name">Your name</div><div class="s-role" id="s-role">Title · Company</div></div></div>
+    <div><div class="s-label">Best meeting tool</div><div class="s-hero" id="s-hero">Your tool</div></div>
+    <div><div class="s-label">Stack that paid back</div><div class="s-chips" id="s-chips"></div></div>
+    <div class="s-quote" id="s-quote">"The stack that moved revenue in 2026 was…"</div>
+  </div>
+  <div class="cap">This is roughly how you'll appear in the carousel.</div>
+</aside>
+</div>
+
+<script>
+/* Set these to image data URIs or URLs to show Danit's photo and the club logo */
+const HOST_PHOTO="", CLUB_LOGO="";
+if(HOST_PHOTO){const h=document.getElementById("host-face");h.style.backgroundImage=`url(${HOST_PHOTO})`;h.textContent=""}
+if(CLUB_LOGO){document.getElementById("club").innerHTML=`<img src="${CLUB_LOGO}" alt="The CMO Club">`}
+
+const CATS={
+ "Data & enrichment":["Clay","Apollo","ZoomInfo","Cognism","Lusha","People Data Labs"],
+ "Signals & intent":["Common Room","Warmly","RB2B","6sense","Trigify","UserGems","Unify"],
+ "Sequencing & email":["Outreach","Salesloft","Instantly","Smartlead","lemlist","Reply.io","HubSpot Sequences"],
+ "LinkedIn":["Sales Navigator","HeyReach","Expandi","Dripify","Taplio"],
+ "AI SDR & agents":["11x","Artisan","AiSDR","Qualified Piper","Custom Claude / GPT workflows"],
+ "CRM & ops":["HubSpot","Salesforce","Attio","Pipedrive"],
+ "Calls & scheduling":["Gong","Fathom","Chili Piper","Calendly","Default"]};
+const ALL=Object.values(CATS).flat();
+
+const STEPS=[
+ {k:"intro"},
+ {k:"name",t:"text",q:"What's your full name?",ph:"Maya Cohen"},
+ {k:"email",t:"text",q:"Your email",h:"So I can send you the post when it goes live.",ph:"maya@acme.com"},
+ {k:"role",t:"text",q:"What's your title?",ph:"VP Marketing"},
+ {k:"company",t:"text",q:"Which company?",ph:"Acme"},
+ {k:"li",t:"text",q:"Your LinkedIn profile URL",h:"So we can tag you in the post.",ph:"linkedin.com/in/…"},
+ {k:"stage",t:"one",q:"Company stage",o:["Bootstrapped","Seed","Series A","Series B","Series C+","Public / Enterprise"]},
+ {k:"motion",t:"one",q:"Your GTM motion",o:["Sales-led","Product-led","Hybrid","Founder-led sales"]},
+ {k:"acv",t:"one",q:"Average deal size (ACV)",o:["Under $10K","$10K to $30K","$30K to $100K","$100K+"]},
+ {k:"hero",t:"text",q:"Your best tool for booking meetings in 2026",h:"If you could keep only one, which would it be? This becomes the headline of your slide.",ph:"e.g. Clay"},
+ {k:"stack",t:"many",q:"Tick every tool that directly produced meetings or pipeline",h:"Only the ones that paid back. Not everything you pay for."},
+ {k:"other",t:"text",q:"Any tool we missed?",h:"Separate with commas. Skip if none.",ph:"Tool A, Tool B"},
+ {k:"channel",t:"one",q:"Which channel drove the most meetings?",o:["Cold email","LinkedIn outbound","Signal-based outbound","Inbound / content","Events & webinars","Paid ads","Partners & referrals","Warm intros / community"],other:true},
+ {k:"mtg",t:"one",q:"Meetings per month from this stack",o:["Under 10","10 to 25","25 to 50","50 to 100","100+"]},
+ {k:"spend",t:"one",q:"Monthly spend on GTM tools",o:["Under $1K","$1K to $5K","$5K to $15K","$15K+"]},
+ {k:"play",t:"long",q:"Play that worked best",h:"Describe it in 1 or 2 sentences.",ph:"Job-change signals → Clay enrichment → 3-step email from the AE within 48 hours"},
+ {k:"cut",t:"cut",q:"Which tools did you pay for in 2026 that you're dropping in 2027?",h:"Be honest. This is the part people will read twice."},
+ {k:"ai",t:"one",q:"Did an AI SDR or AI agent book real meetings for you?",o:["Yes, it's core to our pipeline","Some, alongside humans","Tried it and churned","Haven't tried"]},
+ {k:"next",t:"text",q:"One tool you're adding in 2027",ph:"Tool name"},
+ {k:"quote",t:"long",q:"Finish the sentence for your slide",h:"\"The stack that moved revenue in 2026 was…\" (max 140 characters)",ph:"…boring. Good data, one channel, fast follow-up.",max:140},
+ {k:"consent",t:"one",q:"How can we feature you?",o:["Feature me by name, title, company, photo and quote, and tag me","Use my answers in the aggregated report only"]},
+ {k:"photo",t:"photo",q:"Add a headshot for your slide",h:"A square, centered headshot on a plain background works best."},
+ {k:"done"}];
+
+const A={}; let i=0, photo="";
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const total=STEPS.length-2;
+
+function opt(type,name,v,checked){return `<label class="opt"><input type="${type}" name="${name}" value="${esc(v)}" ${checked?"checked":""}><span>${esc(v)}</span></label>`}
+
+function show(){
+  const s=STEPS[i], st=$("stage");
+  st.classList.remove("fade");void st.offsetWidth;st.classList.add("fade");
+  $("preview").hidden=s.k!=="done";
+  $("back").hidden=i===0||s.k==="done";
+  $("next").hidden=s.k==="done";
+  $("kbd").hidden=s.t==="long"||s.t==="many"||s.t==="cut"||s.k==="done";
+  $("next").textContent=s.k==="intro"?"Start":(s.k==="photo"?"Submit my stack":"Next");
+  const n=Math.min(Math.max(i,0),total);
+  $("bar").style.width=(n/total*100)+"%";
+  $("stepn").textContent=(s.k==="intro"||s.k==="done")?"":`QUESTION ${i} OF ${total}`;
+  let h="";
+  if(s.k==="intro"){
+    h=`<div class="intro"><video src="cmo-video.mp4" poster="cmo-poster.jpg" controls playsinline preload="metadata" aria-label="A message from Danit about the 2026 GTM stack post"></video>
+    <div><div class="eyebrow">GTM Stack Report · 2026</div>
+    <h1>Which stack <em>booked</em> meetings and revenue this year?</h1>
+    <p class="lede">Share the tools that filled your pipeline this year. You'll get your own slide in a LinkedIn carousel.</p>
+    <div class="meta"><span>⏱ 3 minutes</span><span>This is for a LinkedIn post. I'll tag you in it.</span></div>
+    <p style="margin:18px 0 0"><a class="site" href="https://danitbensimon.com" target="_blank" rel="noopener">danitbensimon.com</a></p></div></div>`;
+  } else if(s.k==="done"){
+    h=`<div class="eyebrow">Thank you</div><h1>Your stack is in.</h1><p class="lede">I'll tag you when the LinkedIn post goes live.</p>`;
+  } else {
+    h=`<h2 class="q">${esc(s.q)}</h2>${s.h?`<p class="hint">${esc(s.h)}</p>`:""}`;
+    const v=A[s.k];
+    if(s.t==="text") h+=`<input type="text" id="inp" placeholder="${esc(s.ph||"")}" value="${esc(v||"")}">`;
+    if(s.t==="long") h+=`<textarea id="inp" ${s.max?`maxlength="${s.max}"`:""} placeholder="${esc(s.ph||"")}">${esc(v||"")}</textarea>${s.max?`<div class="count"><span id="qc">${(v||"").length}</span>/${s.max}</div>`:""}`;
+    if(s.t==="one"){
+      const isOth=s.other&&v&&!s.o.includes(v);
+      h+=`<div class="opts">${s.o.map(o=>opt("radio",s.k,o,v===o)).join("")}${s.other?opt("radio",s.k,"Other",isOth):""}</div>`;
+      if(s.other) h+=`<input type="text" id="oth" placeholder="Type your channel" style="margin-top:12px;max-width:560px" value="${isOth?esc(v):""}" ${isOth?"":"hidden"}>`;
+    }
+    if(s.t==="many") h+=Object.entries(CATS).map(([c,ts])=>`<div class="group"><h3>${esc(c)}</h3><div class="opts chips">${ts.map(t=>opt("checkbox",s.k,t,(v||[]).includes(t))).join("")}</div></div>`).join("");
+    if(s.t==="cut") h+=`<div class="opts chips cut">${ALL.map(t=>opt("checkbox",s.k,t,(v||[]).includes(t))).join("")}</div>`;
+    if(s.t==="photo") h+=`<div class="opts">${opt("radio","photoSrc","Upload a photo",v==="Upload a photo")}${opt("radio","photoSrc","Use my LinkedIn profile photo",v==="Use my LinkedIn profile photo")}</div>
+      <div class="photo" id="up" style="margin-top:18px" ${v==="Upload a photo"?"":"hidden"}><div class="ph" id="ph" style="${photo?`background-image:url(${photo})`:""}"></div><input type="file" id="file" accept="image/*" aria-label="Upload headshot"></div>
+      <p class="hint" id="liok" style="margin-top:16px" ${v==="Use my LinkedIn profile photo"?"":"hidden"}>Got it. We'll use the photo from your LinkedIn profile.</p>`;
+  }
+  st.innerHTML=h;
+  const inp=st.querySelector("#inp,input:not([type=file])");
+  if(inp && s.t!=="many" && s.t!=="cut") inp.focus({preventScroll:true});
+  const file=$("file");
+  if(file) file.addEventListener("change",e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{photo=r.result;$("ph").style.backgroundImage=`url(${photo})`;render()};r.readAsDataURL(f)});
+  if(s.t==="photo") st.querySelectorAll("input[name=photoSrc]").forEach(x=>x.addEventListener("change",()=>{A.photo=x.value;$("up").hidden=x.value!=="Upload a photo";$("liok").hidden=x.value==="Upload a photo";if(x.value!=="Upload a photo"){photo="";render()}}));
+  if(s.t==="one") st.querySelectorAll("input[type=radio]").forEach(x=>x.addEventListener("change",()=>{
+    const oth=$("oth");
+    if(x.value==="Other"&&oth){oth.hidden=false;oth.focus();return}
+    if(oth)oth.hidden=true;
+    save();setTimeout(go,220)}));
+}
+
+function save(){
+  const s=STEPS[i];if(!s.t)return;
+  const st=$("stage");
+  if(s.t==="text"||s.t==="long") A[s.k]=st.querySelector("#inp").value.trim();
+  if(s.t==="one"){const c=st.querySelector("input:checked");if(c)A[s.k]=c.value==="Other"?(($("oth")||{}).value||"").trim()||"Other":c.value}
+  if(s.t==="many"||s.t==="cut") A[s.k]=[...st.querySelectorAll("input:checked")].map(x=>x.value);
+  render();
+}
+const HS_PORTAL="147616801", HS_FORM="15304c79-d9c8-47d3-b50b-84f94606d919", HS_HOSTS=["https://api-eu1.hsforms.com","https://api.hsforms.com"];
+function smallPhoto(src){return new Promise(res=>{if(!src)return res("");const im=new Image();im.onload=()=>{const c=document.createElement("canvas");const z=240,sc=Math.min(1,z/Math.max(im.width,im.height));c.width=Math.round(im.width*sc);c.height=Math.round(im.height*sc);c.getContext("2d").drawImage(im,0,0,c.width,c.height);res(c.toDataURL("image/jpeg",.7))};im.onerror=()=>res("");im.src=src})}
+async function sendHS(){
+  const parts=(A.name||"").trim().split(/\s+/), first=parts.shift()||"", last=parts.join(" ");
+  const L=(k,v)=>v&&(Array.isArray(v)?v.length:true)?`${k}: ${Array.isArray(v)?v.join(", "):v}`:"";
+  const pic=await smallPhoto(photo);
+  const msg=["[CMO Club GTM Stack 2026]",L("Stage",A.stage),L("Motion",A.motion),L("ACV",A.acv),L("Best meeting tool",A.hero),L("Stack that paid back",A.stack),L("Other tools",A.other),L("Top channel",A.channel),L("Meetings per month",A.mtg),L("Monthly tool spend",A.spend),L("Best play",A.play),L("Dropping in 2027",A.cut),L("AI SDR result",A.ai),L("Adding in 2027",A.next),L("Quote",A.quote),L("Feature consent",A.consent),L("Photo",A.photo),pic&&("Photo data: "+pic)].filter(Boolean).join(" | ");
+  const props={firstname:first,lastname:last,email:A.email||"",company:A.company||"",jobtitle:A.role||"",hs_linkedin_url:A.li||"",message:msg};
+  const body=JSON.stringify({fields:Object.entries(props).map(([name,value])=>({objectTypeId:"0-1",name,value:String(value)})),context:{pageUri:"https://danitbensimon.com/cmo-club-gtm-stack-2026",pageName:"CMO Club GTM Stack 2026"}});
+  for(const h of HS_HOSTS){try{const r=await fetch(`${h}/submissions/v3/integration/submit/${HS_PORTAL}/${HS_FORM}`,{method:"POST",headers:{"Content-Type":"application/json"},body});if(r.ok)return true}catch(e){}}
+  return false;
+}
+let sending=false;
+async function go(){
+  save();const s=STEPS[i];
+  if(s.k==="name"&&!(A.name||"").trim()){$("stage").querySelector("#inp").focus();return}
+  if(s.k==="email"&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(A.email||"")){const h=$("stage").querySelector(".hint");if(h){h.textContent="Please add a valid email so I can tag you and send you the post.";h.style.color="var(--hot)"}$("stage").querySelector("#inp").focus();return}
+  if(s.k==="photo"){
+    if(sending)return;sending=true;const b=$("next");b.disabled=true;b.textContent="Sending...";
+    const ok=await sendHS();sending=false;b.disabled=false;
+    if(!ok){b.textContent="Submit my stack";const h=$("stage").querySelector(".hint");if(h){h.textContent="Something went wrong sending your answers. Please try again in a moment.";h.style.color="var(--hot)"}return}
+  }
+  if(i<STEPS.length-1){i++;show()}
+}
+
+$("f").addEventListener("submit",e=>{e.preventDefault();go()});
+$("back").addEventListener("click",()=>{save();if(i>0){i--;show()}});
+$("stage").addEventListener("input",e=>{
+  if(e.target.id==="qc")return;
+  const c=$("qc");if(c&&e.target.id==="inp")c.textContent=e.target.value.length;
+  save();
+});
+$("stage").addEventListener("keydown",e=>{
+  const t=e.target;
+  if((e.key==="ArrowRight"||e.key==="Tab")&&t.id==="inp"&&!t.value&&t.placeholder){
+    e.preventDefault();t.value=t.placeholder.replace(/^e\.g\.\s*/,"").replace(/^…/,"");
+    t.dispatchEvent(new Event("input",{bubbles:true}));return;
+  }if(e.key==="Enter"&&e.target.tagName==="TEXTAREA"&&!e.shiftKey){e.preventDefault();go()}});
+
+function render(){
+  const n=A.name||"";
+  $("s-name").textContent=n||"Your name";
+  $("s-role").textContent=[A.role||"Title",A.company||"Company"].join(" · ");
+  $("s-stage").textContent=A.stage||"·";
+  $("s-hero").textContent=A.hero||"Your tool";
+  const f=$("s-face");
+  if(photo){f.style.backgroundImage=`url(${photo})`;f.textContent=""}else{f.style.backgroundImage="";f.textContent=(n[0]||"?").toUpperCase()}
+  const picks=(A.stack||[]).concat((A.other||"").split(",").map(x=>x.trim()).filter(Boolean));
+  const sc=$("s-chips");sc.replaceChildren(...picks.slice(0,9).map(t=>{const s=document.createElement("span");s.textContent=t;return s}));
+  if(picks.length>9){const s=document.createElement("span");s.textContent="+"+(picks.length-9);sc.append(s)}
+  const q=(A.quote||"").replace(/^(…|\.\.\.)/,"");
+  $("s-quote").textContent=q?`"The stack that moved revenue in 2026 was ${q}"`:'"The stack that moved revenue in 2026 was…"';
+}
+show();render();
+</script>
+
+</body></html>
