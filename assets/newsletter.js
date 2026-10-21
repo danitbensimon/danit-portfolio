@@ -32,7 +32,7 @@
         store(KEY, 'joined');
         form.classList.add('done');
         if (form.closest('#list-popup')) {
-          msg.innerHTML = 'Your checklist is ready. <a href="/abm-plays-bananas/12-abm-plays-so-bananas.pdf" target="_blank" rel="noopener">Download the PDF</a>';
+          msg.innerHTML = 'Your checklist is ready. <a href="/abm-plays/12-abm-plays-that-feel-illegal.pdf" target="_blank" rel="noopener">Download the PDF</a>';
         } else {
           msg.textContent = "You're on the list. Your first email arrives on Monday.";
         }
