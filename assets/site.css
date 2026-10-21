@@ -296,3 +296,5 @@ footer .brand{font-size:22px}
 .abm-grid img{display:block;width:100%;height:auto}
 .abm-cta .lead{margin:0 0 24px}
 @media (max-width:900px){.abm-grid{grid-template-columns:1fr;gap:24px}}
+.alt+.faq-after{padding-top:96px}
+@media (max-width:900px){.alt+.faq-after{padding-top:72px}}
