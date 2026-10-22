@@ -159,6 +159,14 @@ h3 { font-weight: 400; }
 .final form { margin: 0; }
 .final .fields { grid-template-columns: 1fr; }
 @media (max-width: 900px) { .final-grid { grid-template-columns: 1fr; gap: 32px; } .about .wrap { grid-template-columns: 1fr; gap: 32px; } }
+
+.ledger { padding: 72px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.nums { display: grid; grid-template-columns: repeat(4, 1fr); }
+.num { padding: 8px 28px; border-left: 1px solid var(--line); }
+.num:first-child { border-left: 0; padding-left: 0; }
+.num b { display: block; font-size: clamp(40px, 4.4vw, 60px); font-weight: 300; color: var(--red); line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.num span { display: block; margin-top: 12px; font-size: 18px; line-height: 1.4; color: var(--mute); }
+@media (max-width: 900px) { .nums { grid-template-columns: 1fr 1fr; row-gap: 36px; } .num:nth-child(3) { border-left: 0; padding-left: 0; } }
 </style>
 </head>
 <body>
@@ -190,7 +198,12 @@ h3 { font-weight: 400; }
 </div></section>
 
 <section class="ledger"><div class="wrap">
-  <p class="ledger-text">I've generated <b class="cnt" data-to="300" data-pre="$" data-suf="M">$300M</b> in revenue. Took a B2B startup to <b class="cnt" data-to="10" data-pre="$" data-suf="M ARR">$10M ARR</b> in <b class="cnt" data-to="6">6</b> months with 3 marketers and an army of agents. Booked <b class="cnt" data-to="3">3</b> meetings a day from emails, LinkedIn and calls. My ABM videos get <b class="cnt" data-to="450" data-suf="%">450%</b> more replies than cold LinkedIn messages.</p>
+  <div class="nums">
+    <div class="num"><b class="cnt" data-to="300" data-pre="$" data-suf="M">$300M</b><span>revenue generated</span></div>
+    <div class="num"><b class="cnt" data-to="10" data-pre="$" data-suf="M">$10M</b><span>ARR in 6 months with 3 marketers</span></div>
+    <div class="num"><b class="cnt" data-to="3">3</b><span>meetings booked per day</span></div>
+    <div class="num"><b class="cnt" data-to="450" data-suf="%">450%</b><span>more replies with ABM videos</span></div>
+  </div>
 </div></section>
 
 
@@ -280,6 +293,6 @@ h3 { font-weight: 400; }
   });
 })();
 </script>
-<script>(function(){var els=document.querySelectorAll('.ledger .cnt');if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;els.forEach(function(e){e.dataset.final=e.textContent;e.textContent=(e.dataset.pre||'')+'0'+(e.dataset.suf||'')});var io=new IntersectionObserver(function(en){en.forEach(function(x){if(!x.isIntersecting)return;io.unobserve(x.target);var e=x.target,to=+e.dataset.to,t0=performance.now(),d=1600;(function f(n){var k=Math.min(1,(n-t0)/d),v=Math.round(to*(1-Math.pow(1-k,4)));e.textContent=(e.dataset.pre||'')+v+(e.dataset.suf||'');if(k<1)requestAnimationFrame(f);else e.textContent=e.dataset.final})(t0)})},{threshold:.6});els.forEach(function(e){io.observe(e)})})();</script>
+<script>(function(){var els=document.querySelectorAll('.nums .cnt');if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;els.forEach(function(e){e.dataset.final=e.textContent;e.textContent=(e.dataset.pre||'')+'0'+(e.dataset.suf||'')});var io=new IntersectionObserver(function(en){en.forEach(function(x){if(!x.isIntersecting)return;io.unobserve(x.target);var e=x.target,to=+e.dataset.to,t0=performance.now(),d=1600;(function f(n){var k=Math.min(1,(n-t0)/d),v=Math.round(to*(1-Math.pow(1-k,4)));e.textContent=(e.dataset.pre||'')+v+(e.dataset.suf||'');if(k<1)requestAnimationFrame(f);else e.textContent=e.dataset.final})(t0)})},{threshold:.6});els.forEach(function(e){io.observe(e)})})();</script>
 </body>
 </html>
