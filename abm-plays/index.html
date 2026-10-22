@@ -12,7 +12,7 @@
 <meta property="og:image:height" content="627">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff3a55'/></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root { --bg:#08080a; --card:#22222a; --line:#41414c; --ink:#f5f5f7; --mute:#b4b4bd; --red:#ff3a55; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,10 +20,10 @@ html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--ink); font-family: Inter, sans-serif; font-size: 18px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 a { color: inherit; }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-.eyebrow { display: inline-block; font-size: 22px; font-weight: 700; color: var(--red); letter-spacing: .02em; text-transform: uppercase; }
-h1 { font-weight: 900; font-size: clamp(30px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -.035em; margin: 16px 0 20px; }
-h2 { font-weight: 800; font-size: clamp(34px, 5vw, 56px); line-height: 1.15; letter-spacing: -.03em; margin: 12px 0 28px; }
-h3 { font-weight: 800; font-size: 26px; line-height: 1.3; letter-spacing: -.01em; }
+.eyebrow { display: inline-block; font-size: 22px; font-weight: 400; color: var(--red); letter-spacing: .02em; text-transform: uppercase; }
+h1 { font-weight: 300; font-size: clamp(30px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -.035em; margin: 16px 0 20px; }
+h2 { font-weight: 400; font-size: clamp(34px, 5vw, 56px); line-height: 1.15; letter-spacing: -.03em; margin: 12px 0 28px; }
+h3 { font-weight: 400; font-size: 26px; line-height: 1.3; letter-spacing: -.01em; }
 .red { color: var(--red); }
 .mute { color: var(--mute); }
 section { padding: 112px 0; }
@@ -31,8 +31,8 @@ section { padding: 112px 0; }
 /* top */
 .top { padding: 22px 0; border-bottom: 1px solid var(--line); }
 .top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.logo { font-weight: 800; font-size: 20px; text-decoration: none; letter-spacing: .02em; }
-.top a.book { font-size: 18px; font-weight: 700; color: var(--red); text-decoration: none; }
+.logo { font-weight: 400; font-size: 20px; text-decoration: none; letter-spacing: .02em; }
+.top a.book { font-size: 18px; font-weight: 400; color: var(--red); text-decoration: none; }
 
 /* hero */
 .hero { padding: 64px 0 88px; background: radial-gradient(900px 600px at 85% -10%, rgba(255,58,85,.18), transparent 70%); }
@@ -41,7 +41,7 @@ section { padding: 112px 0; }
 .stats { display: flex; gap: 0; margin: 32px 0 0; }
 .stat { flex: 1; padding: 0 20px; border-left: 1px solid var(--line); }
 .stat:first-child { padding-left: 0; border-left: 0; }
-.stat b { display: block; font-size: 36px; font-weight: 900; color: var(--red); line-height: 1; }
+.stat b { display: block; font-size: 36px; font-weight: 300; color: var(--red); line-height: 1; }
 .stat span { font-size: 16px; display: block; margin-top: 10px; line-height: 1.5; }
 .cover { position: relative; }
 .cover img { width: 100%; border-radius: 22px; border: 2px solid var(--line); box-shadow: 0 30px 80px rgba(255,58,85,.22); transform: rotate(2deg); }
@@ -49,10 +49,10 @@ section { padding: 112px 0; }
 /* form */
 form { max-width: 580px; }
 .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-label { display: block; font-size: 16px; font-weight: 600; color: var(--mute); margin-bottom: 6px; }
+label { display: block; font-size: 16px; font-weight: 500; color: var(--mute); margin-bottom: 6px; }
 input, select { width: 100%; font: inherit; font-size: 18px; color: var(--ink); background: #0c0c0f; border: 2px solid var(--line); border-radius: 12px; padding: 13px 14px; }
 input:focus, select:focus { outline: none; border-color: var(--red); }
-.btn { display: inline-block; width: 100%; margin-top: 14px; background: var(--red); color: #fff; font: inherit; font-weight: 800; font-size: 20px; border: 0; border-radius: 99px; padding: 17px 28px; cursor: pointer; text-decoration: none; text-align: center; }
+.btn { display: inline-block; width: 100%; margin-top: 14px; background: var(--red); color: #fff; font: inherit; font-weight: 400; font-size: 20px; border: 0; border-radius: 99px; padding: 17px 28px; cursor: pointer; text-decoration: none; text-align: center; }
 .btn:hover { filter: brightness(1.08); }
 .btn:disabled { opacity: .6; cursor: wait; }
 .msg { font-size: 16px; margin-top: 10px; min-height: 1px; }
@@ -66,7 +66,7 @@ form.done .done-box { display: block; }
 /* inside */
 .inside { list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: 72px; border-top: 1px solid var(--line); }
 .inside li { display: flex; gap: 28px; padding: 30px 0; border-bottom: 1px solid var(--line); }
-.inside .no { font-size: 40px; font-weight: 900; color: var(--red); line-height: 1; min-width: 56px; }
+.inside .no { font-size: 40px; font-weight: 300; color: var(--red); line-height: 1; min-width: 56px; }
 .inside h3 { font-size: 26px; }
 .inside p { font-size: 19px; color: var(--mute); margin-top: 8px; line-height: 1.55; }
 
@@ -74,7 +74,7 @@ form.done .done-box { display: block; }
 .plays { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 40px 28px; }
 .play { overflow: hidden; }
 .play .pic { aspect-ratio: 4/3; background-size: cover; background-position: center; position: relative; border-radius: 16px; overflow: hidden; }
-.play .n { position: absolute; top: 12px; left: 12px; background: var(--red); color: #fff; font-weight: 900; font-size: 22px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; }
+.play .n { position: absolute; top: 12px; left: 12px; background: var(--red); color: #fff; font-weight: 300; font-size: 22px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; }
 .play .t { padding: 16px 2px 8px; }
 .play .t h3 { font-size: 21px; }
 .play .t p { font-size: 16px; color: var(--mute); margin-top: 8px; line-height: 1.6; }
@@ -82,18 +82,18 @@ form.done .done-box { display: block; }
 .locked .pic::before { content: ""; position: absolute; inset: -14px; background: inherit; filter: grayscale(.6) brightness(.45) blur(6px); }
 .locked .pic .n, .locked .pic .x { z-index: 1; }
 .locked { position: relative; }
-.locked .x { position: absolute; inset: 0; display: grid; place-items: center; color: var(--red); font-size: 150px; font-weight: 900; line-height: 1; text-shadow: 0 6px 30px rgba(0,0,0,.7); }
+.locked .x { position: absolute; inset: 0; display: grid; place-items: center; color: var(--red); font-size: 150px; font-weight: 300; line-height: 1; text-shadow: 0 6px 30px rgba(0,0,0,.7); }
 .locked .t h3 { color: var(--mute); }
-.locked .t p { color: var(--red); font-weight: 700; }
+.locked .t p { color: var(--red); font-weight: 400; }
 
 /* proof */
 .proof { background: radial-gradient(800px 500px at 10% 0%, rgba(255,58,85,.14), transparent 70%); }
-.big { font-size: clamp(96px, 16vw, 180px); font-weight: 900; color: var(--red); line-height: .9; letter-spacing: -.05em; }
+.big { font-size: clamp(96px, 16vw, 180px); font-weight: 300; color: var(--red); line-height: .9; letter-spacing: -.05em; }
 .big-sub { font-size: 24px; font-weight: 300; margin: 10px 0 30px; }
 .vids { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
 .vids a { text-decoration: none; }
 .vids img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 14px; border: 2px solid var(--line); display: block; }
-.vids span { display: block; font-size: 16px; font-weight: 600; margin-top: 8px; }
+.vids span { display: block; font-size: 16px; font-weight: 500; margin-top: 8px; }
 .vids i { font-style: normal; color: var(--red); }
 
 /* about */
@@ -101,9 +101,9 @@ form.done .done-box { display: block; }
 .about .ph { width: 100%; aspect-ratio: 3/4; border-radius: 24px; border: 2px solid var(--line); background: #000 url(img/danit-official.jpg) center 20%/cover no-repeat; }
 .facts { display: grid; gap: 0; border-top: 1px solid var(--line); }
 .fact { display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--line); font-size: 20px; }
-.fact b { color: var(--red); font-size: 28px; font-weight: 900; line-height: 1.2; }
+.fact b { color: var(--red); font-size: 28px; font-weight: 300; line-height: 1.2; }
 .logos { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-.logos span { font-size: 16px; font-weight: 700; border: 2px solid var(--line); border-radius: 99px; padding: 4px 14px; }
+.logos span { font-size: 16px; font-weight: 400; border: 2px solid var(--line); border-radius: 99px; padding: 4px 14px; }
 .btn.inline { width: auto; }
 
 /* video */
@@ -140,6 +140,25 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 .more { display: inline-flex; gap: 14px; align-items: baseline; margin-top: 48px; font-size: clamp(26px, 3vw, 38px); font-weight: 300; letter-spacing: -.01em; text-decoration: none; border-bottom: 1px solid var(--red); padding-bottom: 6px; }
 .more span { color: var(--red); transition: transform .4s cubic-bezier(.16,1,.3,1); }
 .more:hover span { transform: translateX(8px); }
+
+/* refined type + about + final */
+h1 { font-weight: 300; letter-spacing: -.02em; }
+h2 { font-weight: 300; letter-spacing: -.02em; }
+h3 { font-weight: 400; }
+.eyebrow { font-weight: 400; }
+.btn { font-weight: 500; }
+.about .wrap { grid-template-columns: 340px 1fr; gap: 80px; }
+.about .ph { border: 0; border-radius: 20px; }
+.about-lead { font-size: clamp(26px, 2.6vw, 34px); font-weight: 300; line-height: 1.35; letter-spacing: -.01em; color: var(--mute); max-width: 30ch; margin-bottom: 24px; }
+.about-lead b { color: var(--ink); font-weight: 400; }
+.about-offer { font-size: 20px; color: var(--mute); max-width: 52ch; margin-bottom: 32px; }
+.final { text-align: left; padding: 128px 0; }
+.final-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.final h2 { font-size: clamp(44px, 6vw, 84px); line-height: 1.02; margin: 0 0 16px; }
+.final-sub { font-size: 22px; color: var(--mute); }
+.final form { margin: 0; }
+.final .fields { grid-template-columns: 1fr; }
+@media (max-width: 900px) { .final-grid { grid-template-columns: 1fr; gap: 32px; } .about .wrap { grid-template-columns: 1fr; gap: 32px; } }
 </style>
 </head>
 <body>
@@ -197,17 +216,14 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   <div>
     <span class="eyebrow">Who's Behind These Plays</span>
     <h2>Hi, I'm Danit Ben Simon</h2>
-    <div class="facts">
-      <div class="fact"><b>AI-Growth</b><span>The first marketer to use AI for GTM to generate pipeline and revenue</span></div>
-      <div class="fact"><b>8 years</b><span>Generating B2B pipeline and running it hands-on</span></div>
-      <div class="fact"><b>Work with me</b><span>For B2B startups, Seed to Series B, that want to generate pipeline with a lean team and a more efficient GTM.</span></div>
-    </div>
-    <a class="btn inline" style="margin-top:22px" href="https://meetings-eu1.hubspot.com/dben-simon">Book Your Free 15 Minutes</a>
+    <p class="about-lead">The first marketer to use <b>AI for GTM</b> to generate pipeline and revenue. <b>8 years</b> running B2B pipeline hands-on.</p>
+    <p class="about-offer">I work with B2B startups, Seed to Series B, that want to generate pipeline with a lean team and a more efficient GTM.</p>
+    <a class="btn inline" href="https://meetings-eu1.hubspot.com/dben-simon">Book Your Free 15 Minutes</a>
   </div>
 </div></section>
 
-<section class="final" id="get"><div class="wrap">
-  <h2>Get All 12 Plays</h2>
+<section class="final" id="get"><div class="wrap final-grid">
+  <div><h2>Get All 12 Plays</h2><p class="final-sub">7 of them are only in the PDF.</p></div>
   <form class="lm-form" novalidate>
     <div class="fields">
       <div><label for="e2">Work email</label><input id="e2" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></div>
