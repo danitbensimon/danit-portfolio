@@ -12,7 +12,7 @@
 <meta property="og:image:height" content="627">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff3a55'/></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700&family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
 <style>
 :root { --bg:#08080a; --card:#22222a; --line:#41414c; --ink:#f5f5f7; --mute:#b4b4bd; --red:#ff3a55; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -167,6 +167,13 @@ h3 { font-weight: 400; }
 .num b { display: block; font-size: clamp(40px, 4.4vw, 60px); font-weight: 300; color: var(--red); line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
 .num span { display: block; margin-top: 12px; font-size: 18px; line-height: 1.4; color: var(--mute); }
 @media (max-width: 900px) { .nums { grid-template-columns: 1fr 1fr; row-gap: 36px; } .num:nth-child(3) { border-left: 0; padding-left: 0; } }
+
+.hx1 { font-family: "Bricolage Grotesque", Inter, sans-serif; margin: 18px 0 30px; letter-spacing: -.04em; }
+.hx1 .n { display: flex; align-items: baseline; gap: 14px; font-size: clamp(30px, 3.4vw, 46px); font-weight: 500; color: var(--red); line-height: 1; margin-bottom: 14px; }
+.hx1 .n b { font-size: clamp(64px, 7vw, 96px); font-weight: 700; letter-spacing: -.05em; line-height: .85; }
+.hx1 .t { display: block; font-size: clamp(44px, 5.2vw, 76px); font-weight: 500; line-height: .98; color: var(--ink); }
+.hx1 em { font-family: "DM Serif Display", serif; font-style: italic; font-weight: 400; color: var(--red); letter-spacing: -.02em; }
+.hx1 .s { font-weight: 300; color: #c9c9d1; }
 </style>
 </head>
 <body>
@@ -179,7 +186,7 @@ h3 { font-weight: 400; }
 <section class="hero"><div class="wrap">
   <div>
     <span class="eyebrow">Free GTM Guide</span>
-    <h1><span class="red">32</span> No BS GTM Hacks to Book More Meetings Than Your Team Can Handle</h1>
+    <h1 class="hx1"><span class="n"><b>32</b> No BS GTM Hacks</span><span class="t">Book <em>More Meetings</em> <span class="s">Than Your Team Can Handle</span></span></h1>
     <form class="lm-form" novalidate>
       <div class="fields">
         <div><label for="e1">Work email</label><input id="e1" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></div>
