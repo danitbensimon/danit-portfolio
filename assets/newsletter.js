@@ -32,7 +32,7 @@
         store(KEY, 'joined');
         form.classList.add('done');
         if (form.closest('#list-popup')) {
-          msg.innerHTML = 'Your guide is ready. <a href="/gtm-hacks/44-no-bs-gtm-hacks.pdf" target="_blank" rel="noopener">Download the PDF</a>';
+          msg.innerHTML = 'Your guide is ready. <a href="/gtm-hacks/no-bs-gtm-hacks.pdf" target="_blank" rel="noopener">Download the PDF</a>';
         } else {
           msg.textContent = "You're on the list. Your first email arrives on Monday.";
         }
