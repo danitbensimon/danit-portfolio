@@ -23,52 +23,70 @@
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20261018c">
 <style>
-.post{max-width:760px;margin:0 auto;padding:56px 24px 72px}
+.blog-wrap{max-width:1120px;margin:0 auto;padding:56px 24px 80px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:56px;align-items:start}
 .post .crumb{font-size:15px;color:var(--muted)}.post .crumb a{color:inherit}
 .post h1{font-family:Marcellus,serif;font-weight:400;font-size:46px;line-height:1.1;margin:14px 0 10px}
 .post .meta{color:var(--muted);font-size:15px;margin-bottom:28px}
 .post img.cover{width:100%;border-radius:16px;display:block;margin:0 0 32px}
-.post h2{font-family:Marcellus,serif;font-weight:400;font-size:30px;line-height:1.2;margin:44px 0 14px}
+.post h2{font-family:Marcellus,serif;font-weight:400;font-size:30px;line-height:1.2;margin:44px 0 14px;scroll-margin-top:100px}
 .post p,.post li{font-size:19px;line-height:1.7}
-.post p{margin:0 0 18px}.post ul{margin:0 0 18px 22px}.post li{margin:0 0 8px}
+.post p{margin:0 0 18px}.post ul,.post ol{margin:0 0 18px 22px}.post li{margin:0 0 8px}
 .post table{width:100%;border-collapse:collapse;margin:0 0 18px;font-size:18px}
-.post td,.post th{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+.post td,.post th{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 .post blockquote{border-left:3px solid var(--accent);padding:4px 0 4px 18px;margin:0 0 20px;font-size:19px;line-height:1.6}
 .post blockquote cite{display:block;font-style:normal;color:var(--muted);font-size:16px;margin-top:6px}
+.post .copy{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:0 0 14px;font-size:18px;line-height:1.6}
 .post .cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin-top:40px}
 .post a.go{font-weight:500}
-.bloglist{max-width:760px;margin:0 auto;padding:56px 24px 80px}
+.side{align-self:stretch;display:flex;flex-direction:column;gap:20px}
+.side .sticky{position:sticky;top:120px}
+.side .box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px}
+.side h3{font-family:Marcellus,serif;font-weight:400;font-size:22px;margin:0 0 12px;line-height:1.25}
+.side .toc a{display:block;font-size:15px;color:var(--muted);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--line);line-height:1.4}
+.side .toc a:last-child{border-bottom:0}.side .toc a:hover{color:var(--text)}
+.side p{font-size:16px;line-height:1.55;margin:0 0 14px}
+.side img{width:100%;margin:0 0 12px}
+.side .sbtn{display:block;text-align:center;background:#1f1f1f;color:#fff;border-radius:10px;padding:12px 14px;font-size:16px;text-decoration:none;border:0;width:100%;cursor:pointer;font-family:inherit}
+.side label{display:block;font-size:14px;color:var(--muted);margin:0 0 4px}
+.side input,.side select{width:100%;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;margin:0 0 12px;font-family:inherit}
+.lm-form .msg{font-size:14px;margin:8px 0 0}.lm-form .msg.err{color:#B42318}
+.lm-form .note{font-size:14px;color:var(--muted);margin:8px 0 0}
+.lm-form .done-box{display:none}.lm-form.done .done-box{display:block}.lm-form.done .fields,.lm-form.done button[type=submit],.lm-form.done .note{display:none}
+.lm-form .done-box h3{font-size:20px}
+.bloglist{max-width:1120px;margin:0 auto;padding:56px 24px 80px}
 .bloglist h1{font-family:Marcellus,serif;font-weight:400;font-size:46px;margin-bottom:28px}
+.bloglist .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
 .card-post{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;color:inherit;text-decoration:none}
-.card-post img{width:100%;display:block}.card-post div{padding:20px 24px}
-.card-post h2{font-family:Marcellus,serif;font-weight:400;font-size:28px;margin:0 0 6px}.card-post p{font-size:17px;color:var(--muted);margin:0}
+.card-post .thumb{aspect-ratio:1200/627;background:#111;display:flex;align-items:center;justify-content:center}
+.card-post .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card-post div.txt{padding:20px 24px}
+.card-post h2{font-family:Marcellus,serif;font-weight:400;font-size:26px;margin:0 0 6px}.card-post p{font-size:16px;color:var(--muted);margin:0;line-height:1.55}
+@media (max-width:900px){.blog-wrap{grid-template-columns:1fr;gap:32px}.side .sticky{position:static}.bloglist .grid{grid-template-columns:1fr}.post h1{font-size:36px}}
 </style>
-
 </head>
 <body>
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="../../">Danit Ben Simon</a>
+    <a class="brand" href="/">Danit Ben Simon</a>
     <nav><ul>
-      <li><a href="../../#services">Services</a></li>
-      <li><a href="../../gtm-tools/">GTM Tools</a></li>
-      <li><a href="../../gtm-hacks/">GTM Hacks</a></li>
-      <li><a href="../../blogs/" aria-current="page">Blogs</a></li>
-      <li><a href="../../#about">About</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/gtm-tools/">GTM Tools</a></li>
+      <li><a href="/blogs/" aria-current="page">Blogs</a></li>
+      <li><a href="/#about">About</a></li>
     </ul></nav>
     <a class="btn btn-primary" href="https://meetings-eu1.hubspot.com/dben-simon">Book a call</a>
   </div>
 </header>
-<main class="post">
-<div class="crumb"><a href="../">Blogs</a></div>
+<div class="blog-wrap">
+<article class="post">
+<div class="crumb"><a href="/blogs/">Blogs</a></div>
 <h1>B2B marketing tech stack 2026</h1>
 <div class="meta">Danit Ben Simon · November 21, 2026 · From the CMO Club 2026 Growth Stack Benchmark</div>
 <img class="cover" src="benchmark.jpg" alt="2026 Growth Stack Benchmark: what B2B marketing leaders drop and add in 2027">
-
 <p>Six B2B tech marketing leaders just told the CMO Club what's really in their stack. Not the stack on their vendor case study. The one they pay for, the channel that brings the meetings, and the tools they're cutting next year.</p>
 <p>Their answers look nothing like the "50 must-have AI tools" lists flooding LinkedIn.</p>
 
-<h2>The 6 marketing leaders in this round</h2>
+<h2 id="the-6-marketing-leaders-in-this-round">The 6 marketing leaders in this round</h2>
 <table>
 <tr><th>Name</th><th>Role</th><th>Stage</th></tr>
 <tr><td>Jeremiah Glodoveza</td><td>CMO, Proof</td><td>Series C+</td></tr>
@@ -79,12 +97,12 @@
 <tr><td>Tzvi Vaknin</td><td>Fractional CMO</td><td>Bootstrapped</td></tr>
 </table>
 
-<h2>Tools 5 of 6 leaders run: HubSpot, Sales Navigator, LinkedIn Ads</h2>
+<h2 id="tools-5-of-6-leaders-run-hubspot-sales-navigator-linkedin-ads">Tools 5 of 6 leaders run: HubSpot, Sales Navigator, LinkedIn Ads</h2>
 <p>Three tools showed up almost everywhere. HubSpot, LinkedIn Sales Navigator and LinkedIn Ads each sit in 5 of the 6 stacks.</p>
 <p>Right behind them: custom Claude or GPT workflows (4 of 6) and Google Ads (4 of 6). Apollo and Salesforce show up in 3.</p>
 <p>The boring core won. Then everyone bolts their own AI workflows on top of it.</p>
 
-<h2>Top channel: inbound content and events, not cold outbound</h2>
+<h2 id="top-channel-inbound-content-and-events-not-cold-outbound">Top channel: inbound content and events, not cold outbound</h2>
 <ul>
 <li>Inbound and content: 3 leaders (NeuralTrust, InsurePay, Cydome)</li>
 <li>Events and webinars: 2 leaders (Proof, ThetaRay)</li>
@@ -92,7 +110,7 @@
 </ul>
 <p>Nobody named cold outbound as the channel that brings the most pipeline. Outbound is in almost every stack. It just isn't the thing doing the heavy lifting.</p>
 
-<h2>Tools they're dropping in 2027</h2>
+<h2 id="tools-they-re-dropping-in-2027">Tools they're dropping in 2027</h2>
 <ul>
 <li>6sense (Proof)</li>
 <li>Apollo and Apollo Sequences (NeuralTrust)</li>
@@ -102,7 +120,7 @@
 </ul>
 <p>Look at that list. Intent data, a data vendor, two AI SDRs and a paid search budget. The expensive "pipeline machines" are the first to go.</p>
 
-<h2>Tools they're adding in 2027</h2>
+<h2 id="tools-they-re-adding-in-2027">Tools they're adding in 2027</h2>
 <ul>
 <li>Profound, for AI search visibility (Proof)</li>
 <li>Vendelux, for event-led pipeline (InsurePay)</li>
@@ -111,11 +129,11 @@
 <li>More custom Claude and Codex agents (Tzvi Vaknin)</li>
 </ul>
 
-<h2>AI SDRs: one team runs on it, one team churned</h2>
+<h2 id="ai-sdrs-one-team-runs-on-it-one-team-churned">AI SDRs: one team runs on it, one team churned</h2>
 <p>Tzvi Vaknin says AI SDRs are core to his pipeline, across email, LinkedIn and AI voice calls. Three leaders say AI SDRs book some meetings alongside humans. InsurePay tried and churned. ThetaRay hasn't tried yet and plans to test in 2027.</p>
 <p>So the AI SDR isn't dead and it isn't magic. It works when a human still owns the message.</p>
 
-<h2>What moved revenue in 2026, in their own words</h2>
+<h2 id="what-moved-revenue-in-2026-in-their-own-words">What moved revenue in 2026, in their own words</h2>
 <blockquote>The stack that moved revenue the most was AI search. Nobody budgeted for it. We just made Proof the answer every agent gives.<cite>Jeremiah Glodoveza, CMO, Proof</cite></blockquote>
 <blockquote>Zero gimmicks: real press, customer love, live rooms worldwide, and our team on LinkedIn.<cite>Alejandra Barav, VP Marketing, ThetaRay</cite></blockquote>
 <blockquote>Answering the questions prospects had by using sales call data to inform the content strategy.<cite>Charlie Riley, VP of Marketing, InsurePay</cite></blockquote>
@@ -123,25 +141,32 @@
 <blockquote>Agentic workflows and visibility tools, letting us scale content, outreach and impressions while optimizing every asset for GEO.<cite>Rodrigo Fernandez Baon, CMO, NeuralTrust</cite></blockquote>
 <blockquote>Buy credible basics that plug into your agents. Build the workflows only your team knows. Keep your data portable and a human in the loop.<cite>Tzvi Vaknin, Fractional CMO</cite></blockquote>
 
-<h2>What this means for a Seed to Series B startup</h2>
+<h2 id="what-this-means-for-a-seed-to-series-b-startup">What this means for a Seed to Series B startup</h2>
 <p>Your competitor can buy every tool on this page tomorrow. So the tools aren't your edge.</p>
 <p>The edge is the play on top of them. Proof made itself the answer inside AI search. ThetaRay had local ambassadors post on LinkedIn right after every event. InsurePay turned sales call recordings into content. None of those plays came in a box.</p>
 <p>Two of these teams spend under $1K a month on tools. One spends over $15K. Both kinds made the list.</p>
 <p>Buy the basics. Then spend your hours on the one play nobody in your category is running yet.</p>
 
 <div class="cta">
-<h2 style="margin-top:0">Get your stack on the Top 50 list</h2>
+<h2 id="get-your-stack-on-the-top-50-list" style="margin-top:0">Get your stack on the Top 50 list</h2>
 <p>The CMO Club is collecting the stacks of the Top 50 B2B Tech Marketing Shapers. It takes 3 minutes, and you get your own slide in the LinkedIn carousel.</p>
 <p><a class="go" href="https://www.mycmoclub.com/gtm-stack" target="_blank" rel="noopener">Add your 2026 stack →</a></p>
 <p style="margin-bottom:0">Want this kind of stack built for your team? <a class="go" href="https://meetings-eu1.hubspot.com/dben-simon">Book a call →</a></p>
 </div>
 
-</main>
+</article>
+<aside class="side">
+<div class="box toc"><h3>On this page</h3><a href="#the-6-marketing-leaders-in-this-round">The 6 marketing leaders in this round</a><a href="#tools-5-of-6-leaders-run-hubspot-sales-navigator-linkedin-ads">Tools 5 of 6 leaders run: HubSpot, Sales Navigator, LinkedIn Ads</a><a href="#top-channel-inbound-content-and-events-not-cold-outbound">Top channel: inbound content and events, not cold outbound</a><a href="#tools-they-re-dropping-in-2027">Tools they're dropping in 2027</a><a href="#tools-they-re-adding-in-2027">Tools they're adding in 2027</a><a href="#ai-sdrs-one-team-runs-on-it-one-team-churned">AI SDRs: one team runs on it, one team churned</a><a href="#what-moved-revenue-in-2026-in-their-own-words">What moved revenue in 2026, in their own words</a><a href="#what-this-means-for-a-seed-to-series-b-startup">What this means for a Seed to Series B startup</a><a href="#get-your-stack-on-the-top-50-list">Get your stack on the Top 50 list</a></div>
+<div class="sticky"><div class="box"><h3>Get your stack on the Top 50 list</h3>
+<p>Answer in 3 minutes and get your own slide in the CMO Club LinkedIn carousel.</p>
+<a class="sbtn" href="https://www.mycmoclub.com/gtm-stack" target="_blank" rel="noopener">Apply to get in</a></div></div>
+</aside>
+</div>
 
 <footer>
   <div class="wrap">
     <div class="foot">
-      <a class="brand" href="../../">Danit Ben Simon</a>
+      <a class="brand" href="/">Danit Ben Simon</a>
       <div class="foot-links">
         <a href="mailto:danitbensimon@gmail.com">Email</a>
         <a href="https://www.linkedin.com/in/danitbensimon">LinkedIn</a>
@@ -171,5 +196,6 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <noscript>
 <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9952346&fmt=gif" />
 </noscript>
+
 </body>
 </html>
