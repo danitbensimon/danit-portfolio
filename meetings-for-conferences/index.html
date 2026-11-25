@@ -279,6 +279,45 @@ footer .brand { font-size: 26px; }
 @media (max-width: 1000px) { .ba-arrow, .fw-op { display: none !important; } }
 .pkg.deal { border-color: var(--gold); background: var(--result-bg); }
 .was { font-size: 28px; font-weight: 500; color: var(--soft); margin-left: 12px; }
+
+/* phone layout */
+@media (max-width: 700px) {
+  .flow { gap: 22px; }
+  .flow::before { display: none; }
+  .flow-node { grid-template-columns: 76px minmax(0,1fr); align-items: center; column-gap: 16px; row-gap: 14px; }
+  .flow-node .flow-badge { grid-row: auto; width: 76px; height: 76px; border-width: 2px; }
+  .flow-badge svg { width: 36px; height: 36px; }
+  .flow-num { width: 32px; height: 32px; font-size: 18px; top: -6px; right: -8px; }
+  .flow-card { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  body { font-size: 20px; }
+  .slide h2 { font-size: 34px; }
+  .cover h1 { font-size: 40px; }
+  .lead, .cover .sub { font-size: 21px; }
+  .cover-brand, .cover-contact { font-size: 20px; }
+  .cover-photo { height: 240px; }
+  .kick { font-size: 22px; }
+  .panel h3 { font-size: 28px; } .panel p { font-size: 20px; }
+  .dots-list { gap: 8px; } .dots-list li, .flow-card .dots-list li { font-size: 20px; padding-left: 24px; }
+  .dots-list li::before { top: 11px; width: 9px; height: 9px; }
+  .flow-node h3 { font-size: 26px; } .flow-card { padding: 16px 18px; }
+  .chip b { font-size: 28px; } .chip span { font-size: 20px; }
+  .tile .stat { font-size: 20px; } .tile .stat .n { font-size: 48px; } .tile .tag, .tile .src { font-size: 18px; }
+  .tl .when { font-size: 18px; } .tl h3 { font-size: 24px; } .tl p { font-size: 20px; }
+  .rows dt { font-size: 22px; } .rows dd { font-size: 20px; }
+  .ba-col h3 { font-size: 30px; } .ba-stats .stat { font-size: 22px; } .ba-stats .stat .n { font-size: 44px; }
+  .cs .result .stat { font-size: 24px; } .cs .result .stat .n { font-size: 60px; } .cs .result .stat .n.n-sm { font-size: 40px; }
+  .sc-col h3 { font-size: 28px; } .sc-n { font-size: 48px; } .sc-u, .sc-step { font-size: 22px; } .sc-p, .sc-note { font-size: 20px; } .sc-tag { font-size: 18px; } .sc-sum { font-size: 22px; padding: 18px 20px; }
+  .cmp-row > span, .disc-row > span { font-size: 20px; } .cmp-row .dim { font-size: 20px; } .cmp-row [data-col]::before, .disc-row [data-col]::before { font-size: 18px; }
+  .qa { padding: 20px; } .qa h3 { font-size: 24px; } .qa p { font-size: 20px; }
+  .photo { width: 200px; height: 200px; }
+  .planner label, .planner input, .plan-row { font-size: 20px; } .planner input { height: 52px; } .plan-note { font-size: 18px; }
+  .pkg .price { font-size: 32px; } .pkg .price small, .pkg .tagline { font-size: 18px; } .was { font-size: 22px; }
+  .btn, .btn-link { font-size: 20px; } .btn { padding: 14px 24px; }
+  .top .btn { font-size: 18px; padding: 10px 14px; } .brand { font-size: 20px; }
+  footer .brand { font-size: 20px; }
+}
 </style>
 
 <main class="deck">
