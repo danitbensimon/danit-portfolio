@@ -317,3 +317,13 @@ footer .brand{font-size:22px}
 .pd-chip{position:absolute;right:6%;top:0;background:#ff3a55;color:#fff;font-size:16px;font-weight:500;padding:8px 14px;border-radius:0 0 12px 12px;animation:pdChip 3s ease-in-out infinite}
 @keyframes pdChip{50%{transform:translateY(4px)}}
 @media (prefers-reduced-motion:reduce){.pd-glow,.pd-chip{animation:none}.pd-card{transition:none}}
+/* 25 Nov 2026: no gray text, bigger small type, 3 service cards */
+:root{--muted:#21201D}
+.proof{font-size:24px;color:#21201D}
+.hero-sub{font-size:24px;line-height:1.45;color:#21201D;max-width:620px;margin:0 0 36px}
+.pillars.pillars-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pillar>p,.pillar li{font-size:20px;color:#21201D}
+@media (max-width:1000px){.pillars.pillars-3{grid-template-columns:1fr}}
+.list-note,.copy,.hero-note{font-size:18px;color:#21201D}
+.pd-row span,.pd-chip{font-size:18px}
+.pd-num{color:#fff}
