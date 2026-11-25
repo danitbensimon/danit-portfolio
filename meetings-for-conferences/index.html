@@ -237,6 +237,25 @@ footer .brand { font-size: 26px; }
   .slide { border-radius: 0; box-shadow: none; break-after: page; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } html { scroll-behavior: auto; } }
+
+.flow { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 28px; }
+.flow::before { content: ""; position: absolute; top: 60px; left: 12%; right: 12%; height: 4px; background: linear-gradient(90deg, var(--gold), var(--gold-2)); border-radius: 2px; }
+.flow-node { position: relative; display: grid; justify-items: center; align-content: start; gap: 16px; text-align: center; min-width: 0; }
+.flow-badge { position: relative; width: 120px; height: 120px; border-radius: 50%; display: grid; place-items: center; background: var(--panel); border: 3px solid var(--gold); box-shadow: var(--card-shadow); }
+.flow-badge svg { width: 54px; height: 54px; stroke: var(--gold); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.flow-num { position: absolute; top: -8px; right: -8px; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--gold); color: var(--navy); font-size: 24px; font-weight: 700; }
+.flow-node h3 { font-size: 32px; font-weight: 600; line-height: 1.2; color: var(--white); }
+.flow-card { width: 100%; padding: 20px 22px; border: 1px solid var(--card-line); border-radius: 18px; background: var(--panel); text-align: left; }
+.flow-card .dots-list li { font-size: 24px; }
+.flow-node.goal .flow-badge { background: var(--gold); }
+.flow-node.goal .flow-badge svg { stroke: var(--navy); }
+.flow-node.goal .flow-card { border-color: var(--gold); background: var(--result-bg); }
+@media (max-width: 1000px) {
+  .flow { grid-template-columns: 1fr; gap: 26px; }
+  .flow::before { top: 60px; bottom: 60px; left: 58px; right: auto; width: 4px; height: auto; }
+  .flow-node { grid-template-columns: 120px minmax(0,1fr); justify-items: start; text-align: left; column-gap: 20px; }
+  .flow-node .flow-badge { grid-row: span 2; }
+}
 </style>
 </head>
 <body>
@@ -283,7 +302,7 @@ footer .brand { font-size: 26px; }
   </div>
   <div class="body grid3">
     <div class="panel">
-      <h3>Before Your Event</h3>
+      <h3>Before the Event</h3>
       <div class="kick">Phone, LinkedIn and email</div>
       <ul class="dots-list">
         <li>Brief interview and a simple offer</li>
@@ -294,8 +313,8 @@ footer .brand { font-size: 26px; }
       </ul>
     </div>
     <div class="panel">
-      <h3>During Your Event</h3>
-      <div class="kick">On-site at your event</div>
+      <h3>During the Event</h3>
+      <div class="kick">On-site</div>
       <ul class="dots-list">
         <li>Meetings booked on the spot with attendees on the expo floor and at sessions</li>
         <li>A rep on the expo floor brings attendees to your booth</li>
@@ -304,7 +323,7 @@ footer .brand { font-size: 26px; }
       </ul>
     </div>
     <div class="panel">
-      <h3>After Your Event</h3>
+      <h3>After the Event</h3>
       <div class="kick">"We missed you" campaign</div>
       <ul class="dots-list">
                 <li>Outreach on 4 channels to target accounts you didn't meet</li>
@@ -378,34 +397,26 @@ footer .brand { font-size: 26px; }
     <p class="lead">For a campaign to succeed, you need these 3 things, in this order.</p>
   </div>
   <div class="body">
-    <div class="fw">
-      <div class="fw-step">
-        <span class="fw-n">1</span>
+    <div class="flow">
+      <div class="flow-node">
+        <div class="flow-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 21V7"/><path d="M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg><span class="flow-num">1</span></div>
         <h3>A Strong Offer</h3>
-        <ul class="dots-list">
-          <li>A reason to meet that your target accounts want</li>
-          <li>A dinner you host, a private meeting near the venue or a demo at your booth</li>
-          <li>Your offer works with or without a booth</li>
-        </ul>
+        <div class="flow-card"><ul class="dots-list"><li>A reason to meet that your target accounts want</li><li>A dinner, a private meeting or a booth demo</li></ul></div>
       </div>
-      <span class="fw-op" aria-hidden="true">&rarr;</span>
-      <div class="fw-step">
-        <span class="fw-n">2</span>
+      <div class="flow-node">
+        <div class="flow-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg><span class="flow-num">2</span></div>
         <h3>Contacts Likely to Say Yes</h3>
-        <ul class="dots-list">
-          <li>Target accounts and roles that fit your offer</li>
-          <li>Contacts who plan to attend the event</li>
-          <li>Verified emails and phone numbers for higher deliverability</li>
-        </ul>
+        <div class="flow-card"><ul class="dots-list"><li>Target accounts and roles that fit your offer</li><li>Verified emails and phone numbers</li></ul></div>
       </div>
-      <span class="fw-op" aria-hidden="true">&rarr;</span>
-      <div class="fw-step">
-        <span class="fw-n">3</span>
-        <h3>A Simple, Powerful Call Script</h3>
-        <ul class="dots-list">
-          <li>A short pitch that gets a yes from contacts who've never heard of you</li>
-          <li>Ready answers to the objections callers hear</li>
-        </ul>
+      <div class="flow-node">
+        <div class="flow-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span class="flow-num">3</span></div>
+        <h3>A Simple Call Script</h3>
+        <div class="flow-card"><ul class="dots-list"><li>A short pitch for contacts who&#39;ve never heard of you</li><li>Ready answers to objections</li></ul></div>
+      </div>
+      <div class="flow-node goal">
+        <div class="flow-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M9 16l2 2 4-4"/></svg></div>
+        <h3>Meetings Booked</h3>
+        <div class="flow-card"><ul class="dots-list"><li>1:1 meetings on your calendar</li><li>Reminders so contacts show up</li></ul></div>
       </div>
     </div>
   </div>
@@ -413,7 +424,7 @@ footer .brand { font-size: 26px; }
 
 <section class="slide" id="plan">
   <div class="head">
-    <h2>Start <span class="g">14+ Weeks</span> Before Your Event</h2>
+    <h2>Start <span class="g">14+ Weeks</span> Before the Event</h2>
   </div>
   <div class="body">
     <div class="timeline">
@@ -473,49 +484,6 @@ footer .brand { font-size: 26px; }
     </div>
   </div>
 </section>
-
-<section class="slide" id="packages">
-  <div class="head">
-    <h2>3 Packages for <span class="g">Your Next Event</span></h2>
-    <p class="lead">Pick 1 package or combine all 3. Fees are set on a first call.</p>
-  </div>
-  <div class="body grid3">
-    <div class="panel pkg">
-      <span class="tagline">Package 1 &middot; Before Your Event</span>
-      <h3>Pre-Event Meetings</h3>
-      <ul class="dots-list">
-        <li>Brief interview, simple offer and call script</li>
-        <li>Outreach to your target list by <b>phone, LinkedIn and email</b></li>
-        <li>Call scripts, DMs and emails you approve before launch</li>
-        <li>LinkedIn DMs from your LinkedIn accounts</li>
-        <li>Calendar invites and reminders so contacts show up</li>
-      </ul>
-      
-    </div>
-    <div class="panel pkg">
-      <span class="tagline">Package 2 &middot; At Your Event</span>
-      <h3>On-Site Booking</h3>
-      <ul class="dots-list">
-        <li>On-site booking on <b>all event days</b></li>
-        <li>Meetings booked on the spot with attendees on the expo floor and at sessions</li>
-        <li>A rep on the expo floor brings attendees to your booth</li>
-        <li>Daily meeting report</li>
-      </ul>
-      
-    </div>
-    <div class="panel pkg">
-      <span class="tagline">Package 3 &middot; After Your Event</span>
-      <h3>We Missed You Campaign</h3>
-      <ul class="dots-list">
-        <li>Campaign to target accounts you didn't meet at your event</li>
-                <li>Outreach on phone, SMS, LinkedIn and email</li>
-      </ul>
-      
-    </div>
-  </div>
-</section>
-
-
 
 <section class="slide" id="faq">
   <div class="head">
