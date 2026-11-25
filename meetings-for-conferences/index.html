@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meetings for Conferences | Danit Ben Simon</title>
+<meta name="description" content="We book 1:1 meetings with your target accounts before, during and after your flagship event.">
+<link rel="canonical" href="https://danitbensimon.com/meetings-for-conferences/">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@400;500;600;700&display=swap">
+<style>
+/* Slide brochure in the CMO Club Top 50 Shapers colors: navy pages, gold, purple, green and coral accents, large Jost type. */
+:root { color-scheme: dark; --bg-1: #0F1035; --bg-2: #131343; --bg-3: #1D1950; --glow-1: rgba(124,92,255,.32); --glow-2: rgba(240,197,106,.10); --result-bg: #3A3262; --page: #080920; --white: #FFFFFF; --soft: #DCD8F7; --line: rgba(255,255,255,.18); --panel: #24225F; --card-line: #5B4DBF; --card-shadow: 0 16px 34px rgba(0,0,0,.38); --gold: #F0C56A; --gold-2: #F6D48E; --purple: #9A7BFF; --purple-text: #C4B4FF; --green: #4FD39A; --green-text: #A6F2CD; --green-bg: rgba(79,211,154,.14); --coral: #E5677A; --coral-text: #FFBCB1; --coral-bg: rgba(229,103,122,.16); --navy: #0F1035; --head: 'Jost', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; --mark: 'Marcellus', 'Times New Roman', serif; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--page); scroll-behavior: smooth; }
+body { background: var(--page); color: var(--white); font-family: var(--head); font-weight: 400; font-size: 26px; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; } img { max-width: 100%; display: block; }
+a:focus-visible, .btn:focus-visible, input:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+
+/* top bar */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(8,9,32,.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 21; background: var(--page); }
+.top-inner { max-width: 1248px; margin: 0 auto; padding: 0 24px; height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { font-family: var(--mark); font-size: 31px; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; color: var(--white); }
+.btn { display: inline-flex; align-items: center; gap: 10px; font: inherit; font-size: 26px; font-weight: 600; padding: 16px 32px; border-radius: 999px; background: var(--gold); color: var(--navy); white-space: nowrap; transition: background-color 200ms ease, transform 160ms ease-out; }
+.btn:hover { background: var(--gold-2); } .btn:active { transform: scale(.97); }
+.top .btn { padding: 12px 24px; font-size: 24px; }
+.btn-link { display: inline-flex; align-items: center; gap: 12px; font-size: 26px; font-weight: 500; color: var(--white); padding-bottom: 6px; border-bottom: 2px solid var(--gold); }
+.btn-link .ar { color: var(--gold); transition: transform 200ms ease-out; } .btn-link:hover .ar { transform: translateX(4px); }
+.cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 36px; } .cta-gap { margin-top: 12px; }
+
+/* slides */
+.deck { padding: 32px 24px 8px; display: grid; gap: 32px; }
+.slide { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; aspect-ratio: 16 / 9; padding: 56px 64px; border-radius: 28px; display: flex; flex-direction: column; gap: 28px; background: radial-gradient(80% 70% at 100% 0%, var(--glow-1) 0%, transparent 62%), radial-gradient(55% 60% at 0% 100%, var(--glow-2) 0%, transparent 60%), linear-gradient(160deg, var(--bg-1) 0%, var(--bg-2) 55%, var(--bg-3) 100%); border: 1px solid rgba(255,255,255,.10); box-shadow: 0 30px 60px rgba(0,0,0,.35); }
+.slide h2 { font-size: clamp(40px, 4.8vw, 60px); font-weight: 600; line-height: 1.1; letter-spacing: -.01em; text-wrap: balance; }
+.g { color: var(--gold); }
+.h2-sub { display: block; font-size: .78em; margin-top: 6px; }
+.lead { font-size: 31px; color: var(--soft); max-width: 900px; }
+.head { display: grid; gap: 16px; }
+.body { flex: 1; display: grid; align-content: center; gap: 24px; }
+
+/* cover */
+.cover h1 { font-size: clamp(52px, 7vw, 84px); font-weight: 600; line-height: 1.04; letter-spacing: -.015em; text-wrap: balance; }
+.cover h1 .big { display: block; font-size: 1.3em; font-weight: 700; margin-top: .06em; text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: .08em; text-underline-offset: .14em; text-decoration-skip-ink: none; }
+.cover .sub { font-size: clamp(30px, 3vw, 38px); color: var(--soft); max-width: 860px; }
+.chips { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: auto; }
+.chip { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 18px 22px; display: grid; gap: 4px; }
+.chip b { font-size: 36px; font-weight: 600; color: var(--gold); line-height: 1.2; } .chip span { font-size: 25px; color: var(--soft); line-height: 1.35; }
+
+
+/* cover media */
+.cover-brand { font-size: 26px; color: var(--soft); }
+.cover-contact { display: flex; flex-wrap: wrap; gap: 12px 32px; font-size: 26px; font-weight: 500; color: var(--white); }
+.cover-contact a { border-bottom: 2px solid var(--gold); padding-bottom: 4px; }
+.cover .sub { font-size: clamp(32px, 3.4vw, 44px); font-weight: 600; color: var(--white); max-width: 980px; line-height: 1.3; }
+.cover-media { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; height: 290px; margin-top: auto; }
+.cover-media img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; border: 1px solid var(--line); }
+.cal { height: 100%; border-radius: 18px; background: #FFFFFF; color: var(--navy); padding: 18px 18px; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+.cal-head { font-size: 24px; font-weight: 700; color: var(--navy); }
+.cal-row { display: block; border-left: 6px solid var(--gold); background: #F3F0FF; border-radius: 8px; padding: 5px 10px; font-size: 24px; line-height: 1.3; color: var(--navy); }
+.cal-row b { font-weight: 700; margin-right: 6px; }
+.cal-row.p { border-left-color: var(--purple); } .cal-row.gr { border-left-color: var(--green); }
+.cmp-wrap { overflow-x: auto; border-radius: 20px; }
+
+/* cards */
+.grid5 { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 20px; }
+.grid5 > * { grid-column: span 2; }
+.grid5 > :nth-child(4) { grid-column: 2 / span 2; } .grid5 > :nth-child(5) { grid-column: 4 / span 2; }
+.cover-grid { flex: 1; display: grid; grid-template-columns: minmax(0,1.45fr) minmax(0,.75fr); gap: 40px; align-items: stretch; }
+.cover-text { display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+.cover h1 { font-size: clamp(48px, 5.8vw, 74px); }
+.cover-photo { width: 100%; height: 100%; min-height: 420px; object-fit: cover; object-position: 50% 45%; border-radius: 20px; border: 1px solid var(--line); }
+
+.kick { font-size: 29px; font-weight: 600; color: var(--white); line-height: 1.3; }
+
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+.panel { background: var(--panel); border: 2px solid var(--card-line); box-shadow: var(--card-shadow); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.panel h3 { font-size: 36px; font-weight: 600; color: var(--gold); line-height: 1.2; }
+.panel p { font-size: 26px; }
+.opt { display: inline-grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--gold); color: var(--navy); font-size: 30px; font-weight: 700; line-height: 1; margin-right: 16px; vertical-align: 4px; }
+.dots-list { list-style: none; display: grid; gap: 10px; }
+.dots-list li { position: relative; padding-left: 28px; font-size: 26px; line-height: 1.45; }
+.dots-list li::before { content: ""; position: absolute; left: 4px; top: 13px; width: 11px; height: 11px; border-radius: 50%; background: var(--purple); }
+.dots-list li b { color: var(--gold); font-weight: 600; }
+.panel .dots-list { padding-top: 14px; border-top: 1px solid var(--line); }
+
+/* compare table */
+.cmp { --cl: #7D74C4; border: 2px solid var(--cl); border-radius: 20px; overflow: hidden; background: #FFFFFF; color: var(--navy); }
+.cmp-row { display: grid; grid-template-columns: 210px repeat(3, minmax(0,1fr)); border-top: 2px solid var(--cl); }
+.cmp-row:first-child { border-top: 0; }
+.cmp-row > span { padding: 16px 20px; font-size: 26px; line-height: 1.4; min-width: 0; color: var(--navy); }
+.cmp-row > span + span { border-left: 2px solid var(--cl); }
+.cmp-row .dim { font-weight: 700; background: #F3F0FF; }
+.cmp-row .c3 { background: #EAF8F1; border-left: 4px solid #1F9D63; }
+.cmp-head > span { font-size: 26px; font-weight: 700; padding-top: 18px; padding-bottom: 18px; }
+.cmp-head .c1, .cmp-head .c2 { color: #B3364A; background: #FDECEF; } .cmp-head .c3 { color: #0F7A4B; background: #DDF5E9; }
+.cmp-head > span:first-child { background: #F3F0FF; }
+.mk { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; font-size: 24px; font-weight: 700; color: #FFFFFF; margin-right: 10px; vertical-align: 2px; }
+.c1 .mk, .c2 .mk { background: #D6455A; } .c3 .mk { background: #1F9D63; }
+
+/* stat tiles */
+.tile { background: var(--panel); border: 1px solid var(--line); border-top: 4px solid var(--gold); border-radius: 20px; padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.tile .tag { align-self: flex-start; font-size: 24px; font-weight: 600; color: var(--purple-text); }
+.tile .stat { font-size: 26px; line-height: 1.4; }
+.tile .stat .n { display: block; font-size: clamp(56px, 6vw, 76px); font-weight: 700; line-height: 1; color: var(--gold); margin-bottom: 8px; letter-spacing: -.02em; }
+.tile .src { margin-top: auto; font-size: 24px; color: var(--soft); }
+
+/* framework */
+.fw { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr); gap: 24px; align-items: start; }
+.fw-step { display: grid; gap: 14px; align-content: start; min-width: 0; padding-top: 18px; border-top: 3px solid var(--gold); }
+.fw-n { font-size: 104px; font-weight: 700; line-height: .9; color: var(--gold); letter-spacing: -.02em; }
+.fw-step h3 { font-size: 34px; font-weight: 600; line-height: 1.2; color: var(--white); }
+.fw-op { align-self: center; font-size: 64px; font-weight: 400; line-height: 1; color: var(--purple-text); }
+
+/* timeline */
+.timeline { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); row-gap: 44px; }
+.tl { position: relative; display: grid; gap: 6px; align-content: start; min-width: 0; border-top: 3px solid var(--gold); padding: 26px 20px 0 0; }
+.tl::before { content: ""; position: absolute; top: -12px; left: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--gold); border: 3px solid var(--navy); }
+.tl .when { font-size: 24px; font-weight: 600; color: var(--purple-text); } .tl h3 { font-size: 31px; font-weight: 600; } .tl p { font-size: 25px; color: var(--soft); }
+
+/* case study */
+.cs { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+.cs .wide, .cs .result { grid-column: 1 / -1; }
+.cs .result { border: 2px solid var(--gold); background: var(--result-bg); }
+.res-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; }
+.cs .result .stat { font-size: 36px; font-weight: 600; line-height: 1.25; } .cs .result .stat .n { display: block; font-size: 84px; font-weight: 700; line-height: 1; color: var(--gold); margin-bottom: 10px; } .cs .result .stat .n.n-sm { font-size: 50px; line-height: 1.1; }
+
+/* detail rows */
+.rows { display: grid; border-top: 2px solid var(--card-line); }
+.rows .row { display: grid; grid-template-columns: 280px minmax(0,1fr); gap: 24px; padding: 16px 0; border-bottom: 2px solid var(--card-line); }
+.rows dt { font-size: 28px; font-weight: 700; color: var(--gold); line-height: 1.35; }
+.rows dd { font-size: 26px; line-height: 1.45; color: var(--white); }
+.rows dd b { color: var(--gold); font-weight: 700; }
+
+/* before and after */
+.ba { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); gap: 28px; align-items: start; }
+.ba-col { display: grid; gap: 16px; align-content: start; min-width: 0; padding-top: 18px; }
+.ba-col h3 { font-size: 40px; font-weight: 700; line-height: 1.1; }
+.ba-col.before { border-top: 4px solid var(--coral); } .ba-col.before h3 { color: var(--coral-text); }
+.ba-col.before .dots-list li::before { background: var(--coral); }
+.ba-col.after { border-top: 4px solid var(--green); } .ba-col.after h3 { color: var(--green-text); }
+.ba-arrow { align-self: center; font-size: 64px; line-height: 1; color: var(--gold); }
+.ba-stats { display: grid; gap: 18px; }
+.ba-stats .stat { display: grid; grid-template-columns: 170px minmax(0,1fr); gap: 20px; align-items: center; font-size: 28px; font-weight: 600; line-height: 1.3; }
+.ba-stats .stat .n { font-size: 56px; font-weight: 700; line-height: 1; color: var(--gold); letter-spacing: -.01em; }
+
+/* scenarios */
+.sc { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); column-gap: 32px; row-gap: 6px; }
+.sc-col { display: grid; grid-row: span 8; grid-template-rows: subgrid; align-content: start; min-width: 0; padding-top: 18px; border-top: 4px solid var(--gold); }
+.sc-col h3 { font-size: 36px; font-weight: 700; line-height: 1.1; }
+.sc-col.low { border-top-color: var(--coral); } .sc-col.low h3 { color: var(--coral-text); }
+.sc-col.avg h3 { color: var(--gold); }
+.sc-col.strong { border-top-color: var(--green); } .sc-col.strong h3 { color: var(--green-text); }
+.sc-n { font-size: 64px; font-weight: 700; line-height: 1; color: var(--gold); letter-spacing: -.01em; margin-top: 6px; }
+.sc-u { font-size: 28px; font-weight: 600; color: var(--white); }
+.sc-p { font-size: 26px; color: var(--soft); }
+.sc-tag { font-size: 24px; font-weight: 600; color: var(--green-text); }
+.sc-n .to { font-size: .45em; font-weight: 600; color: var(--white); margin: 0 .3em; letter-spacing: 0; }
+.sc-note { margin-top: 10px; font-size: 26px; color: var(--soft); }
+.sc-step { font-size: 30px; font-weight: 600; color: var(--white); margin-top: 6px; } .sc-k { color: var(--gold); font-weight: 700; }
+.sc-n { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); } .sc-ghost { visibility: hidden; }
+@media (max-width: 700px) { .sc-ghost { display: none; } }
+.sc-sum { margin-top: 14px; padding: 22px 26px; border: 2px solid var(--gold); border-radius: 18px; font-size: 30px; font-weight: 600; line-height: 1.35; color: var(--white); }
+
+/* about */
+.about { display: grid; grid-template-columns: 320px minmax(0,1fr); gap: 48px; align-items: center; }
+.photo { width: 300px; height: 300px; border-radius: 50%; overflow: hidden; border: 6px solid var(--white); box-shadow: 0 20px 40px rgba(0,0,0,.35); justify-self: center; background: #1D1950; }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* faq */
+.qa { background: var(--panel); border: 2px solid var(--card-line); box-shadow: var(--card-shadow); border-radius: 20px; padding: 24px 26px; display: grid; gap: 8px; }
+.qa h3 { font-size: 31px; font-weight: 600; color: var(--gold); } .qa p { font-size: 26px; color: var(--soft); }
+
+/* next step */
+.final { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 40px; align-items: center; }
+.planner { background: var(--panel); border: 2px solid var(--card-line); box-shadow: var(--card-shadow); border-top: 4px solid var(--gold); border-radius: 20px; padding: 28px; display: grid; gap: 14px; }
+.planner label { font-size: 26px; font-weight: 600; }
+.planner input { width: 100%; height: 58px; padding: 0 16px; font: inherit; font-size: 26px; color: var(--white); background: #16154A; border: 2px solid var(--card-line); border-radius: 12px; }
+.plan-out { display: grid; gap: 10px; } .plan-row { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line); padding-top: 10px; font-size: 26px; } .plan-row b { text-align: right; color: var(--gold); font-weight: 600; }
+.plan-note { font-size: 25px; color: var(--soft); }
+.planner .btn { justify-self: start; }
+
+footer { max-width: 1200px; margin: 0 auto; padding: 32px 24px 56px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; }
+footer .brand { font-size: 26px; }
+.foot-links { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 36px; }
+
+@media (max-width: 1000px) {
+  .slide { aspect-ratio: auto; padding: 40px 32px; }
+  .grid3, .grid2, .cs, .chips, .final, .about, .grid5, .cover-grid { grid-template-columns: 1fr; }
+  .grid5 > *, .grid5 > :nth-child(4), .grid5 > :nth-child(5) { grid-column: auto; }
+  .cover-photo { min-height: 0; height: 320px; }
+  .cs .wide, .cs .result { grid-column: auto; } .res-grid { grid-template-columns: 1fr; gap: 28px; }
+  .timeline { grid-template-columns: 1fr; border-left: 3px solid var(--gold); padding-left: 28px; row-gap: 22px; }
+  .tl { border-top: 0; padding: 0; }
+  .tl::before { top: 6px; left: -40px; }
+  .fw { grid-template-columns: 1fr; gap: 18px; } .fw-op { align-self: start; font-size: 52px; transform: rotate(90deg); width: fit-content; }
+  .ba { grid-template-columns: 1fr; gap: 22px; } .ba-arrow { align-self: start; transform: rotate(90deg); font-size: 52px; }
+  .about { text-align: left; } .photo { width: 240px; height: 240px; justify-self: start; }
+  .cmp-row { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .cmp-row .dim { grid-column: 1 / -1; font-size: 26px; padding-top: 12px; padding-bottom: 12px; }
+  .cmp-head > span:first-child { display: none; }
+  .cmp-row > span { font-size: 24px; padding: 14px 14px; }
+  .cmp-row .c1 { border-left: 0; }
+  .cmp-row .dim { border-bottom: 2px solid var(--cl); }
+  .mk { width: 28px; height: 28px; font-size: 22px; margin-right: 6px; }
+  .cover-media { grid-template-columns: 1fr; height: auto; }
+  .cover-media img { height: 240px; }
+}
+@media (max-width: 700px) {
+  .rows .row { grid-template-columns: 1fr; gap: 4px; }
+  .sc { grid-template-columns: 1fr; row-gap: 26px; } .sc-col { grid-row: auto; grid-template-rows: none; gap: 6px; } .sc-n { font-size: 56px; }
+  .ba-stats .stat { grid-template-columns: 1fr; gap: 6px; }
+  .cmp-head { display: none; }
+  .cmp-row:nth-child(2) { border-top: 0; }
+  .cmp-row { grid-template-columns: 1fr; }
+  .cmp-row > span + span { border-left: 0; border-top: 2px solid var(--cl); }
+  .cmp-row .c3 { border-left: 6px solid #1F9D63; }
+  .cmp-row [data-col]::before { content: attr(data-col); display: block; font-size: 22px; font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
+  .cmp-row .c1::before, .cmp-row .c2::before { color: #B3364A; } .cmp-row .c3::before { color: #0F7A4B; }
+  .cmp-row > span { font-size: 24px; padding: 14px 18px; }
+}
+@media (max-width: 560px) {
+  .deck { padding: 16px 12px 8px; gap: 18px; }
+  .slide { padding: 32px 20px; border-radius: 20px; gap: 22px; }
+  body { font-size: 24px; }
+  .top-inner { height: 76px; gap: 10px; padding: 0 16px; } .brand { font-size: 23px; letter-spacing: .06em; } .top .btn { padding: 10px 16px; font-size: 22px; }
+  .lead, .cover .sub { font-size: 26px; }
+  .panel, .tile, .qa, .planner { padding: 22px 20px; }
+  .btn { font-size: 24px; padding: 14px 26px; }
+}
+@media (max-width: 359px) { .brand { font-size: 19px; letter-spacing: .05em; } }
+@media print {
+  @page { size: 1200px 675px; margin: 0; }
+  body { background: none; } .top, footer { display: none; } .deck { padding: 0; gap: 0; }
+  .slide { border-radius: 0; box-shadow: none; break-after: page; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+
+
+<style>
+.pkg .price { font-size: 40px; font-weight: 700; color: var(--white); line-height: 1.15; padding-top: 14px; border-top: 1px solid var(--line); margin-top: auto; }
+.pkg .price small { display: block; font-size: 24px; font-weight: 500; color: var(--soft); margin-top: 4px; }
+.pkg .tagline { font-size: 24px; font-weight: 600; color: var(--purple-text); }
+.disc { border: 2px solid var(--cl, #7D74C4); border-radius: 20px; overflow: hidden; background: #FFFFFF; color: var(--navy); }
+.disc-row { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr); border-top: 2px solid #7D74C4; }
+.disc-row:first-child { border-top: 0; }
+.disc-row > span { padding: 16px 22px; font-size: 26px; line-height: 1.4; color: var(--navy); min-width: 0; }
+.disc-row > span + span { border-left: 2px solid #7D74C4; }
+.disc-row .dim { font-weight: 700; background: #F3F0FF; }
+.disc-row .save { background: #EAF8F1; font-weight: 700; color: #0F7A4B; }
+.disc-head > span { font-weight: 700; background: #F3F0FF; }
+.disc-head .save { background: #DDF5E9; }
+@media (max-width: 700px) { .disc-row { grid-template-columns: 1fr; } .disc-row > span + span { border-left: 0; border-top: 2px solid #7D74C4; } .disc-head { display: none; } .disc-row [data-col]::before { content: attr(data-col); display: block; font-size: 22px; font-weight: 700; margin-bottom: 4px; } }
+@media (max-width: 1000px) { .ba-arrow, .fw-op { display: none !important; } }
+.pkg.deal { border-color: var(--gold); background: var(--result-bg); }
+.was { font-size: 28px; font-weight: 500; color: var(--soft); margin-left: 12px; }
+</style>
+
+<main class="deck">
+
+<section class="slide cover" id="top">
+  <div class="cover-grid">
+    <div class="cover-text">
+      <span class="brand cover-brand">Danit Ben Simon</span>
+      <h1>Fill Your Event Calendar <span class="big">With Meetings</span></h1>
+      <p class="sub">We book 1:1 meetings with your <span class="g">target accounts</span> before, during and after your flagship event.</p>
+      <div class="cover-contact"><a href="tel:+972546890011">+972-54-689-0011</a><a href="https://danitbensimon.com" target="_blank" rel="noopener">danitbensimon.com</a></div>
+    </div>
+    <img class="cover-photo" src="cover-attendees.jpg" alt="Conference attendees with name badges talking on an expo floor" width="720" height="1280">
+  </div>
+</section>
+
+<section class="slide" id="offer">
+  <div class="head">
+    <h2>Meetings With Your <span class="g">Target Accounts</span></h2>
+    <p class="lead">We book 1:1 meetings before, during and after your event.</p>
+  </div>
+  <div class="body grid3">
+    <div class="panel">
+      <h3>Before Your Event</h3>
+      <div class="kick">Phone, LinkedIn and email</div>
+      <ul class="dots-list">
+        <li>We interview you for the brief and turn it into a simple offer</li>
+        <li>We write call scripts, LinkedIn DMs and emails for your approval</li>
+        <li>Trained callers call your target list</li>
+        <li>LinkedIn DMs go out from your LinkedIn account</li>
+        <li>Calendar invites and reminders so contacts show up</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>During Your Event</h3>
+      <div class="kick">On-site at your event</div>
+      <ul class="dots-list">
+        <li>We book same-week meetings with attendees on the floor and at sessions</li>
+        <li>We pull prospects away from competitor booths on the floor</li>
+        <li>Reminders by phone, email and WhatsApp</li>
+        <li>Daily meeting report</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>After Your Event</h3>
+      <div class="kick">"We missed you" campaign</div>
+      <ul class="dots-list">
+                <li>Outreach on 4 channels to target accounts you didn't meet</li>
+        <li>Outreach starts 1 to 2 weeks after your event</li>
+        <li>Weekly meeting report</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="case">
+  <div class="head">
+    <h2>Case Study <span class="g h2-sub">B2B Software Service at AWS re:Invent 2026</span></h2>
+    <p class="lead">This B2B software service has worked with 300+ B2B tech companies since 2020.</p>
+  </div>
+  <div class="body">
+    <div class="ba">
+      <div class="ba-col before">
+        <h3>Before</h3>
+        <ul class="dots-list">
+          <li>The company booked its own meetings for its previous conference, saw poor results and considered canceling conferences altogether.</li>
+          <li>The company spent <b>$50K+</b> on tickets, flights and dinners for the event, without a booth.</li>
+          <li>Most contacts had never heard of the company.</li>
+          <li><b>60%</b> of phone numbers on the list went to voicemail.</li>
+        </ul>
+      </div>
+      <span class="ba-arrow" aria-hidden="true">&rarr;</span>
+      <div class="ba-col after">
+        <h3>Results</h3>
+        <div class="ba-stats">
+          <p class="stat"><b class="n">60%</b> of contacts who picked up said yes to a meeting</p>
+          <p class="stat"><b class="n">340%</b> more meetings than their last conference</p>
+          <p class="stat"><b class="n">1st</b> flagship event with positive ROI</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="scenarios">
+  <div class="head">
+    <h2>Meetings to Expect From <span class="g">Your Next Event</span></h2>
+    <p class="lead">These scenarios start from a target list of 2,000 contacts.</p>
+  </div>
+  <div class="body">
+    <div class="sc">
+      <div class="sc-col low"><h3>Low</h3><div class="sc-step"><span class="sc-k">0.4%-1.3%</span> answer and are relevant</div><div class="sc-n">5-15</div><div class="sc-u">meetings booked</div></div>
+      <div class="sc-col avg"><h3>Average</h3><div class="sc-step"><span class="sc-k">1.4%-2.1%</span> answer and are relevant</div><div class="sc-n">16-25</div><div class="sc-u">meetings booked</div></div>
+      <div class="sc-col strong"><h3>Strong</h3><div class="sc-step"><span class="sc-k">2.2%-4.2%</span> answer and are relevant</div><div class="sc-n">26-50</div><div class="sc-u">meetings booked</div></div>
+    </div>
+    <p class="sc-note">These ranges aren&#39;t guaranteed.</p>
+  </div>
+</section>
+
+<section class="slide" id="advantages">
+  <div class="head">
+    <h2>Book Meetings With Us <span class="g">Before Your Event</span></h2>
+  </div>
+  <div class="body grid5">
+    <div class="panel"><h3>Pay per Held Meeting</h3><p>You pay per held meeting with a qualified lead, so no-shows carry no fee.</p></div>
+    <div class="panel"><h3>4x Results With Phone</h3><p>Calls book 4x the meetings of email and LinkedIn, and a live call coach shows our callers the next line to say.</p></div>
+    <div class="panel"><h3>Enterprise Marketing Experience</h3><p>A B2B marketer with 8 years at companies that sell to enterprise writes your script.</p></div>
+    <div class="panel"><h3>We Protect Your Brand</h3><p>Our messages are simple and precise, with no AI slop or buzzwords, so contacts understand the offer and want to meet.</p></div>
+    <div class="panel"><h3>Track Record of Success</h3><p>The founder, Danit Ben Simon, led demand gen and ABM at Vendict, InfiniGrow, Walnut.io and K2view, and generated $300M in revenue in 3 years.</p></div>
+  </div>
+</section>
+
+<section class="slide" id="keys">
+  <div class="head">
+    <h2>Our Framework to <span class="g">Book Meetings</span></h2>
+    <p class="lead">For a campaign to succeed, you need these 3 things, in this order.</p>
+  </div>
+  <div class="body">
+    <div class="fw">
+      <div class="fw-step">
+        <span class="fw-n">1</span>
+        <h3>A Strong Offer</h3>
+        <ul class="dots-list">
+          <li>A reason to meet that your target accounts want</li>
+          <li>A dinner you host, a private meeting near the venue or a demo at your booth</li>
+          <li>Your offer works with or without a booth</li>
+        </ul>
+      </div>
+      <span class="fw-op" aria-hidden="true">&rarr;</span>
+      <div class="fw-step">
+        <span class="fw-n">2</span>
+        <h3>Contacts Likely to Say Yes</h3>
+        <ul class="dots-list">
+          <li>Target accounts and roles that fit your offer</li>
+          <li>Contacts who plan to attend the event</li>
+          <li>Verified emails and phone numbers for higher deliverability</li>
+        </ul>
+      </div>
+      <span class="fw-op" aria-hidden="true">&rarr;</span>
+      <div class="fw-step">
+        <span class="fw-n">3</span>
+        <h3>A Simple, Powerful Call Script</h3>
+        <ul class="dots-list">
+          <li>A short pitch that gets a yes from contacts who've never heard of you</li>
+          <li>Ready answers to the objections callers hear</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="plan">
+  <div class="head">
+    <h2>Start <span class="g">14+ Weeks</span> Before Your Event</h2>
+  </div>
+  <div class="body">
+    <div class="timeline">
+      <div class="tl"><span class="when">14 weeks out</span><h3>Brief Interview</h3><p>We interview you and turn your offer into a simple script, DMs and emails.</p></div>
+      <div class="tl"><span class="when">14 to 12 weeks out</span><h3>Setup</h3><p>We warm up new sending domains, set up local US numbers and finalize your target list.</p></div>
+      <div class="tl"><span class="when">12 to 8 weeks out</span><h3>Team Prep</h3><p>Our callers train on your approved scripts with a live call coach.</p></div>
+      <div class="tl"><span class="when">8 to 1 weeks out</span><h3>Outreach</h3><p>We invite your accounts to 1:1 meetings on 4 channels.</p></div>
+      <div class="tl"><span class="when">Event week</span><h3>On-Site Booking</h3><p>We book same-week meetings on the floor and send reminders.</p></div>
+      <div class="tl"><span class="when">1 to 2 weeks after</span><h3>Post-Event Outreach</h3><p>We invite accounts you missed to 1:1 meetings on 4 channels.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="scope">
+  <div class="head">
+    <h2>Included and <span class="g">Add-Ons</span></h2>
+  </div>
+  <div class="body grid2">
+    <div class="panel">
+      <h3>Included</h3>
+      <ul class="dots-list">
+        <li>Campaign brief on your offer, ICP and target accounts</li>
+        <li>Domain purchase and email warmup</li>
+        <li>LinkedIn account management</li>
+        <li>Local US phone numbers</li>
+        <li>Call scripts, LinkedIn DMs and email workflows you approve before launch</li>
+        <li>Trained callers with live call coach software</li>
+        <li>Outreach on 4 channels</li>
+        <li>Calendar management, reminders and weekly report</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Add-Ons</h3>
+      <ul class="dots-list">
+        <li><b>List building.</b> We find ICP contacts going to the event, or you bring your own list.</li>
+        <li><b>Enrichment.</b> We add work emails and direct phones.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="about">
+  <div class="body about">
+    <div class="photo"><img src="headshot.png" alt="Danit Ben Simon" width="520" height="520"></div>
+    <div class="head">
+      <h2>About <span class="g">Danit Ben Simon</span></h2>
+      <ul class="dots-list">
+        <li>Spent <b>8 years</b> in B2B marketing at companies that sell to enterprise.</li>
+        <li>Led demand gen and ABM at Vendict, InfiniGrow, Walnut.io and K2view.</li>
+        <li>Generated <b>$300M</b> in revenue in 3 years for B2B startups that target enterprise accounts.</li>
+        <li>Reached <b>$10M ARR in 6 months</b> with 3 marketers and AI agents.</li>
+        <li>Booked <b>3 meetings a day</b> per client from email, LinkedIn and calls.</li>
+        <li>Grew meeting volume <b>50%</b> in a quarter at Vendict.</li>
+        <li>Earned an MBA from Bar-Ilan University.</li>
+      </ul>
+      <div class="cta-row cta-gap"><a class="btn" href="https://meetings-eu1.hubspot.com/dben-simon" target="_blank" rel="noopener">Book a call</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="packages">
+  <div class="head">
+    <h2>3 Packages for <span class="g">Your Next Event</span></h2>
+    <p class="lead">Pick 1 package or combine all 3. We set fees on our first call.</p>
+  </div>
+  <div class="body grid3">
+    <div class="panel pkg">
+      <span class="tagline">Package 1 &middot; Before Your Event</span>
+      <h3>Pre-Event Meetings</h3>
+      <ul class="dots-list">
+        <li>A brief interview with your team, which we turn into a simple offer and call script</li>
+        <li>Outreach to your target list by <b>phone, LinkedIn and email</b></li>
+        <li>Call scripts, DMs and emails you approve before launch</li>
+        <li>LinkedIn DMs from your LinkedIn account</li>
+        <li>Calendar invites and reminders so contacts show up</li>
+      </ul>
+      
+    </div>
+    <div class="panel pkg">
+      <span class="tagline">Package 2 &middot; At Your Event</span>
+      <h3>On-Site Booking</h3>
+      <ul class="dots-list">
+        <li>We work on-site for you for <b>all event days</b></li>
+        <li>We book same-week meetings with attendees on the floor and at sessions</li>
+        <li>We pull prospects away from competitor booths on the floor</li>
+        <li>Daily meeting report</li>
+      </ul>
+      
+    </div>
+    <div class="panel pkg">
+      <span class="tagline">Package 3 &middot; After Your Event</span>
+      <h3>We Missed You Campaign</h3>
+      <ul class="dots-list">
+        <li>Campaign to target accounts you didn't meet at your event</li>
+                <li>Outreach on phone, SMS, LinkedIn and email</li>
+      </ul>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<section class="slide" id="faq">
+  <div class="head">
+    <h2><span class="g">Q&amp;A</span></h2>
+  </div>
+  <div class="body grid2">
+    <div class="qa"><h3>Will Meetings Be With My ICP?</h3><p>In the brief, we agree on your target accounts and what makes a lead qualified, and we count a meeting when a qualified lead shows up.</p></div>
+    <div class="qa"><h3>Will Outreach Hurt My Brand?</h3><p>You approve the scripts, DMs and email workflows before launch, and we stop contacting anyone who declined or already said yes.</p></div>
+    <div class="qa"><h3>Do I Need a Booth?</h3><p>No. You can meet contacts at a dinner you host, in a private meeting near the venue or at your booth.</p></div>
+    <div class="qa"><h3>Will Contacts Show Up?</h3><p>We send reminders by phone, email and WhatsApp, and we count a meeting when the contact shows up.</p></div>
+  </div>
+</section>
+
+<section class="slide" id="next">
+  <div class="body">
+    <div class="head">
+      <h2>Lock Campaign Dates for <span class="g">Your Next Flagship Event</span></h2>
+      <p class="lead">Book a call now so your next event is packed with meetings.</p>
+      <div class="cta-row cta-gap"><a class="btn" href="https://meetings-eu1.hubspot.com/dben-simon" target="_blank" rel="noopener">Book a call</a><a class="btn-link" href="tel:+972546890011">+972-54-689-0011 <span class="ar">&rarr;</span></a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><a class="brand" href="/">Danit Ben Simon</a><div class="foot-links"><a class="btn-link" href="tel:+972546890011">+972-54-689-0011</a><a class="btn-link" href="https://danitbensimon.com" target="_blank" rel="noopener">danitbensimon.com <span class="ar">&rarr;</span></a></div></footer>
+
+
+</body>
+</html>
